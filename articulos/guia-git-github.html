@@ -1,0 +1,403 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guí­a de Git y GitHub para Desarrolladores | KDTech</title>
+    <meta name="description" content="Domina el control de versiones y la colaboración con esta guí­a completa de Git y GitHub. Aprende comandos esenciales, flujos de trabajo y mejores prácticas.">
+    <meta name="keywords" content="git, github, control de versiones, desarrollo de software, colaboración, comandos git, flujo de trabajo">
+    <meta name="author" content="KDTech">
+    <link rel="icon" type="image/png" href="/img/logo_small.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .article-header {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #F05032 0%, #E82C0C 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .article-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .article-content h2 {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: #F05032;
+        }
+        .article-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #E82C0C;
+        }
+        .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    background-color: var(--primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 1.5rem 0 2rem 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.back-link:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    color: white;
+}
+
+.back-link i {
+    transition: transform 0.3s ease;
+}
+
+.back-link:hover i {
+    transform: translateX(-3px);
+}
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .code-block {
+            background-color: #2d2d2d;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+            border-left: 4px solid #F05032;
+        }
+        .tip-box {
+            background-color: rgba(240, 80, 50, 0.1);
+            border-left: 4px solid #F05032;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .tip-box h4 {
+            margin-top: 0;
+            color: #F05032;
+        }
+        .command {
+            background-color: #2d2d2d;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .git-workflow {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .git-step {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #F05032;
+        }
+        .git-step h4 {
+            margin-top: 0;
+            color: #F05032;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container">
+        <!-- Header se cargará aquí­ dinámicamente -->
+    </div>
+
+    <main class="container">
+        <a href="/blog.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Volver al blog
+        </a>
+        
+        <article class="article-container">
+            <header class="article-header">
+                <div class="container">
+                    
+                    <h1>Guí­a de Git y GitHub para Desarrolladores</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar-alt"></i> 25 Abril 2025</span>
+                        <span><i class="far fa-clock"></i> 6 min de lectura</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="article-content">
+                <img src="https://via.placeholder.com/800x450/F05032/FFFFFF?text=Git+%26+GitHub" alt="Git y GitHub para desarrolladores" class="article-image">
+                
+                <p>Git y GitHub se han convertido en herramientas esenciales para cualquier desarrollador en la actualidad. Ya seas un programador principiante o experimentado, dominar estas herramientas mejorará significativamente tu flujo de trabajo y te permitirá colaborar de manera más efectiva en proyectos de software.</p>
+
+                <div class="tip-box">
+                    <h4>¿Cuál es la diferencia entre Git y GitHub?</h4>
+                    <p><strong>Git</strong> es un sistema de control de versiones distribuido que te permite rastrear cambios en archivos. <strong>GitHub</strong> es una plataforma de alojamiento que utiliza Git para el control de versiones, además de ofrecer caracterí­sticas adicionales para la colaboración en proyectos.</p>
+                </div>
+
+                <h2>1. Instalación y Configuración Inicial</h2>
+                
+                <h3>Instalación de Git</h3>
+                <p>Descarga e instala Git desde <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">git-scm.com</a> según tu sistema operativo.</p>
+                
+                <h3>Configuración Básica</h3>
+                <p>Después de instalar Git, configura tu información de usuario:</p>
+                
+                <div class="code-block">
+                    <code>
+                        # Configurar nombre de usuario
+                        git config --global user.name "Tu Nombre"
+                        
+                        # Configurar correo electrónico
+                        git config --global user.email "tu@email.com"
+                        
+                        # Establecer el editor por defecto (opcional)
+                        git config --global core.editor "code --wait"  # Para VS Code
+                        
+                        # Ver la configuración
+                        git config --list
+                    </code>
+                </div>
+
+                <h2>2. Conceptos Básicos de Git</h2>
+                
+                <div class="git-workflow">
+                    <div class="git-step">
+                        <h4>Repositorio (Repository)</h4>
+                        <p>Un repositorio es como una carpeta para tu proyecto. Contiene todos los archivos y el historial de cambios.</p>
+                        <div class="code-block">
+                            <code>
+                                # Inicializar un nuevo repositorio
+                                git init
+                                
+                                # Clonar un repositorio existente
+                                git clone https://github.com/usuario/repositorio.git
+                            </code>
+                        </div>
+                    </div>
+                    
+                    <div class="git-step">
+                        <h4>Commits</h4>
+                        <p>Un commit es una instantánea de los cambios en tu repositorio en un momento dado.</p>
+                        <div class="code-block">
+                            <code>
+                                # Ver el estado de los archivos
+                                git status
+                                
+                                # Añadir archivos al área de preparación (staging)
+                                git add nombre-archivo.js  # Archivo especí­fico
+                                git add .                 # Todos los archivos modificados
+                                
+                                # Crear un commit
+                                git commit -m "Mensaje descriptivo de los cambios"
+                            </code>
+                        </div>
+                    </div>
+                    
+                    <div class="git-step">
+                        <h4>Ramas (Branches)</h4>
+                        <p>Las ramas permiten trabajar en diferentes versiones de tu proyecto de forma aislada.</p>
+                        <div class="code-block">
+                            <code>
+                                # Crear una nueva rama
+                                git branch nombre-rama
+                                
+                                # Cambiar a una rama
+                                git checkout nombre-rama
+                                
+                                # Crear y cambiar a una nueva rama en un solo comando
+                                git checkout -b nombre-rama
+                                
+                                # Ver todas las ramas
+                                git branch -a
+                                
+                                # Eliminar una rama
+                                git branch -d nombre-rama  # Eliminación segura
+                                git branch -D nombre-rama  # Eliminación forzada
+                            </code>
+                        </div>
+                    </div>
+                    
+                    <div class="git-step">
+                        <h4>Fusionar (Merge) y Rebase</h4>
+                        <p>Combinar cambios de diferentes ramas.</p>
+                        <div class="code-block">
+                            <code>
+                                # Fusionar una rama en la rama actual
+                                git checkout main
+                                git merge nombre-rama
+                                
+                                # Hacer rebase de la rama actual sobre main
+                                git checkout mi-rama
+                                git rebase main
+                            </code>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>3. Trabajando con GitHub</h2>
+                
+                <h3>Configuración de SSH</h3>
+                <p>Para una autenticación segura sin contraseña:</p>
+                <div class="code-block">
+                    <code>
+                        # Generar una nueva clave SSH
+                        ssh-keygen -t ed25519 -C "tu@email.com"
+                        
+                        # Iniciar el agente SSH
+                        eval "$(ssh-agent -s)"
+                        
+                        # Añadir tu clave privada al agente
+                        ssh-add ~/.ssh/id_ed25519
+                        
+                        # Copiar la clave pública para añadirla en GitHub
+                        cat ~/.ssh/id_ed25519.pub
+                    </code>
+                </div>
+                
+                <p>Luego, ve a <a href="https://github.com/settings/keys" target="_blank" rel="noopener noreferrer">GitHub SSH keys</a> y añade tu clave pública.</p>
+                
+                <h3>Comandos Básicos de GitHub</h3>
+                <div class="code-block">
+                    <code>
+                        # Añadir un repositorio remoto
+                        git remote add origin https://github.com/usuario/repositorio.git
+                        
+                        # O con SSH (recomendado)
+                        git remote add origin git@github.com:usuario/repositorio.git
+                        
+                        # Enviar cambios al repositorio remoto
+                        git push -u origin main  # Primera vez
+                        git push                 # Siguientes veces
+                        
+                        # Obtener cambios del repositorio remoto
+                        git pull
+                        
+                        # Obtener cambios sin fusionar
+                        git fetch
+                    </code>
+                </div>
+
+                <h2>4. Flujo de Trabajo con Git</h2>
+                
+                <h3>Flujo de Trabajo Básico</h3>
+                <ol>
+                    <li><code>git pull</code> - Actualiza tu rama local con los últimos cambios</li>
+                    <li><code>git checkout -b nombre-de-rama</code> - Crea una rama para tu caracterí­stica</li>
+                    <li>Realiza tus cambios en el código</li>
+                    <li><code>git add .</code> - Prepara los cambios</li>
+                    <li><code>git commit -m "Mensaje descriptivo"</code> - Guarda los cambios localmente</li>
+                    <li><code>git push -u origin nombre-de-rama</code> - Sube los cambios a GitHub</li>
+                    <li>Crea un Pull Request (PR) en GitHub</li>
+                    <li>Después de la revisión, fusiona el PR</li>
+                </ol>
+                
+                <h3>Git Flow (Flujo de Trabajo Avanzado)</h3>
+                <p>Un modelo de ramificación exitoso para proyectos más grandes:</p>
+                <ul>
+                    <li><strong>main/master</strong>: Código de producción estable</li>
+                    <li><strong>develop</strong>: Integración de caracterí­sticas</li>
+                    <li><strong>feature/</strong>: Para nuevas funcionalidades</li>
+                    <li><strong>release/</strong>: Preparación para lanzamiento</li>
+                    <li><strong>hotfix/</strong>: Correcciones rápidas en producción</li>
+                </ul>
+
+                <h2>5. Comandos Avanzados íštiles</h2>
+                
+                <div class="code-block">
+                    <code>
+                        # Ver el historial de commits
+                        git log --oneline --graph --decorate --all
+                        
+                        # Deshacer cambios locales no confirmados
+                        git restore .
+                        
+                        # Deshacer el último commit (manteniendo los cambios)
+                        git reset --soft HEAD~1
+                        
+                        # Cambiar el mensaje del último commit
+                        git commit --amend -m "Nuevo mensaje"
+                        
+                        # Limpiar archivos no rastreados
+                        git clean -fd
+                        
+                        # Alias útiles
+                        git config --global alias.co checkout
+                        git config --global alias.br branch
+                        git config --global alias.ci commit
+                        git config --global alias.st status
+                    </code>
+                </div>
+
+                <h2>6. Buenas Prácticas</h2>
+                <ul>
+                    <li>Haz commits atómicos (un cambio lógico por commit)</li>
+                    <li>Escribe mensajes de commit claros y descriptivos</li>
+                    <li>No hagas commit de archivos generados automáticamente</li>
+                    <li>Usa <code>.gitignore</code> para excluir archivos innecesarios</li>
+                    <li>Haz pull antes de push para evitar conflictos</li>
+                    <li>Revisa tus cambios con <code>git diff</code> antes de hacer commit</li>
+                </ul>
+
+                <h2>Conclusión</h2>
+                <p>Dominar Git y GitHub es una habilidad esencial para cualquier desarrollador moderno. Con esta guí­a, tienes los conocimientos básicos para comenzar a trabajar con control de versiones de manera efectiva. Recuerda que la práctica constante es clave para volverte experto en estas herramientas.</p>
+                
+                <p>¿Quieres profundizar más? Explora la <a href="https://git-scm.com/doc" target="_blank" rel="noopener noreferrer">documentación oficial de Git</a> o los <a href="https://docs.github.com/" target="_blank" rel="noopener noreferrer">documentos de GitHub</a> para aprender más sobre caracterí­sticas avanzadas.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer se cargará aquí­ dinámicamente -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="/periodico-digital/js/config.min.js"></script>
+    <script src="/periodico-digital/js/load-header.min.js"></script>
+    <script src="/periodico-digital/js/load-footer.min.js"></script>
+    <script src="/periodico-digital/js/navbar.min.js"></script>
+    <script>
+        // Cargar header y footer
+        document.addEventListener('DOMContentLoaded', function() {
+            loadHeader('header-container');
+            loadFooter('footer-container');
+        });
+    </script>
+</body>
+</html>
+
+

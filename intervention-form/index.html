@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte de Intervención - GSC</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="form-container">
+        <header class="form-header">
+            <div class="logo-container">
+                <img src="logo.png" alt="GSC Logo" id="company-logo">
+            </div>
+            <div class="company-info">
+                <h1>PARTE INTERVENCIÓN</h1>
+                <div class="company-details">
+                    <p>DEPARTAMENTO TÉCNICO</p>
+                    <p>Pº Castellana, 123 - 3ºD - 28046 Madrid</p>
+                    <p>Tfno. 914 174 447 - Fax 915 561 838</p>
+                </div>
+            </div>
+            <div class="intervention-number">
+                <label for="interventionNum">Nº:</label>
+                <input type="text" id="interventionNum" name="interventionNum" value="0300">
+            </div>
+        </header>
+
+        <div class="form-section client-info">
+            <div class="form-group">
+                <label for="openingDate">FECHA DE APERTURA:</label>
+                <input type="date" id="openingDate" name="openingDate">
+            </div>
+            <div class="form-group">
+                <label for="clientName">NOMBRE CLIENTE:</label>
+                <input type="text" id="clientName" name="clientName">
+            </div>
+            <div class="form-group">
+                <label for="address">DIRECCIÓN:</label>
+                <input type="text" id="address" name="address">
+            </div>
+            <div class="form-group">
+                <label for="city">LOCALIDAD:</label>
+                <input type="text" id="city" name="city">
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>PROBLEMA DETECTADO POR EL CLIENTE:</h3>
+            <textarea id="problemDescription" name="problemDescription" rows="4"></textarea>
+        </div>
+
+        <div class="form-section">
+            <h3>DESCRIPCIÓN DE LAS TAREAS REALIZADAS</h3>
+            <div class="tasks-container" id="tasksContainer">
+            </div>
+            <button type="button" id="addTask" class="btn-add">+ Añadir tarea</button>
+        </div>
+
+        <div class="form-section">
+            <h3>MATERIAL UTILIZADO</h3>
+            <div class="material-container" id="materialUsedContainer">
+                <div class="material-item">
+                    <input type="text" name="serial" placeholder="Nº de serie" class="serial-input">
+                    <input type="text" name="description" placeholder="Descripción" class="desc-input">
+                    <input type="number" name="units" min="0" placeholder="Uds" class="units-input">
+                    <button type="button" class="remove-material">×</button>
+                </div>
+            </div>
+            <button type="button" id="addMaterial" class="btn-add">+ Añadir Material</button>
+        </div>
+
+        <div class="form-section">
+            <h3>MATERIAL RETIRADO</h3>
+            <div class="material-container" id="materialRemovedContainer">
+                <div class="material-item">
+                    <input type="text" name="removedSerial" placeholder="Nº de serie" class="serial-input">
+                    <input type="text" name="removedDesc" placeholder="Descripción" class="desc-input">
+                    <input type="number" name="removedUnits" min="0" placeholder="Uds" class="units-input">
+                    <input type="text" name="removedNotes" placeholder="Observaciones" class="notes-input">
+                    <button type="button" class="remove-material">×</button>
+                </div>
+            </div>
+            <button type="button" id="addRemovedMaterial" class="btn-add">+ Añadir Material Retirado</button>
+        </div>
+
+        <div class="form-section service-details">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="serviceType">SERVICIO:</label>
+                    <select id="serviceType" name="serviceType">
+                        <option value="">Seleccionar...</option>
+                        <option value="reparacion">Reparación</option>
+                        <option value="mantenimiento">Mantenimiento</option>
+                        <option value="instalacion">Instalación</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="startTime">HORA INICIO:</label>
+                    <input type="time" id="startTime" name="startTime">
+                </div>
+                <div class="form-group">
+                    <label for="endTime">HORA FINAL:</label>
+                    <input type="time" id="endTime" name="endTime">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="travelTime">DESPLAZAMIENTO (min):</label>
+                    <input type="number" id="travelTime" name="travelTime" min="0" step="5">
+                </div>
+                <div class="form-group">
+                    <label for="totalTime">TOTAL (horas):</label>
+                    <input type="number" id="totalTime" name="totalTime" min="0" step="0.5" readonly>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>OBSERVACIONES:</h3>
+            <textarea id="observations" name="observations" rows="4"></textarea>
+        </div>
+
+        <div class="form-section signatures">
+            <div class="signature-box">
+                <div class="signature-line"></div>
+                <p>FIRMA TÉCNICO</p>
+            </div>
+            <div class="signature-box">
+                <div class="signature-line"></div>
+                <p>CONFORME CLIENTE</p>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <div class="action-buttons">
+                <button type="button" id="saveBtn" class="btn-save">Guardar</button>
+                <button type="button" id="printBtn" class="btn-print">Imprimir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diálogo de selección de impresora -->
+    <div id="printerDialog" class="modal">
+        <div class="modal-content">
+            <h3>Seleccionar impresora</h3>
+            <div class="printer-options">
+                <button class="printer-option" data-print-type="thermal">
+                    <i class="printer-icon">🖨️</i>
+                    <span>Impresora Térmica 80mm</span>
+                </button>
+                <button class="printer-option" data-print-type="a4">
+                    <i class="printer-icon">📄</i>
+                    <span>Impresora A4</span>
+                </button>
+            </div>
+            <div class="modal-actions">
+                <button id="cancelPrint" class="btn-cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguridad en Aplicaciones Web: Mejores Prácticas | KDTech</title>
+    <meta name="description" content="Descubre las mejores prácticas de seguridad para proteger tus aplicaciones web de amenazas comunes y mantener tus datos a salvo.">
+    <meta name="keywords" content="seguridad web, desarrollo seguro, ciberseguridad, owasp, protección de datos, vulnerabilidades web">
+    <meta name="author" content="KDTech">
+    <link rel="icon" type="image/png" href="/img/logo_small.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .article-header {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .article-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .article-content h2 {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: #4ca1af;
+        }
+        .article-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    background-color: var(--primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 1.5rem 0 2rem 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.back-link:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    color: white;
+}
+
+.back-link i {
+    transition: transform 0.3s ease;
+}
+
+.back-link:hover i {
+    transform: translateX(-3px);
+}
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .warning-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            color: #856404;
+        }
+        .tip-box {
+            background-color: #e7f5ff;
+            border-left: 4px solid #4dabf7;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            color: #0b7285;
+        }
+        pre {
+            background-color: #2d2d2d;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container">
+        <!-- Header se cargará aquí­ dinámicamente -->
+    </div>
+
+    <main class="container">
+        <a href="/blog.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Volver al blog
+        </a>
+        
+        <article class="article-container">
+            <header class="article-header">
+                <div class="container">
+                    
+                    <h1>Seguridad en Aplicaciones Web: Mejores Prácticas</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar-alt"></i> 10 Mayo 2025</span>
+                        <span><i class="far fa-clock"></i> 7 min de lectura</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="article-content">
+                <img src="https://via.placeholder.com/800x450/2c3e50/ffffff?text=Web+Security" alt="Seguridad en Aplicaciones Web" class="article-image">
+                
+                <p>En la era digital actual, la seguridad de las aplicaciones web es más crí­tica que nunca. Con el aumento de ciberataques y violaciones de datos, implementar medidas de seguridad sólidas se ha convertido en una necesidad para cualquier desarrollador o empresa que opere en lí­nea. En este artí­culo, exploraremos las mejores prácticas para mantener tus aplicaciones web seguras.</p>
+
+                <div class="warning-box">
+                    <strong>Importante:</strong> La seguridad es un proceso continuo, no un destino. Las amenazas evolucionan constantemente, por lo que es fundamental mantenerse actualizado con las últimas vulnerabilidades y soluciones.
+                </div>
+
+                <h2>1. Principales Amenazas a la Seguridad Web</h2>
+                <p>Según el proyecto OWASP (Open Web Application Security Project), estas son algunas de las amenazas más crí­ticas:</p>
+                
+                <h3>Inyección de Código</h3>
+                <p>Ocurre cuando un atante enví­a datos no confiables a un intérprete como parte de un comando o consulta.</p>
+                <p><strong>Solución:</strong> Utilizar consultas parametrizadas y ORM (Mapeo Objeto-Relacional).</p>
+                
+                <pre><code>// Incorrecto
+const query = `SELECT * FROM users WHERE username = '${username}'`;
+
+// Correcto (usando parámetros)
+const query = 'SELECT * FROM users WHERE username = ?';
+db.query(query, [username], (err, results) => {
+  // manejo de resultados
+});</code></pre>
+
+                <h3>Autenticación Rota</h3>
+                <p>Funciones de autenticación implementadas incorrectamente que permiten a los atacantes comprometer contraseñas o tokens.</p>
+                <p><strong>Mejores prácticas:</strong></p>
+                <ul>
+                    <li>Implementar autenticación de múltiples factores (MFA)</li>
+                    <li>Usar contraseñas seguras con requisitos de complejidad</li>
+                    <li>Implementar lí­mites de intentos de inicio de sesión</li>
+                    <li>Usar bibliotecas estándar para manejo de sesiones</li>
+                </ul>
+
+                <h3>Exposición de Datos Sensibles</h3>
+                <p>Cuando las aplicaciones no protegen adecuadamente información confidencial.</p>
+                <p><strong>Protección:</strong></p>
+                <ul>
+                    <li>Usar HTTPS en todo momento</li>
+                    <li>No almacenar datos sensibles innecesariamente</li>
+                    <li>Implementar encripción tanto en tránsito como en reposo</li>
+                    <li>Configurar correctamente las cabeceras de seguridad HTTP</li>
+                </ul>
+
+                <div class="tip-box">
+                    <strong>Consejo:</strong> Utiliza herramientas como <a href="https://observatory.mozilla.org/" target="_blank" rel="noopener noreferrer">Mozilla Observatory</a> para evaluar la seguridad de tus cabeceras HTTP.
+                </div>
+
+                <h2>2. Configuración Segura del Servidor</h2>
+                
+                <h3>Actualizaciones de Seguridad</h3>
+                <p>Mantén todos los componentes del servidor actualizados:</p>
+                <ul>
+                    <li>Sistema operativo</li>
+                    <li>Servidor web (Nginx, Apache)</li>
+                    <li>Lenguaje de Programación y frameworks</li>
+                    <li>Bases de datos</li>
+                </ul>
+
+                <h3>Configuración de HTTPS</h3>
+                <p>Configura correctamente el certificado SSL/TLS:</p>
+                <pre><code># Ejemplo de configuración Nginx
+server {
+    listen 443 ssl http2;
+    server_name tuejemplo.com;
+    
+    ssl_certificate /ruta/a/tu_certificado.crt;
+    ssl_certificate_key /ruta/a/tu_clave_privada.key;
+    
+    # Configuración de seguridad recomendada
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers 'TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:ECDHE-ECDSA-AES128-GCM-SHA256';
+    ssl_prefer_server_ciphers on;
+    
+    # HSTS (Strict-Transport-Security)
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+    
+    # Otras cabeceras de seguridad
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tu-cdn.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; connect-src 'self' https://api.tudominio.com;" always;
+    
+    # Resto de la configuración...
+}</code></pre>
+
+                <h2>3. Seguridad en el Código</h2>
+                
+                <h3>Validación de Entrada</h3>
+                <p>Siempre valida y sanitiza toda la entrada del usuario:</p>
+                <ul>
+                    <li>Usa bibliotecas de validación probadas</li>
+                    <li>Implementa listas blancas (whitelisting) en lugar de listas negras</li>
+                    <li>Escape adecuadamente la salida para prevenir XSS</li>
+                </ul>
+
+                <h3>Gestión de Sesiones</h3>
+                <p>Implementa un manejo seguro de sesiones:</p>
+                <ul>
+                    <li>Usa tokens de sesión seguros y aleatorios</li>
+                    <li>Establece tiempos de expiración adecuados</li>
+                    <li>Invalida las sesiones después del cierre de sesión</li>
+                    <li>Implementa regeneración de ID de sesión después del inicio de sesión</li>
+                </ul>
+
+                <h2>4. Monitoreo y Respuesta a Incidentes</h2>
+                <p>Implementa un sistema de monitoreo de seguridad:</p>
+                <ul>
+                    <li>Registra todos los eventos de seguridad relevantes</li>
+                    <li>Configura alertas para actividades sospechosas</li>
+                    <li>Mantén planes de respuesta a incidentes actualizados</li>
+                    <li>Realiza pruebas de penetración periódicas</li>
+                </ul>
+
+                <h2>Conclusión</h2>
+                <p>La seguridad web es un aspecto crí­tico del desarrollo de aplicaciones modernas. Al implementar estas mejores prácticas, puedes reducir significativamente el riesgo de vulnerabilidades y proteger tanto a tus usuarios como a tu negocio de potenciales amenazas cibernéticas.</p>
+                
+                <p>Recuerda que la seguridad es un proceso continuo que requiere atención constante y actualizaciones periódicas para mantenerse al dí­a con las amenazas emergentes.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer se cargará aquí­ dinámicamente -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="/periodico-digital/js/config.min.js"></script>
+    <script src="/periodico-digital/js/load-header.min.js"></script>
+    <script src="/periodico-digital/js/load-footer.min.js"></script>
+    <script src="/periodico-digital/js/navbar.min.js"></script>
+    <script>
+        // Cargar header y footer
+        document.addEventListener('DOMContentLoaded', function() {
+            loadHeader('header-container');
+            loadFooter('footer-container');
+        });
+    </script>
+</body>
+</html>
+
+

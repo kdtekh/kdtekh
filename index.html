@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDTekh - Innovación y Aprendizaje Tecnológico</title>
+    <meta name="description" content="Aprende habilidades tecnológicas con KDTekh. Cursos de programación, ciberseguridad, redes y más.">
+    <meta name="keywords" content="cursos tecnología, programación, ciberseguridad, desarrollo web, inteligencia artificial">
+    <meta name="author" content="KDTekh">
+    <!-- Rutas relativas a la raíz del sitio -->
+    <link rel="icon" type="image/png" href="/img/logo_small.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto+Slab:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- El header se cargará dinámicamente mediante JavaScript -->
+    <div id="header-container"></div>
+
+    <main>
+        <!-- Espacio en blanco para desplazar el hero -->
+        <div class="hero-spacer"></div>
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="container">
+                <div class="hero-content" itemscope itemtype="https://schema.org/WebPage">
+                    <span class="hero-subtitle" itemprop="alternativeHeadline">Bienvenid@ a KDTekh</span>
+                    <h1 class="hero-title" itemprop="headline">Desata tu <span class="text-gradient" itemprop="keywords"> poder digital</span></h1>
+                    <p class="hero-description" itemprop="description">Aprende las habilidades tecnológicas más demandadas con cursos especializados y acaba convirtiéndote en un profesional del sector tecnológico.</p>
+                    <div class="hero-buttons">
+                        <a href="https://discord.gg/PrmtyQJCe6" class="btn btn-outline" target="_blank" rel="noopener nofollow" aria-label="Únete a nuestra comunidad en Discord">
+                            <i class="fab fa-discord" aria-hidden="true"></i> Unirse a Discord
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-shape"></div>
+                    <img src="/img/logo.png" alt="KDTekh Logo" class="hero-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Categorías -->
+        <section id="categorias" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Descubre Nuestro Enfoque</h2>
+                    <p class="section-description">Explora un ecosistema de aprendizaje diseñado para el crecimiento autodidacta. Nuestra plataforma te ofrece acceso a recursos cuidadosamente seleccionados, rutas de aprendizaje personalizadas y herramientas para que construyas tu propio camino formativo. Ya seas un profesional que busca mejorar sus habilidades o una empresa en busca de soluciones formativas, aquí encontrarás lo que necesitas para avanzar en la era digital. Conecta con nuestra comunidad, descubre nuestro método de aprendizaje y lleva tus capacidades al siguiente nivel.</p>
+                </div>
+                
+                <div class="categories-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem;">
+                    <!-- Categoría 1 -->
+                    <div class="category-card animate-on-scroll">
+                        <div class="category-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="category-title">Programación</h3>
+                        <p class="category-description">Domina los lenguajes más demandados y construye aplicaciones increíbles.</p>
+                        <a href="cursos.html?categoria=programacion" class="category-link">Ver más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <!-- Categoría 2 -->
+                    <div class="category-card animate-on-scroll">
+                        <div class="category-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="category-title">Ciberseguridad</h3>
+                        <p class="category-description">Protege sistemas y datos contra amenazas digitales con habilidades de hacking ético.</p>
+                        <a href="cursos.html?categoria=ciberseguridad" class="category-link">Ver más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <!-- Categoría 3 -->
+                    <div class="category-card animate-on-scroll">
+                        <div class="category-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3 class="category-title">Redes</h3>
+                        <p class="category-description">Aprende a configurar y administrar redes empresariales de alto rendimiento.</p>
+                        <a href="cursos.html?categoria=redes" class="category-link">Ver más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <!-- Categoría 4 -->
+                    <div class="category-card animate-on-scroll">
+                        <div class="category-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="category-title">Bases de Datos</h3>
+                        <p class="category-description">Domina el diseño y gestión de bases de datos relacionales y NoSQL.</p>
+                        <a href="cursos.html?categoria=bases-de-datos" class="category-link">Ver más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <!-- Categoría 5 - Ciencia de Datos -->
+                    <div class="category-card animate-on-scroll">
+                        <div class="category-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="category-title">Ciencia de Datos</h3>
+                        <p class="category-description">Analiza grandes volúmenes de datos y extrae información valiosa para la toma de decisiones.</p>
+                        <a href="cursos.html?categoria=ciencia-de-datos" class="category-link">Ver más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <!-- Categoría 6 - Inglés -->
+                    <div class="category-card animate-on-scroll">
+                        <div class="category-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h3 class="category-title">Inglés</h3>
+                        <p class="category-description">Mejora tus habilidades lingüísticas en inglés para destacar en el ámbito profesional.</p>
+                        <a href="cursos.html?categoria=ingles" class="category-link">Ver más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <!-- Categoría 7 - Ofimática -->
+                    <div class="category-card animate-on-scroll">
+                        <div class="category-icon">
+                            <i class="fas fa-file-word"></i>
+                        </div>
+                        <h3 class="category-title">Ofimática</h3>
+                        <p class="category-description">Domina las herramientas ofimáticas esenciales para la productividad laboral.</p>
+                        <a href="cursos.html?categoria=ofimatica" class="category-link">Ver más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Blog -->
+        <section id="blog" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Blog y Noticias</h2>
+                    <p class="section-description">Descubre análisis profundos, guías prácticas y tendencias tecnológicas que impulsarán tu carrera profesional al siguiente nivel.</p>
+                </div>
+                
+                <div class="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem;">
+                    <!-- Artículo 1 -->
+                    <article class="blog-card animate-on-scroll" style="height: 100%; display: flex; flex-direction: column;">
+                        <div class="blog-image" style="height: 180px; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ecosistema Tech en Colombia" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div class="blog-date">14 JUN</div>
+                        </div>
+                        <div class="blog-content" style="flex: 1; display: flex; flex-direction: column;">
+                            <div class="blog-meta">
+                                <span><i class="far fa-folder"></i> Tendencias</span>
+                                <span><i class="far fa-clock"></i> 6 min</span>
+                            </div>
+                            <h3 class="blog-title" style="font-size: 1.1rem; margin: 0.5rem 0;">El Ecosistema Tech en Colombia</h3>
+                            <p class="blog-excerpt" style="flex: 1; margin-bottom: 1rem;">Oportunidades y desafíos del sector tecnológico colombiano en 2025.</p>
+                            <a href="https://kdtekh.com/articulos/ecosistema-tech-colombia-2025.html" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <!-- Artículo 2 -->
+                    <article class="blog-card animate-on-scroll" style="height: 100%; display: flex; flex-direction: column;">
+                        <div class="blog-image" style="height: 180px; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Tendencias en Desarrollo Web 2025" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div class="blog-date">14 JUN</div>
+                        </div>
+                        <div class="blog-content" style="flex: 1; display: flex; flex-direction: column;">
+                            <div class="blog-meta">
+                                <span><i class="far fa-folder"></i> Web</span>
+                                <span><i class="far fa-clock"></i> 7 min</span>
+                            </div>
+                            <h3 class="blog-title" style="font-size: 1.1rem; margin: 0.5rem 0;">Tendencias en Desarrollo Web 2025</h3>
+                            <p class="blog-excerpt" style="flex: 1; margin-bottom: 1rem;">Tecnologías y metodologías que están marcando la pauta este año.</p>
+                            <a href="https://kdtekh.com/articulos/tendencias-desarrollo-web-2025.html" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <!-- Artículo 3 -->
+                    <article class="blog-card animate-on-scroll" style="height: 100%; display: flex; flex-direction: column;">
+                        <div class="blog-image" style="height: 180px; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1365&q=80" alt="IA en Colombia" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div class="blog-date">14 JUN</div>
+                        </div>
+                        <div class="blog-content" style="flex: 1; display: flex; flex-direction: column;">
+                            <div class="blog-meta">
+                                <span><i class="far fa-folder"></i> IA</span>
+                                <span><i class="far fa-clock"></i> 8 min</span>
+                            </div>
+                            <h3 class="blog-title" style="font-size: 1.1rem; margin: 0.5rem 0;">IA en Colombia: Casos de Éxito</h3>
+                            <p class="blog-excerpt" style="flex: 1; margin-bottom: 1rem;">Cómo las empresas están implementando IA para resolver problemas reales.</p>
+                            <a href="https://kdtekh.com/articulos/ia-colombia-casos-exito.html" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <!-- Artículo 4 - Seguridad Web -->
+                    <article class="blog-card animate-on-scroll" style="height: 100%; display: flex; flex-direction: column;">
+                        <div class="blog-image" style="height: 180px; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Seguridad Web" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div class="blog-date">10 MAY</div>
+                        </div>
+                        <div class="blog-content" style="flex: 1; display: flex; flex-direction: column;">
+                            <div class="blog-meta">
+                                <span><i class="far fa-folder"></i> Seguridad</span>
+                                <span><i class="far fa-clock"></i> 7 min</span>
+                            </div>
+                            <h3 class="blog-title" style="font-size: 1.1rem; margin: 0.5rem 0;">Seguridad en Aplicaciones Web</h3>
+                            <p class="blog-excerpt" style="flex: 1; margin-bottom: 1rem;">Mejores prácticas para proteger tus aplicaciones web de amenazas comunes.</p>
+                            <a href="https://kdtekh.com/articulos/seguridad-web.html" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <a href="https://kdtekh.com/blog.html" class="btn btn-outline">Ver más artículos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Testimonios -->
+        <section id="testimonios" class="section bg-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nuestra Comunidad</h2>
+                    <p class="section-description">Historias de éxito de nuestra comunidad latinoamericana. Descubre cómo estamos transformando vidas a través de la educación tecnológica.</p>
+                </div>
+                
+                <div class="testimonials-container">
+                    <button class="testimonial-nav testimonial-nav-prev" aria-label="Testimonios anteriores">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="testimonials-scroll">
+
+                        
+                        <!-- Testimonio 2 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"Soy de Bogotá y trabajaba en un call center hasta que descubrí KDTekh. Ahora soy especialista en ciberseguridad. La metodología práctica me permitió aplicar lo aprendido desde el primer día."</p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Juan Camilo Gómez" class="author-avatar">
+                                    <div class="author-info">
+                                        <h4>Juan Camilo Gómez</h4>
+                                        <span>Especialista en Ciberseguridad - Bogotá, Colombia</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonio 3 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <p class="testimonial-text">"Soy de Cali y estudiaba administración de empresas. Gracias a KDTekh me certifiqué en análisis de datos y ahora trabajo para una startup tecnológica. ¡Cambié mi vida!"</p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Valentina Ramírez" class="author-avatar">
+                                    <div class="author-info">
+                                        <h4>Valentina Ramírez</h4>
+                                        <span>Analista de Datos - Cali, Colombia</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonio 4 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"Como ingeniero industrial de Barranquilla, buscaba actualizarme en programación. KDTekh me ofreció la flexibilidad que necesitaba. Ahora desarrollo aplicaciones para la industria 4.0 en mi ciudad."</p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/men/28.jpg" alt="Andrés Felipe Vargas" class="author-avatar">
+                                    <div class="author-info">
+                                        <h4>Andrés Felipe Vargas</h4>
+                                        <span>Ingeniero de Software - Barranquilla, Colombia</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonio 5 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"Soy de Perú y siempre quise trabajar en tecnología. Con KDTekh aprendí desarrollo móvil y ahora tengo mi propia startup. La comunidad de aprendizaje es increíble."</p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/women/51.jpg" alt="Camila Mendoza" class="author-avatar">
+                                    <div class="author-info">
+                                        <h4>Camila Mendoza</h4>
+                                        <span>Fundadora de AppMóvil - Lima, Perú</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonio 6 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"Desde Venezuela, KDTekh me abrió las puertas del mundo tech. Aprendí programación web y ahora trabajo de forma remota para empresas internacionales, apoyando a mi familia desde cualquier lugar."</p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/men/37.jpg" alt="Luis Miguel Rojas" class="author-avatar">
+                                    <div class="author-info">
+                                        <h4>Luis Miguel Rojas</h4>
+                                        <span>Arquitecto de Software</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonio 7 - María Fernanda Restrepo -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"Como madre soltera en Medellín, nunca pensé que podría cambiar mi vida profesional. KDTekh me dio las herramientas para convertirme en desarrolladora web en solo 6 meses. ¡Hoy trabajo para una empresa internacional desde casa!"</p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="María Fernanda Restrepo" class="author-avatar">
+                                    <div class="author-info">
+                                        <h4>María Fernanda Restrepo</h4>
+                                        <span>Desarrolladora Web - Medellín, Colombia</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="testimonial-nav testimonial-nav-next" aria-label="Siguientes testimonios">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de CTA -->
+        <section id="cta" class="section cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">¿Listo para comenzar tu viaje en la tecnología?</h2>
+                    <p class="cta-description">Posiciónate en la vanguardia de la transformación digital con una metodología probada que ha impulsado a más de 10,000 profesionales hacia roles de alto impacto en el sector tecnológico. Nuestro ecosistema de aprendizaje está diseñado para maximizar tu ROI educativo, ofreciendo acceso exclusivo a contenido actualizado, mentorías personalizadas y una red global de profesionales.</p>
+                    <div class="cta-buttons">
+                        <a href="contacto.html" class="btn btn-outline btn-lg">Habla con un asesor</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Sección KDTekh con Contacto -->
+                <div class="footer-section">
+                    <img src="/img/logo.png" alt="KDTekh Logo" class="footer-logo">
+                    <p>Transformando carreras a través de educación tecnológica de vanguardia. Comprometidos con la excelencia en formación digital.</p>
+                    
+                    <div class="contact-info" style="margin-top: 20px;">
+                        <p><i class="fas fa-envelope"></i> kdtekh@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +34 666 699 328</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Madrid, España</p>
+                    </div>
+                </div>
+
+                <!-- Enlaces Rápidos -->
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="/"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="/cursos.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+                        <li><a href="/blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                        <li><a href="/sobre-nosotros.html"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+                        <li><a href="/contacto.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+
+
+
+                <!-- Síguenos -->
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <p>Únete a una comunidad de profesionales tech en crecimiento. Contenido exclusivo, ofertas de empleo y primeros accesos a nuevos programas formativos.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.youtube.com/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-section newsletter">
+                    <h3>¡Mantente Actualizado!</h3>
+                    <p>Suscríbete a nuestro boletín para recibir las últimas noticias, cursos y ofertas exclusivas directamente en tu bandeja de entrada.</p>
+                    <form class="newsletter-form" id="footerNewsletterForm" action="/php/newsletter.php" method="POST">
+                        <!-- Token CSRF -->
+                        <input type="hidden" name="csrf_token" id="newsletterCsrfToken" value="">
+                        <div class="form-group">
+                            <input type="email" 
+                                   name="email" 
+                                   id="footerNewsletterEmail" 
+                                   placeholder="Tu correo electrónico" 
+                                   required 
+                                   aria-label="Correo electrónico"
+                                   class="newsletter-email">
+                            <button type="submit" 
+                                    class="btn-submit" 
+                                    aria-label="Suscribirse"
+                                    id="newsletterSubmitBtn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span class="btn-text">Suscribirse</span>
+                            </button>
+                        </div>
+                        <div class="newsletter-message"></div>
+                    </form>
+                    <p class="newsletter-note">Nos tomamos en serio tu privacidad. Nunca compartiremos tu información.</p>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                &copy; <span id="currentYear"></span> KD Tech. Todos los derechos reservados. | 
+                <a href="aviso-legal.html">Aviso Legal</a> | 
+                <a href="politica-privacidad.html">Política de Privacidad</a>
+            </div>
+            <script>
+                // Actualizar el año del copyright
+                document.getElementById('currentYear').textContent = new Date().getFullYear();
+            </script>
+        </div>
+    </footer>
+
+    <!-- Scripts principales (combinados y minificados) -->
+    <script src="/js/load-header.min.js" defer></script>
+    <script src="/js/min/all.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- Script para el formulario de newsletter -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const newsletterForm = document.getElementById('footerNewsletterForm');
+        const submitBtn = document.getElementById('newsletterSubmitBtn');
+        const messageDiv = document.querySelector('.newsletter-message');
+        const csrfTokenInput = document.getElementById('newsletterCsrfToken');
+        
+        // Cargar token CSRF
+        fetch('/php/csrf-token.php?form=newsletter')
+            .then(response => response.json())
+            .then(data => {
+                if (data.token) {
+                    csrfTokenInput.value = data.token;
+                }
+            });
+        
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const email = document.getElementById('footerNewsletterEmail').value.trim();
+                
+                if (!email) {
+                    showMessage('Por favor ingresa tu correo electrónico', 'error');
+                    return;
+                }
+                
+                // Validar formato de email
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    showMessage('Por favor ingresa un correo electrónico válido', 'error');
+                    return;
+                }
+                
+                // Deshabilitar el botón para evitar múltiples envíos
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+                
+                try {
+                    const formData = new FormData();
+                    formData.append('email', email);
+                    formData.append('csrf_token', csrfTokenInput.value);
+                    
+                    const response = await fetch('/php/newsletter.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (response.ok && result.success) {
+                        showMessage('¡Gracias por suscribirte! Pronto recibirás nuestras novedades.', 'success');
+                        newsletterForm.reset();
+                        
+                        // Recargar el token CSRF para el próximo envío
+                        const newTokenResponse = await fetch('/php/csrf-token.php?form=newsletter');
+                        const newTokenData = await newTokenResponse.json();
+                        if (newTokenData.token) {
+                            csrfTokenInput.value = newTokenData.token;
+                        }
+                    } else {
+                        showMessage(result.message || 'Error al procesar la suscripción', 'error');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    showMessage('Error de conexión. Por favor, inténtalo de nuevo más tarde.', 'error');
+                } finally {
+                    // Restaurar el botón
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i><span class="btn-text">Suscribirse</span>';
+                }
+            });
+        }
+        
+        function showMessage(message, type = 'success') {
+            if (!messageDiv) return;
+            
+            messageDiv.textContent = message;
+            messageDiv.className = 'newsletter-message';
+            messageDiv.classList.add(type);
+            
+            // Ocultar el mensaje después de 5 segundos
+            setTimeout(() => {
+                messageDiv.textContent = '';
+                messageDiv.className = 'newsletter-message';
+            }, 5000);
+        }
+    });
+    </script>
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent" class="cookie-consent">
+        <div class="container">
+            <p>Utilizamos cookies propias y de terceros para mejorar nuestros servicios y mostrarle publicidad relacionada con sus preferencias mediante el análisis de sus hábitos de navegación. Si continúa navegando, consideramos que acepta su uso. Puede obtener más información en nuestra <a href="/politica-cookies.html">Política de Cookies</a>.</p>
+            <button id="accept-cookies" class="btn btn-primary">Aceptar</button>
+            <button id="reject-cookies" class="btn btn-outline">Rechazar</button>
+        </div>
+    </div>
+
+    <style>
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 10, 54, 0.95);
+            padding: 1.5rem;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+            color: #fff;
+        }
+        .cookie-consent.visible {
+            display: block;
+        }
+        .cookie-consent p {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        .cookie-consent .btn {
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        @media (max-width: 768px) {
+            .cookie-consent .btn {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+
+    <script>
+        // Gestión del consentimiento de cookies
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieConsent = document.getElementById('cookie-consent');
+            const acceptCookies = document.getElementById('accept-cookies');
+            const rejectCookies = document.getElementById('reject-cookies');
+
+            // Verificar si ya se ha dado el consentimiento
+            if (cookieConsent && !localStorage.getItem('cookie_consent')) {
+                cookieConsent.classList.add('visible');
+            }
+
+            // Manejar la aceptación de cookies
+            if (acceptCookies) {
+                acceptCookies.addEventListener('click', function() {
+                    localStorage.setItem('cookie_consent', 'accepted');
+                    if (cookieConsent) cookieConsent.classList.remove('visible');
+                    // Aquí podrías cargar scripts de terceros
+                });
+            }
+
+            // Manejar el rechazo de cookies
+            if (rejectCookies) {
+                rejectCookies.addEventListener('click', function() {
+                    localStorage.setItem('cookie_consent', 'rejected');
+                    if (cookieConsent) cookieConsent.classList.remove('visible');
+                    // Aquí podrías eliminar cookies no esenciales
+                });
+            }
+
+            // Enlace a la política de cookies en el texto del banner
+        });
+
+        // Navegación de testimonios - Solo se ejecuta si existe el contenedor
+        document.addEventListener('DOMContentLoaded', function() {
+            const testimonialsSection = document.getElementById('testimonios');
+            
+            // Solo continuar si estamos en la sección de testimonios
+            if (testimonialsSection) {
+                const scrollContainer = document.querySelector('.testimonials-scroll');
+                const prevButton = document.querySelector('.testimonial-nav-prev');
+                const nextButton = document.querySelector('.testimonial-nav-next');
+                const testimonialCard = document.querySelector('.testimonial-card');
+                
+                if (scrollContainer && prevButton && nextButton && testimonialCard) {
+                    const updateNavigation = () => {
+                        const cardWidth = testimonialCard.offsetWidth + 24; // Ancho de la tarjeta + gap
+                        
+                        // Función para manejar el scroll
+                        const scroll = (direction) => {
+                            const scrollAmount = direction === 'prev' ? -cardWidth : cardWidth;
+                            scrollContainer.scrollBy({
+                                left: scrollAmount,
+                                behavior: 'smooth'
+                            });
+                        };
+                        
+                        // Event listeners para los botones
+                        prevButton.addEventListener('click', () => scroll('prev'));
+                        nextButton.addEventListener('click', () => scroll('next'));
+                        
+                        // Ocultar/mostrar botones según la posición del scroll
+                        const updateButtonVisibility = () => {
+                            const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
+                            prevButton.style.display = scrollLeft > 10 ? 'flex' : 'none';
+                            nextButton.style.display = scrollLeft < (scrollWidth - clientWidth - 10) ? 'flex' : 'none';
+                        };
+                        
+                        // Actualizar visibilidad inicial
+                        updateButtonVisibility();
+                        
+                        // Actualizar visibilidad al hacer scroll
+                        scrollContainer.addEventListener('scroll', updateButtonVisibility);
+                        
+                        // Actualizar visibilidad al cambiar el tamaño de la ventana
+                        window.addEventListener('resize', updateButtonVisibility);
+                    };
+                    
+                    // Esperar a que las imágenes se carguen para calcular correctamente los anchos
+                    window.addEventListener('load', updateNavigation);
+                }
+            }
+        });
+
+        // Menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+                });
+                
+                // Cerrar menú al hacer clic en un enlace
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+        });
+    </script>
+
+
+    <!-- Script de depuración para verificar el formulario -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Verificando formulario en el DOM...');
+            const form = document.getElementById('footerNewsletterForm');
+            console.log('Formulario encontrado en el DOM:', form);
+            if (form) {
+                console.log('Formulario HTML:', form.outerHTML);
+            }
+        });
+    </script>
+    
+    <!-- Cargar newsletter-form.min.js al final del body -->
+    <!-- Script de newsletter ya incluido -->
+</body>
+</html>

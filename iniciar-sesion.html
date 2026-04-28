@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Periódico Digital</title>
+    <link rel="stylesheet" href="css/login.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Fuente SF Pro -->
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sf-pro-display" />
+    <!-- Fuentes de respaldo -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Estilos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+        <link rel="icon" type="image/png" href="/img/logo_small.png">
+    <!-- Preconexión para mejorar el rendimiento de carga de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/sf-pro-display">
+    <style>
+        /* Prevenir el parpadeo de texto durante la carga de fuentes */
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
+        /* Aplicar SF Pro cuando esté cargada */
+        .sf-pro-loaded body { font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
+    </style>
+    <script>
+        // Aplicar clase cuando las fuentes estén cargadas
+        document.documentElement.classList.add('sf-pro-loading');
+        document.fonts.ready.then(function() {
+            document.documentElement.classList.remove('sf-pro-loading');
+            document.documentElement.classList.add('sf-pro-loaded');
+        });
+    </script>
+<body class="sf-pro-loading">
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Contenedor del formulario -->
+        <div class="login-container">
+            <!-- Encabezado -->
+            <div class="login-header">
+                <h1>Bienvenido de nuevo</h1>
+                <p>Inicia sesión para continuar</p>
+            </div>
+            
+            <!-- Formulario de inicio de sesión -->
+            <form id="loginForm" class="login-form" novalidate>
+                <!-- Mensaje de error general -->
+                <div id="loginError" class="error-message" role="alert" aria-live="assertive"></div>
+                
+                <!-- Grupo de correo electrónico -->
+                <div class="form-group">
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="Correo electrónico" 
+                            required
+                            autocomplete="email"
+                            aria-describedby="emailError"
+                            aria-invalid="false">
+                    </div>
+                    <span class="error-message" id="emailError" role="alert"></span>
+                </div>
+                
+                <!-- Grupo de contraseña -->
+                <div class="form-group">
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock" aria-hidden="true"></i>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            placeholder="Contraseña" 
+                            required
+                            autocomplete="current-password"
+                            aria-describedby="passwordError"
+                            aria-invalid="false">
+                        <button 
+                            type="button" 
+                            class="toggle-password" 
+                            aria-label="Mostrar contraseña"
+                            aria-pressed="false">
+                            <i class="fas fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="forgot-password">
+                        <a href="recuperar-contrasena.html" class="forgot-password-link">
+                            ¿Olvidaste tu contraseña?
+                        </a>
+                    </div>
+                    <span class="error-message" id="passwordError" role="alert"></span>
+                </div>
+                
+                <!-- Recordar sesión -->
+                <div class="form-group remember-me">
+                    <label class="checkbox-container">
+                        <input 
+                            type="checkbox" 
+                            id="remember" 
+                            name="remember"
+                            aria-describedby="rememberHelp">
+                        <span class="checkmark" aria-hidden="true"></span>
+                        <span>Recordar mi sesión</span>
+                    </label>
+                    <span id="rememberHelp" class="sr-only">Mantener la sesión iniciada en este dispositivo</span>
+                </div>
+                
+                <!-- Botón de envío -->
+                <button type="submit" class="btn-login" id="loginButton">
+                    <span class="btn-text">Iniciar Sesión</span>
+                    <div class="loader" aria-hidden="true"></div>
+                </button>
+                
+                <!-- Enlace a registro -->
+                <div class="register-link">
+                    ¿No tienes una cuenta? 
+                    <a href="registro.html" class="register-link-text">
+                        Regístrate
+                        <span class="sr-only">(Se abrirá el formulario de registro)</span>
+                    </a>
+                </div>
+            </form>
+            
+            <!-- Inicio de sesión social -->
+            <div class="social-login">
+                <p class="divider">
+                    <span>O inicia sesión con</span>
+                </p>
+                <div class="social-buttons">
+                    <button type="button" class="social-btn google" aria-label="Iniciar sesión con Google">
+                        <img 
+                            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" 
+                            alt="" 
+                            aria-hidden="true">
+                        <span>Google</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Notificaciones -->
+    <div id="notification" class="notification" role="alert" aria-live="polite"></div>
+    
+    <!-- Scripts -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const loginForm = document.getElementById('loginForm');
+        const loginButton = document.getElementById('loginButton');
+        const loginError = document.getElementById('loginError');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const rememberCheckbox = document.getElementById('remember');
+        const togglePassword = document.querySelector('.toggle-password');
+        
+        // Obtener token CSRF al cargar la página
+        fetch('/php/csrf-token.php')
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.token) {
+                    // Almacenar el token CSRF en el formulario
+                    const csrfToken = document.createElement('input');
+                    csrfToken.type = 'hidden';
+                    csrfToken.name = 'csrf_token';
+                    csrfToken.value = data.token;
+                    loginForm.appendChild(csrfToken);
+                }
+            })
+            .catch(error => {
+                console.error('Error al obtener token CSRF:', error);
+                showError('Error al cargar el formulario. Por favor, recarga la página.');
+            });
+        
+        // Mostrar/ocultar contraseña
+        if (togglePassword) {
+            togglePassword.addEventListener('click', function() {
+                const isPasswordVisible = passwordInput.type === 'text';
+                passwordInput.type = isPasswordVisible ? 'password' : 'text';
+                this.setAttribute('aria-pressed', !isPasswordVisible);
+                this.querySelector('i').classList.toggle('fa-eye');
+                this.querySelector('i').classList.toggle('fa-eye-slash');
+            });
+        }
+        
+        // Manejar el envío del formulario
+        loginForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Validar campos
+            if (!validateForm()) {
+                return;
+            }
+            
+            // Mostrar estado de carga
+            setLoading(true);
+            
+            try {
+                // Obtener datos del formulario
+                const formData = {
+                    email: emailInput.value.trim(),
+                    password: passwordInput.value,
+                    remember: rememberCheckbox.checked,
+                    csrf_token: document.querySelector('input[name="csrf_token"]').value
+                };
+                
+                console.log('Enviando datos de inicio de sesión:', { ...formData, password: '***' });
+                
+                // Enviar datos al servidor
+                const response = await fetch('/php/process-login.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json; charset=UTF-8',
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const result = await response.json().catch(() => ({
+                    success: false,
+                    message: 'Error al procesar la respuesta del servidor'
+                }));
+                
+                console.log('Respuesta del servidor:', result);
+                
+                if (result.success) {
+                    // Redirigir al usuario después de un inicio de sesión exitoso
+                    window.location.href = result.redirect || '/perfil.html';
+                } else {
+                    showError(result.message || 'Error al iniciar sesión. Verifica tus credenciales.');
+                }
+                
+            } catch (error) {
+                console.error('Error al enviar el formulario:', error);
+                showError('Error de conexión. Por favor, inténtalo de nuevo más tarde.');
+            } finally {
+                setLoading(false);
+            }
+        });
+        
+        // Función para validar el formulario
+        function validateForm() {
+            let isValid = true;
+            
+            // Validar email
+            if (!emailInput.value.trim()) {
+                showFieldError(emailInput, 'El correo electrónico es obligatorio');
+                isValid = false;
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) {
+                showFieldError(emailInput, 'Ingresa un correo electrónico válido');
+                isValid = false;
+            } else {
+                clearFieldError(emailInput);
+            }
+            
+            // Validar contraseña
+            if (!passwordInput.value) {
+                showFieldError(passwordInput, 'La contraseña es obligatoria');
+                isValid = false;
+            } else {
+                clearFieldError(passwordInput);
+            }
+            
+            return isValid;
+        }
+        
+        // Función para mostrar error en un campo
+        function showFieldError(input, message) {
+            const errorElement = document.getElementById(`${input.id}Error`);
+            if (errorElement) {
+                errorElement.textContent = message;
+                errorElement.style.display = 'block';
+                input.setAttribute('aria-invalid', 'true');
+                input.classList.add('error');
+            }
+        }
+        
+        // Función para limpiar error de un campo
+        function clearFieldError(input) {
+            const errorElement = document.getElementById(`${input.id}Error`);
+            if (errorElement) {
+                errorElement.textContent = '';
+                errorElement.style.display = 'none';
+                input.setAttribute('aria-invalid', 'false');
+                input.classList.remove('error');
+            }
+        }
+        
+        // Función para mostrar mensaje de error general
+        function showError(message) {
+            loginError.innerHTML = `
+                <div class="alert alert-danger">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <strong>Error:</strong> ${message}
+                </div>
+            `;
+            loginError.style.display = 'block';
+            loginError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        // Función para mostrar/ocultar estado de carga
+        function setLoading(isLoading) {
+            if (isLoading) {
+                loginButton.disabled = true;
+                loginButton.querySelector('.btn-text').textContent = 'Iniciando sesión...';
+                loginButton.querySelector('.loader').style.display = 'inline-block';
+            } else {
+                loginButton.disabled = false;
+                loginButton.querySelector('.btn-text').textContent = 'Iniciar Sesión';
+                loginButton.querySelector('.loader').style.display = 'none';
+            }
+        }
+        
+        // Validación en tiempo real
+        emailInput.addEventListener('input', () => {
+            if (emailInput.value.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) {
+                clearFieldError(emailInput);
+            }
+        });
+        
+        passwordInput.addEventListener('input', () => {
+            if (passwordInput.value) {
+                clearFieldError(passwordInput);
+            }
+        });
+    });
+    </script>
+    
+    <!-- Estilos para lectores de pantalla -->
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</body>
+</html>

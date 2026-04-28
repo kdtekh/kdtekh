@@ -1,0 +1,743 @@
+/* Importar fuente SF Pro */
+@font-face {
+    font-family: 'SF Pro';
+    src: local('SF Pro'), 
+         local('SF Pro Display'), 
+         local('SF Pro Text'),
+         local('.SFNSText-Light'),
+         local('.SFNSDisplay-Light'),
+         local('.SFNSText-Regular'),
+         local('.SFNSDisplay-Regular'),
+         local('.SFNSText-Medium'),
+         local('.SFNSDisplay-Medium'),
+         local('.SFNSText-Bold'),
+         local('.SFNSDisplay-Bold'),
+         url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff2') format('woff2'),
+         url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro';
+    src: local('SF Pro Bold'), 
+         local('SF Pro Display Bold'), 
+         local('SF Pro Text Bold'),
+         local('.SFNSText-Bold'),
+         local('.SFNSDisplay-Bold'),
+         url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff2') format('woff2'),
+         url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Base Styles */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --border-color: #ddd;
+    --text-color: #333;
+    --light-gray: #f5f5f5;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: #f0f0f0;
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Form Container */
+.form-container {
+    max-width: 148mm; /* A5 width */
+    min-height: 210mm; /* A5 height */
+    margin: 0 auto;
+    background: var(--white);
+    padding: 15mm;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Header Styles */
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+.logo-container {
+    flex: 0 0 30%;
+    padding: 10px;
+}
+
+#company-logo {
+    max-width: 100%;
+    height: auto;
+    max-height: 60px;
+}
+
+.company-info {
+    flex: 1;
+    text-align: center;
+}
+
+.company-info h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.company-details {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+
+.intervention-number {
+    flex: 0 0 15%;
+    text-align: right;
+    font-weight: bold;
+}
+
+.intervention-number input {
+    width: 60px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid var(--border-color);
+    padding: 2px 5px;
+}
+
+/* Form Sections */
+.form-section {
+    margin-bottom: 8px;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.form-section h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+/* Form Groups and Inputs */
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.form-row .form-group {
+    flex: 1;
+    min-width: 120px;
+}
+
+label {
+    display: block;
+    margin-bottom: 3px;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Tasks Section */
+.tasks-container {
+    margin-bottom: 10px;
+}
+
+.task-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    gap: 5px;
+    width: 100%;
+}
+
+.task-description {
+    flex: 1;
+    min-width: 0;
+    margin-right: auto; /* Empuja las horas hacia la derecha */
+}
+
+.task-hours {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 5px;
+    font-size: 0.9rem;
+    margin-left: 20px; /* Añade margen a la izquierda */
+    flex-shrink: 0; /* Evita que se encoja */
+}
+
+.task-content {
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.remove-task:hover, .remove-material:hover {
+    background: #c0392b;
+}
+
+/* Material Sections */
+.material-container {
+    margin-bottom: 10px;
+}
+
+.material-item {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 80px 30px;
+    gap: 10px;
+    align-items: center;
+}
+
+.material-item input[type="text"]::placeholder,
+.material-item input[type="number"]::placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+#materialRemovedContainer .material-item {
+    grid-template-columns: 1.5fr 2fr 80px 2fr 30px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .material-item {
+        grid-template-columns: 1fr 1fr 60px 30px;
+    }
+    
+    #materialRemovedContainer .material-item {
+        grid-template-columns: 1fr 1fr 60px 1fr 30px;
+    }
+    
+    .material-item input[type="text"],
+    .material-item input[type="number"] {
+        font-size: 0.8rem;
+    }
+}
+
+.btn-add {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-add:hover {
+    background: #2980b9;
+}
+
+/* Material Tables */
+.material-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+    table-layout: fixed;
+}
+
+.material-table th,
+.material-table td {
+    border: 1px solid var(--border-color);
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.material-table th {
+    background-color: var(--light-gray);
+    font-weight: bold;
+}
+
+#materialUsedTable th:nth-child(1),
+#materialUsedTable td:nth-child(1) {
+    width: 25%;
+}
+
+#materialUsedTable th:nth-child(2),
+#materialUsedTable td:nth-child(2) {
+    width: 55%;
+}
+
+#materialUsedTable th:nth-child(3),
+#materialUsedTable td:nth-child(3) {
+    width: 10%;
+}
+
+#materialUsedTable th:nth-child(4),
+#materialUsedTable td:nth-child(4) {
+    width: 10%;
+    text-align: center;
+}
+
+#materialRemovedTable th:nth-child(1),
+#materialRemovedTable td:nth-child(1) {
+    width: 20%;
+}
+
+#materialRemovedTable th:nth-child(2),
+#materialRemovedTable td:nth-child(2) {
+    width: 40%;
+}
+
+#materialRemovedTable th:nth-child(3),
+#materialRemovedTable td:nth-child(3) {
+    width: 10%;
+}
+
+#materialRemovedTable th:nth-child(4),
+#materialRemovedTable td:nth-child(4) {
+    width: 25%;
+}
+
+#materialRemovedTable th:nth-child(5),
+#materialRemovedTable td:nth-child(5) {
+    width: 5%;
+    text-align: center;
+}
+
+.material-table input[type="text"],
+.material-table input[type="number"] {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    box-sizing: border-box;
+}
+
+.remove-material {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.remove-material:hover {
+    background: #c0392b;
+}
+
+.form-section > .btn-add {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+/* Signatures */
+.signatures {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 20px 0;
+}
+
+.signature-box {
+    text-align: center;
+    width: 45%;
+}
+
+.signature-line {
+    border-bottom: 1px solid #000;
+    height: 1px;
+    margin: 40px 0 5px;
+    position: relative;
+}
+
+.signature-line:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    border-bottom: 1px solid #000;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+    flex-wrap: wrap;
+}
+
+.print-options {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.print-mode-select {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: white;
+    font-size: 0.9rem;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.btn-print {
+    background-color: #27ae60;
+    color: white;
+}
+
+.btn-print:hover {
+    background-color: #219653;
+}
+
+.btn-save {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-save:hover {
+    background-color: #2980b9;
+}
+
+.btn-clear {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.btn-clear:hover {
+    background-color: #7f8c8d;
+}
+
+/* Estilos para el diálogo de selección de impresora */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.printer-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.printer-option {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.printer-option:hover {
+    border-color: #3498db;
+    background-color: #f8f9fa;
+}
+
+.printer-option .printer-icon {
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.printer-option span {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.btn-cancel {
+    padding: 8px 16px;
+    background-color: #95a5a6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.btn-cancel:hover {
+    background-color: #7f8c8d;
+}
+
+/* Asegurar que la fuente se mantenga al imprimir */
+@media print {
+    @page {
+        font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    
+    body, button, input, select, textarea {
+        font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+    }
+
+    /* Ocultar elementos innecesarios en cualquier impresión */
+    .print-options,
+    .form-actions,
+    .action-buttons,
+    .btn-add,
+    .remove-task,
+    .remove-material,
+    .no-print,
+    .btn-print,
+    .btn-save,
+    .btn-clear {
+        display: none !important;
+    }
+
+    /* Estilos para impresión térmica 80mm (condicionados por clase) */
+    body.print-thermal {
+        width: 76mm;
+        margin: 0 auto;
+        padding: 2mm;
+        font-size: 9px !important;
+        line-height: 1.2;
+        background: white;
+        color: black;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    body.print-thermal .form-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    /* Inputs en térmica */
+    body.print-thermal input[type="text"],
+    body.print-thermal input[type="date"],
+    body.print-thermal input[type="time"],
+    body.print-thermal input[type="number"],
+    body.print-thermal select,
+    body.print-thermal textarea {
+        width: 100% !important;
+        font-size: 9px !important;
+        padding: 1mm !important;
+        margin: 0.5mm 0 !important;
+        border: 1px solid #000 !important;
+        background: #fff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        height: auto !important;
+        box-sizing: border-box !important;
+        min-height: 8mm !important;
+    }
+
+    /* Tareas en térmica */
+    body.print-thermal .task-item {
+        page-break-inside: avoid;
+        margin-bottom: 3mm !important;
+        display: flex;
+        justify-content: space-between;
+    }
+    body.print-thermal .task-description { flex: 1; margin-right: 10mm; }
+    body.print-thermal .task-description textarea {
+        border: 0.5px solid #000 !important;
+        background: transparent !important;
+        min-height: 10mm !important;
+        padding: 1mm !important;
+        font-size: 10pt !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        width: 100% !important;
+        margin: 0 !important;
+    }
+    body.print-thermal .task-hours {
+        font-size: 10pt !important;
+        white-space: nowrap;
+        margin-left: 10mm;
+        flex-shrink: 0;
+    }
+    body.print-thermal .task-hours input {
+        width: 15mm !important;
+        height: 5mm !important;
+        padding: 1mm !important;
+        border: 0.5px solid #000 !important;
+        background: transparent !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        margin: 0 !important;
+        font-size: 9pt !important;
+    }
+
+    /* Tablas materiales en térmica */
+    body.print-thermal .material-table { width: 100% !important; font-size: 8px !important; border-collapse: collapse; }
+    body.print-thermal .material-table th,
+    body.print-thermal .material-table td { padding: 1mm !important; border: 1px solid #000 !important; font-size: 8px !important; }
+    body.print-thermal .material-table input[type="text"],
+    body.print-thermal .material-table input[type="number"] { width: 100% !important; border: 1px solid #000 !important; padding: 1mm !important; margin: 0 !important; font-size: 8px !important; }
+
+    /* Encabezado en térmica */
+    body.print-thermal .form-header { text-align: center; margin-bottom: 2mm; padding-bottom: 1mm; border-bottom: 1px dashed #000; }
+    body.print-thermal .logo-container { text-align: center; margin-bottom: 1mm; }
+    body.print-thermal #company-logo { max-width: 50mm; height: auto; }
+    body.print-thermal .company-info h1 { font-size: 10px !important; margin: 1mm 0; line-height: 1.1; }
+    body.print-thermal .company-details { font-size: 8px !important; margin: 1mm 0; line-height: 1.1; }
+    body.print-thermal .intervention-number { margin-top: 1mm; text-align: right; }
+
+    /* Secciones y firmas en térmica */
+    body.print-thermal .form-section { margin: 2mm 0 !important; padding: 2mm !important; border: 1px solid #000 !important; page-break-inside: avoid; }
+    body.print-thermal .signatures { display: flex; justify-content: space-between; margin-top: 4mm; page-break-inside: avoid; }
+    body.print-thermal .signature-box { width: 45%; text-align: center; }
+    body.print-thermal .signature-line { border-top: 1px solid #000; margin: 15px 0 3px; height: 1px; }
+    body.print-thermal .signature-box p { margin: 0; font-size: 8px; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    .form-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo-container,
+    .company-info,
+    .intervention-number {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .material-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .signatures {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .signature-box {
+        width: 100%;
+    }
+
+    .signature-line {
+        margin: 20px 0 3px;
+    }
+}

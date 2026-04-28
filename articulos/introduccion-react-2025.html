@@ -1,0 +1,349 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción a React en 2025 | KDTech</title>
+    <meta name="description" content="Todo lo que necesitas saber para comenzar con el desarrollo frontend usando React en el año 2025. Aprende los conceptos fundamentales y las últimas caracterí­sticas.">
+    <meta name="keywords" content="react, frontend, javascript, desarrollo web, react 2025, hooks, componentes, next.js">
+    <meta name="author" content="KDTech">
+    <link rel="icon" type="image/png" href="/img/logo_small.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .article-header {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #00d4ff 0%, #090979 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .article-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .article-content h2 {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: #00d4ff;
+        }
+        .article-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    background-color: var(--primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 1.5rem 0 2rem 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.back-link:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    color: white;
+}
+
+.back-link i {
+    transition: transform 0.3s ease;
+}
+
+.back-link:hover i {
+    transform: translateX(-3px);
+}
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .code-block {
+            background-color: #2d2d2d;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        .feature-box {
+            background-color: rgba(0, 212, 255, 0.1);
+            border-left: 4px solid #00d4ff;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .feature-box h4 {
+            margin-top: 0;
+            color: #00d4ff;
+        }
+        .tip {
+            background-color: rgba(255, 255, 0, 0.1);
+            border-left: 4px solid #ffd700;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container">
+        <!-- Header se cargará aquí­ dinámicamente -->
+    </div>
+
+    <main class="container">
+        <a href="/blog.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Volver al blog
+        </a>
+        
+        <article class="article-container">
+            <header class="article-header">
+                <div class="container">
+                    
+                    <h1>Introducción a React en 2025</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar-alt"></i> 5 Mayo 2025</span>
+                        <span><i class="far fa-clock"></i> 8 min de lectura</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="article-content">
+                <img src="https://via.placeholder.com/800x450/00d4ff/ffffff?text=React+2025" alt="React en 2025" class="article-image">
+                
+                <p>React ha evolucionado significativamente desde su lanzamiento, y en 2025 sigue siendo una de las bibliotecas de JavaScript más populares para construir interfaces de usuario. En esta guí­a, exploraremos las caracterí­sticas más relevantes y las mejores prácticas actuales para desarrollar con React.</p>
+
+                <div class="feature-box">
+                    <h4>¿Por qué seguir usando React en 2025?</h4>
+                    <p>React sigue siendo la elección principal para el desarrollo frontend gracias a su ecosistema maduro, gran comunidad y rendimiento optimizado. Las mejoras recientes en el motor de renderizado y las herramientas de desarrollo lo hacen aún más potente.</p>
+                </div>
+
+                <h2>1. Configuración Inicial</h2>
+                <p>La forma recomendada de comenzar un nuevo proyecto React es usando Vite, que ha reemplazado a Create React App como la opción estándar:</p>
+                
+                <div class="code-block">
+                    <code>
+                        # Crear una nueva aplicación con Vite + React + TypeScript<br>
+                        npm create vite@latest mi-aplicacion -- --template react-ts<br>
+                        cd mi-aplicacion<br>
+                        npm install<br>
+                        npm run dev
+                    </code>
+                </div>
+
+                <h2>2. Novedades en React 2025</h2>
+                
+                <h3>Server Components por defecto</h3>
+                <p>Los Server Components ahora son la configuración predeterminada en Next.js 14+, permitiendo un mejor rendimiento al ejecutar componentes en el servidor cuando es posible.</p>
+                
+                <div class="code-block">
+                    <code>
+                        // app/page.jsx - Un Server Component por defecto<br>
+                        import { Suspense } from 'react'<br>
+                        import { fetchData } from './lib/data'<br><br>
+                        
+                        // Este componente se ejecuta en el servidor<br>
+                        export default async function Page() {<br>
+                        &nbsp;&nbsp;const data = await fetchData()<br>
+                        &nbsp;&nbsp;return (
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;Suspense fallback={"Cargando..."}&gt;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ClientComponent data={data} /&gt;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/Suspense&gt;
+                        &nbsp;&nbsp;)
+                        }
+                    </code>
+                </div>
+
+                <h3>Acciones de Servidor</h3>
+                <p>Las Server Actions permiten ejecutar código del lado del servidor directamente desde los componentes, simplificando la gestión de formularios y mutaciones de datos.</p>
+
+                <div class="code-block">
+                    <code>
+                        // app/actions.js<br>
+                        'use server'<br><br>
+                        export async function createPost(formData) {<br>
+                        &nbsp;&nbsp;const title = formData.get('title')<br>
+                        &nbsp;&nbsp;const content = formData.get('content')<br>
+                        &nbsp;&nbsp;// Validación y guardado en base de datos<br>
+                        &nbsp;&nbsp;return { success: true }<br>
+                        }<br><br>
+
+                        // app/page.jsx<br>
+                        import { createPost } from './actions'<br><br>
+                        
+                        export default function CreatePost() {<br>
+                        &nbsp;&nbsp;return (
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;form action={createPost}&gt;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input name="title" placeholder="Tí­tulo" required /&gt;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;textarea name="content" placeholder="Contenido" required&gt;&lt;/textarea&gt;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button type="submit"&gt;Publicar&lt;/button&gt;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/form&gt;
+                        &nbsp;&nbsp;)
+                        }
+                    </code>
+                </div>
+
+                <h2>3. Gestión de Estado en 2025</h2>
+                
+                <h3>Context API + useReducer</h3>
+                <p>Para el estado global, la combinación de Context API con useReducer sigue siendo una excelente opción para aplicaciones medianas.</p>
+
+                <div class="code-block">
+                    <code>
+                        // context/AppContext.jsx<br>
+                        import { createContext, useContext, useReducer } from 'react'<br><br>
+
+                        const AppContext = createContext()<br><br>
+
+                        function appReducer(state, action) {<br>
+                        &nbsp;&nbsp;switch (action.type) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;case 'ADD_ITEM':<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return { ...state, items: [...state.items, action.payload] }<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;default:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return state<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br><br>
+
+                        export function AppProvider({ children }) {<br>
+                        &nbsp;&nbsp;const [state, dispatch] = useReducer(appReducer, { items: [] })<br>
+                        &nbsp;&nbsp;return (
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;AppContext.Provider value={{ state, dispatch }}&gt;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{children}
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/AppContext.Provider&gt;
+                        &nbsp;&nbsp;)
+                        }<br><br>
+
+                        export const useAppContext = () => useContext(AppContext)
+                    </code>
+                </div>
+
+                <h3>Librerí­as de estado recomendadas</h3>
+                <ul>
+                    <li><strong>Zustand</strong>: Ligero y fácil de usar para la mayorí­a de los casos</li>
+                    <li><strong>Jotai</strong>: Excelente para estado atómico</li>
+                    <li><strong>Redux Toolkit</strong>: Para aplicaciones complejas que necesitan herramientas de desarrollo avanzadas</li>
+                </ul>
+
+                <h2>4. Estilizado en 2025</h2>
+                
+                <h3>CSS Modules con PostCSS</h3>
+                <p>Los CSS Modules siguen siendo una opción robusta y sencilla para estilizar componentes.</p>
+
+                <div class="code-block">
+                    <code>
+                        // Button.module.css<br>
+                        .primary {
+                        &nbsp;&nbsp;background: #007bff;
+                        &nbsp;&nbsp;color: white;
+                        &nbsp;&nbsp;padding: 0.5rem 1rem;
+                        &nbsp;&nbsp;border: none;
+                        &nbsp;&nbsp;border-radius: 4px;
+                        }<br><br>
+
+                        // Button.jsx<br>
+                        import styles from './Button.module.css'<br><br>
+
+                        export function Button({ children }) {
+                        &nbsp;&nbsp;return &lt;button className={styles.primary}&gt;{children}&lt;/button&gt;
+                        }
+                    </code>
+                </div>
+
+
+                <h3>Tailwind CSS</h3>
+                <p>Tailwind CSS sigue siendo extremadamente popular por su enfoque de utilidades-first.</p>
+
+                <div class="tip">
+                    <strong>Consejo:</strong> Usa la extensión oficial de VSCode para Tailwind CSS para obtener autocompletado de clases y ver los colores directamente en el editor.
+                </div>
+
+                <h2>5. Testing en React 2025</h2>
+                
+                <p>El ecosistema de testing ha madurado significativamente:</p>
+                <ul>
+                    <li><strong>Vitest</strong>: Rápido y compatible con Vite</li>
+                    <li><strong>React Testing Library</strong>: Para pruebas de integración</li>
+                    <li><strong>Cypress Component Testing</strong>: Para pruebas de componentes aislados</li>
+                    <li><strong>Playwright</strong>: Para pruebas E2E</li>
+                </ul>
+
+                <div class="code-block">
+                    <code>
+                        // Ejemplo de prueba con Vitest y React Testing Library<br>
+                        import { render, screen } from '@testing-library/react'<br>
+                        import { Button } from './Button'<br><br>
+
+                        describe('Button', () => {
+                        &nbsp;&nbsp;it('renders the button with correct text', () => {
+                        &nbsp;&nbsp;&nbsp;&nbsp;render(&lt;Button&gt;Click me&lt;/Button&gt;)
+                        &nbsp;&nbsp;&nbsp;&nbsp;expect(screen.getByText('Click me')).toBeInTheDocument()
+                        &nbsp;&nbsp;})
+                        })
+                    </code>
+                </div>
+
+                <h2>Conclusión</h2>
+                <p>React en 2025 es más potente y fácil de usar que nunca, con mejoras significativas en el rendimiento y la experiencia del desarrollador. Las Server Components, Server Actions y las mejoras en el ecosistema de herramientas hacen que sea un momento emocionante para desarrollar aplicaciones web con React.</p>
+                
+                <p>Para seguir aprendiendo, te recomendamos explorar:</p>
+                <ul>
+                    <li>La documentación oficial de React (react.dev)</li>
+                    <li>El blog de Next.js para ver las últimas actualizaciones</li>
+                    <li>La comunidad de React en Twitter y Discord</li>
+                </ul>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer se cargará aquí­ dinámicamente -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="/periodico-digital/js/config.min.js"></script>
+    <script src="/periodico-digital/js/load-header.min.js"></script>
+    <script src="/periodico-digital/js/load-footer.min.js"></script>
+    <script src="/periodico-digital/js/navbar.min.js"></script>
+    <script>
+        // Cargar header y footer
+        document.addEventListener('DOMContentLoaded', function() {
+            loadHeader('header-container');
+            loadFooter('footer-container');
+        });
+    </script>
+</body>
+</html>
+
+

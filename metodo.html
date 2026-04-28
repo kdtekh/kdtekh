@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método KDTekh - Nuestro Enfoque Educativo</title>
+    <meta name="description" content="Descubre el método de enseñanza innovador de KDTekh. Aprende tecnología de forma práctica y efectiva con nuestra metodología probada.">
+    <meta name="keywords" content="método de enseñanza, educación tecnológica, aprendizaje práctico, formación en programación, KDTekh">
+    <meta name="author" content="KDTech">
+    <link rel="icon" type="image/png" href="/img/logo_small.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Estilos específicos para la página de método */
+        .method-hero {
+            background: linear-gradient(135deg, var(--primary), #6a11cb);
+            color: white;
+            padding: 6rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .method-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .method-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .method-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .method-section {
+            margin-bottom: 4rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .method-content {
+            padding: 2.5rem;
+        }
+
+        .method-content h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .method-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), #8a2be2);
+            border-radius: 2px;
+        }
+
+        .method-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .method-image {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .method-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .method-section:hover .method-image img {
+            transform: scale(1.03);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(156, 102, 255, 0.1) 0%, rgba(106, 17, 203, 0.1) 100%);
+            border-radius: 12px;
+            margin-top: 4rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--text-secondary);
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(156, 102, 255, 0.3);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(156, 102, 255, 0.4);
+            background: var(--primary-dark);
+        }
+
+        @media (max-width: 768px) {
+            .method-hero h1 {
+                font-size: 2.2rem;
+                padding: 0 1rem;
+            }
+            
+            .method-hero p {
+                padding: 0 1rem;
+            }
+            
+            .method-content {
+                padding: 1.5rem;
+            }
+            
+            .method-image {
+                height: 300px;
+            }
+            
+            .cta-section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+<br>
+<br>
+<br>
+<main>
+        <!-- Hero Section -->
+        <section class="method-hero">
+            <div class="container">
+                <h1>Nuestro Método de Enseñanza</h1>
+                <p>Descubre cómo nuestra metodología innovadora y centrada en el estudiante transforma el aprendizaje en una experiencia efectiva y enriquecedora.</p>
+            </div>
+        </section>
+
+        <!-- Sección 1: Introducción -->
+        <section class="method-container">
+            <div class="method-content">
+                    <h2>Instalaciones</h2>
+                    <p>Nuestro centro cuenta con instalaciones diseñadas específicamente para ofrecer la mejor experiencia de aprendizaje. Cada espacio ha sido cuidadosamente planificado para fomentar la creatividad, la colaboración y la innovación.</p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h3>Aulas Tecnológicas</h3>
+                            <p>Equipadas con ordenadores de última generación y software especializado para cada curso.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Espacios Colaborativos</h3>
+                            <p>Áreas diseñadas para el trabajo en equipo y el intercambio de ideas entre estudiantes.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-wifi"></i>
+                            </div>
+                            <h3>Conexión de Alta Velocidad</h3>
+                            <p>Infraestructura de red robusta para garantizar un aprendizaje sin interrupciones.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección: Centro piloto -->
+            <div class="method-section">
+                <div class="method-content">
+                    <h2>Centro piloto</h2>
+                    <p>Un espacio educativo revolucionario diseñado específicamente para el aprendizaje tecnológico, donde cada detalle arquitectónico potencia la experiencia formativa. Nuestro centro combina diseño inteligente con tecnología de vanguardia para crear un ecosistema educativo único.</p>
+                    
+                    <div class="pilot-center-grid" style="margin-top: 2rem; display: grid; grid-template-columns: 1fr; gap: 2rem;">
+                        <div>
+                            <h3 style="color: var(--primary); margin-bottom: 1rem; font-size: 1.5rem;">Diseño Inteligente para el Aprendizaje</h3>
+                            <img src="/img/método/PlanoFinal.png" alt="Plano del Centro Piloto" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                            <div style="margin-top: 1.5rem;">
+                                <p>Nuestro diseño espacial está meticulosamente planificado para:</p>
+                                <ul style="color: var(--text-secondary); line-height: 1.8; margin-top: 1rem; padding-left: 1.2rem;">
+                                    <li>Fomentar la colaboración con espacios modulares adaptables</li>
+                                    <li>Optimizar el flujo de trabajo entre áreas de formación especializada</li>
+                                    <li>Integrar tecnología de manera natural en el entorno de aprendizaje</li>
+                                    <li>Crear un ecosistema que potencia la innovación educativa</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--primary); margin-bottom: 1rem; font-size: 1.5rem;">Ambiente de Aprendizaje Avanzado</h3>
+                            <img src="/img/método/farclass.jpeg" alt="Vista de un aula de formación" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                            <div style="margin-top: 1.5rem;">
+                                <p>Nuestras instalaciones están diseñadas para ofrecer:</p>
+                                <ul style="color: var(--text-secondary); line-height: 1.8; margin-top: 1rem; padding-left: 1.2rem;">
+                                    <li>Espacios versátiles que se adaptan a diferentes metodologías de enseñanza</li>
+                                    <li>Tecnología integrada para un aprendizaje inmersivo</li>
+                                    <li>Zonas de trabajo colaborativo para proyectos en equipo</li>
+                                    <li>Ambientes que inspiran creatividad e innovación</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección: Nuestra Metodología -->
+            <div class="method-section" style="background: linear-gradient(135deg, var(--bg-secondary), #1a1f2e);">
+                <div class="method-content">
+                    <h2 style="color: var(--primary);">Nuestro Enfoque Educativo</h2>
+                    <p style="color: var(--text-secondary);">Un sistema de aprendizaje progresivo que se adapta a tus objetivos profesionales, combinando formación técnica con desarrollo de habilidades prácticas.</p>
+                    
+                    <div style="margin-top: 2.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                        <!-- Nivel Base -->
+                        <div style="background: rgba(255,255,255,0.05); border-radius: 10px; padding: 1.5rem; transition: transform 0.3s ease;">
+                            <div style="background: var(--primary); width: 50px; height: 4px; margin-bottom: 1.5rem;"></div>
+                            <h3 style="color: white; margin-bottom: 1rem; font-size: 1.3rem;">Formación Fundamental</h3>
+                            <p style="color: var(--text-secondary); margin-bottom: 1rem;">Adquiere las competencias digitales esenciales a través de módulos prácticos y accesibles.</p>
+                            <ul style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; padding-left: 1rem;">
+                                <li>Alfabetización digital básica</li>
+                                <li>Ofimática esencial</li>
+                                <li>Introducción a la programación</li>
+                                <li>Seguridad informática básica</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Nivel Intermedio -->
+                        <div style="background: rgba(255,255,255,0.05); border-radius: 10px; padding: 1.5rem; transition: transform 0.3s ease;">
+                            <div style="background: var(--primary); width: 50px; height: 4px; margin-bottom: 1.5rem;"></div>
+                            <h3 style="color: white; margin-bottom: 1rem; font-size: 1.3rem;">Especialización</h3>
+                            <p style="color: var(--text-secondary); margin-bottom: 1rem;">Profundiza en áreas específicas de tecnología con un enfoque práctico y orientado al mercado laboral.</p>
+                            <ul style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; padding-left: 1rem;">
+                                <li>Desarrollo de software</li>
+                                <li>Redes y conectividad</li>
+                                <li>Tecnologías emergentes</li>
+                                <li>Gestión de proyectos tecnológicos</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Nivel Avanzado -->
+                        <div style="background: rgba(255,255,255,0.05); border-radius: 10px; padding: 1.5rem; transition: transform 0.3s ease;">
+                            <div style="background: var(--primary); width: 50px; height: 4px; margin-bottom: 1.5rem;"></div>
+                            <h3 style="color: white; margin-bottom: 1rem; font-size: 1.3rem;">Proyección Profesional</h3>
+                            <p style="color: var(--text-secondary); margin-bottom: 1rem;">Desarrolla proyectos reales y construye tu portafolio profesional con nuestra guía experta.</p>
+                            <ul style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; padding-left: 1rem;">
+                                <li>Proyectos integradores</li>
+                                <li>Mentorías personalizadas</li>
+                                <li>Desarrollo de portafolio</li>
+                                <li>Preparación para el mercado laboral</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 3rem; background: rgba(255,255,255,0.03); border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 0 8px 8px 0;">
+                        <h3 style="color: var(--primary); margin-bottom: 1rem; font-size: 1.3rem;">Un Ecosistema de Aprendizaje Integral</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Nuestro enfoque combina lo mejor de la educación presencial y digital, creando una experiencia de aprendizaje continua y adaptada a las necesidades de cada estudiante.</p>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                            <div>
+                                <div style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <h4 style="color: white; margin-bottom: 0.5rem; font-size: 1.1rem;">Aprendizaje Práctico</h4>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem;">Ejercicios y proyectos reales que desarrollan habilidades aplicables.</p>
+                            </div>
+                            <div>
+                                <div style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h4 style="color: white; margin-bottom: 0.5rem; font-size: 1.1rem;">Seguimiento Personalizado</h4>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem;">Acompañamiento constante en tu desarrollo profesional.</p>
+                            </div>
+                            <div>
+                                <div style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h4 style="color: white; margin-bottom: 0.5rem; font-size: 1.1rem;">Comunidad Activa</h4>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem;">Conecta con profesionales y compañeros de trayectoria similar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 2: Metodología -->
+            <div class="method-section" style="margin-top: 3rem;">
+                <div class="method-content">
+                    <h2>Metodología Práctica</h2>
+                    <p>Nuestro enfoque se basa en el aprendizaje mediante la práctica. Los estudiantes trabajan en proyectos reales desde el primer día, adquiriendo experiencia práctica que podrán aplicar en el mundo laboral.</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.3rem;">Características principales:</h3>
+                        <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.2rem;">
+                            <li style="margin-bottom: 0.5rem;">Aprendizaje basado en proyectos reales</li>
+                            <li style="margin-bottom: 0.5rem;">Seguimiento personalizado por parte de instructores expertos</li>
+                            <li style="margin-bottom: 0.5rem;">Acceso a recursos exclusivos y materiales actualizados</li>
+                            <li style="margin-bottom: 0.5rem;">Oportunidades de networking con profesionales del sector</li>
+                            <li>Preparación para certificaciones oficiales</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Sección 3: Tecnología -->
+            <div class="method-section" style="margin-top: 3rem;">
+
+                <div class="method-content">
+                    <h2>Tecnología de Vanguardia</h2>
+                    <p>Mantenemos nuestras instalaciones y equipos actualizados con las últimas tecnologías del mercado para garantizar que nuestros estudiantes aprendan con las herramientas que utilizarán en su vida profesional.</p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h3>Laboratorios Especializados</h3>
+                            <p>Espacios equipados con tecnología específica para cada área de estudio.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h3>Plataforma en la Nube</h3>
+                            <p>Acceso a recursos educativos desde cualquier lugar y en cualquier momento.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3>Herramientas Profesionales</h3>
+                            <p>Software y hardware de nivel profesional para un aprendizaje de calidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección CTA -->
+            <div class="cta-section">
+                <h2>¿Listo para comenzar tu viaje de aprendizaje?</h2>
+                <p>Únete a nuestra comunidad de estudiantes y da el primer paso hacia una carrera exitosa en tecnología.</p>
+                <a href="/contacto.html" class="btn-cta">Inscríbete Ahora</a>
+            </div>
+        </section>
+    </main>
+
+        <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Sección KDTekh con Contacto -->
+                <div class="footer-section">
+                    <img src="/img/logo.png" alt="KDTekh Logo" class="footer-logo">
+                    <p>Transformando carreras a través de educación tecnológica de vanguardia. Comprometidos con la excelencia en formación digital.</p>
+                    
+                    <div class="contact-info" style="margin-top: 20px;">
+                        <p><i class="fas fa-envelope"></i> kdtekh@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +34 666 699 328</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Madrid, España</p>
+                    </div>
+                </div>
+
+                <!-- Enlaces Rápidos -->
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="/"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="/cursos.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+                        <li><a href="/blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                        <li><a href="/sobre-nosotros.html"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+                        <li><a href="/contacto.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Síguenos -->
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <p>Únete a una comunidad de profesionales tech en crecimiento. Contenido exclusivo, ofertas de empleo y primeros accesos a nuevos programas formativos.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.youtube.com/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-section newsletter">
+                    <h3>¡Mantente Actualizado!</h3>
+                    <p>Suscríbete a nuestro boletín para recibir las últimas noticias, cursos y ofertas exclusivas directamente en tu bandeja de entrada.</p>
+                    <form class="newsletter-form" id="footerNewsletterForm" action="/php/newsletter.php" method="POST">
+                        <!-- Token CSRF -->
+                        <input type="hidden" name="csrf_token" id="newsletterCsrfToken" value="">
+                        <div class="form-group">
+                            <input type="email" 
+                                   name="email" 
+                                   id="footerNewsletterEmail" 
+                                   placeholder="Tu correo electrónico" 
+                                   required 
+                                   aria-label="Correo electrónico"
+                                   class="newsletter-email">
+                            <button type="submit" 
+                                    class="btn-submit" 
+                                    aria-label="Suscribirse"
+                                    id="newsletterSubmitBtn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span class="btn-text">Suscribirse</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                &copy; <span id="currentYear"></span> KD Tech. Todos los derechos reservados. | 
+                <a href="aviso-legal.html">Aviso Legal</a> | 
+                <a href="politica-privacidad.html">Política de Privacidad</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="/js/theme-switcher.js"></script>
+    <script src="/js/main.min.js"></script>
+    <script src="/js/load-header.min.js"></script>
+    <script src="/js/header.js"></script>
+    <script>
+        // Actualizar el año del copyright
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Inicialización del menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('nav ul');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    nav.classList.toggle('show');
+                    this.classList.toggle('active');
+                });
+            }
+            
+            // Cerrar menú al hacer clic en un enlace
+            document.querySelectorAll('nav ul li a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('show');
+                    if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

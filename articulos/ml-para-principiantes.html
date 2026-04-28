@@ -1,0 +1,406 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning para Principiantes | KDTech</title>
+    <meta name="description" content="Introducción completa al Machine Learning para principiantes. Conceptos básicos, algoritmos comunes y cómo empezar en el mundo de la inteligencia artificial.">
+    <meta name="keywords" content="machine learning, inteligencia artificial, IA, aprendizaje automático, data science, python, scikit-learn, tensorflow">
+    <meta name="author" content="KDTech">
+    <link rel="icon" type="image/png" href="/img/logo_small.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .article-header {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .article-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .article-content h2 {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: #FF6B6B;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #FF6B6B;
+        }
+        .article-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #4ECDC4;
+        }
+        .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    background-color: var(--primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 1.5rem 0 2rem 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.back-link:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    color: white;
+}
+
+.back-link i {
+    transition: transform 0.3s ease;
+}
+
+.back-link:hover i {
+    transform: translateX(-3px);
+}
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .code-block {
+            background-color: #2d2d2d;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+            border-left: 4px solid #FF6B6B;
+        }
+        .tip-box {
+            background-color: rgba(255, 107, 107, 0.1);
+            border-left: 4px solid #FF6B6B;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .tip-box h4 {
+            margin-top: 0;
+            color: #FF6B6B;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .ml-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .ml-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .ml-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .ml-card h4 {
+            margin-top: 0;
+            color: #FF6B6B;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .algorithm {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 8px;
+            border-left: 4px solid #4ECDC4;
+        }
+        .algorithm h4 {
+            margin-top: 0;
+            color: #4ECDC4;
+        }
+        .algorithm ul {
+            padding-left: 1.5rem;
+        }
+        .algorithm li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container">
+        <!-- Header se cargará aquí­ dinámicamente -->
+    </div>
+
+    <main class="container">
+        <a href="/blog.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Volver al blog
+        </a>
+        
+        <article class="article-container">
+            <header class="article-header">
+                <div class="container">
+                    
+                    <h1>Machine Learning para Principiantes</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar-alt"></i> 15 Abril 2025</span>
+                        <span><i class="far fa-clock"></i> 8 min de lectura</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="article-content">
+                <img src="https://via.placeholder.com/900x450/FF6B6B/FFFFFF?text=Machine+Learning+para+Principiantes" alt="Machine Learning para Principiantes" class="article-image">
+                
+                <p>El Machine Learning (Aprendizaje Automático) es una de las ramas más emocionantes y demandadas de la inteligencia artificial. En este artí­culo, te guiaré a través de los conceptos fundamentales del Machine Learning, sus aplicaciones y cómo puedes comenzar tu viaje en este fascinante campo.</p>
+
+                <div class="tip-box">
+                    <h4><i class="fas fa-lightbulb"></i> ¿Qué es el Machine Learning?</h4>
+                    <p>El Machine Learning es un campo de la inteligencia artificial que permite a los sistemas aprender y mejorar automáticamente a partir de la experiencia, sin ser programados explí­citamente. En lugar de seguir instrucciones fijas, los modelos de ML utilizan algoritmos que construyen un modelo basado en datos de entrenamiento para hacer predicciones o decisiones.</p>
+                </div>
+
+                <h2>1. Tipos de Machine Learning</h2>
+                
+                <div class="ml-grid">
+                    <div class="ml-card">
+                        <h4><i class="fas fa-chart-line"></i> Aprendizaje Supervisado</h4>
+                        <p>El modelo aprende a partir de datos etiquetados, donde cada ejemplo de entrenamiento está acompañado de la respuesta correcta. Ideal para problemas de clasificación y regresión.</p>
+                    </div>
+                    
+                    <div class="ml-card">
+                        <h4><i class="fas fa-project-diagram"></i> Aprendizaje No Supervisado</h4>
+                        <p>El modelo trabaja con datos sin etiquetar y debe encontrar patrones y relaciones por sí­ mismo. íštil para clustering y reducción de dimensionalidad.</p>
+                    </div>
+                    
+                    <div class="ml-card">
+                        <h4><i class="fas fa-robot"></i> Aprendizaje por Refuerzo</h4>
+                        <p>El modelo aprende a través de la interacción con un entorno, recibiendo recompensas o castigos por sus acciones. Común en robótica y juegos.</p>
+                    </div>
+                </div>
+
+                <h2>2. Conceptos Fundamentales</h2>
+                
+                <h3>Caracterí­sticas (Features)</h3>
+                <p>Son las variables de entrada que utiliza el modelo para hacer predicciones. Por ejemplo, para predecir el precio de una casa, las caracterí­sticas podrí­an incluir el tamaño, número de habitaciones y ubicación.</p>
+                
+                <h3>Etiquetas (Labels)</h3>
+                <p>Son las salidas o predicciones que queremos que el modelo aprenda a predecir. Siguiendo el ejemplo anterior, la etiqueta serí­a el precio de la casa.</p>
+                
+                <h3>Entrenamiento y Prueba</h3>
+                <p>Los datos generalmente se dividen en conjuntos de entrenamiento (para enseñar al modelo) y prueba (para evaluar su rendimiento). Una división común es 80% entrenamiento y 20% prueba.</p>
+                
+                <div class="code-block">
+                    <code>
+                        # Ejemplo de división de datos en Python
+                        from sklearn.model_selection import train_test_split
+                        
+                        # X son las caracterí­sticas, y es la etiqueta
+                        X_train, X_test, y_train, y_test = train_test_split(
+                            X, y, test_size=0.2, random_state=42
+                        )
+                    </code>
+                </div>
+
+                <h2>3. Algoritmos Comunes de Machine Learning</h2>
+                
+                <div class="algorithm">
+                    <h4>Regresión Lineal</h4>
+                    <p>Predice un valor continuo basado en una relación lineal entre las variables de entrada y salida.</p>
+                    <ul>
+                        <li><strong>Uso:</strong> Predecir precios, estimar valores</li>
+                        <li><strong>Ventajas:</strong> Simple, fácil de interpretar</li>
+                        <li><strong>Limitaciones:</strong> Asume una relación lineal</li>
+                    </ul>
+                </div>
+                
+                <div class="algorithm">
+                    <h4>írboles de Decisión</h4>
+                    <p>Divide los datos en subconjuntos basados en el valor de las caracterí­sticas, tomando decisiones secuenciales.</p>
+                    <ul>
+                        <li><strong>Uso:</strong> Clasificación y regresión</li>
+                        <li><strong>Ventajas:</strong> Fácil de entender, maneja datos no lineales</li>
+                        <li><strong>Limitaciones:</strong> Propenso a sobreajuste</li>
+                    </ul>
+                </div>
+                
+                <div class="algorithm">
+                    <h4>Redes Neuronales</h4>
+                    <p>Modelos inspirados en el cerebro humano, compuestos por capas de nodos interconectados.</p>
+                    <ul>
+                        <li><strong>Uso:</strong> Visión por computadora, procesamiento de lenguaje natural</li>
+                        <li><strong>Ventajas:</strong> Alto rendimiento en datos complejos</li>
+                        <li><strong>Limitaciones:</strong> Requiere muchos datos, difí­cil de interpretar</li>
+                    </ul>
+                </div>
+
+                <h2>4. Proceso de un Proyecto de Machine Learning</h2>
+                
+                <ol>
+                    <li><strong>Definición del Problema:</strong> Entender qué se quiere resolver.</li>
+                    <li><strong>Recopilación de Datos:</strong> Obtener datos relevantes y de calidad.</li>
+                    <li><strong>Preprocesamiento:</strong> Limpiar y transformar los datos.</li>
+                    <li><strong>Selección de Caracterí­sticas:</strong> Elegir las variables más relevantes.</li>
+                    <li><strong>Selección del Modelo:</strong> Elegir el algoritmo adecuado.</li>
+                    <li><strong>Entrenamiento:</strong> Ajustar el modelo a los datos.</li>
+                    <li><strong>Evaluación:</strong> Medir el rendimiento del modelo.</li>
+                    <li><strong>Despliegue:</strong> Implementar el modelo en producción.</li>
+                    <li><strong>Monitoreo:</strong> Supervisar el rendimiento con el tiempo.</li>
+                </ol>
+
+                <h2>5. Herramientas Populares</h2>
+                
+                <div class="ml-grid">
+                    <div class="ml-card">
+                        <h4><i class="fab fa-python"></i> Python</h4>
+                        <p>El lenguaje más popular para ML, con bibliotecas como NumPy, Pandas, Matplotlib y Scikit-learn.</p>
+                    </div>
+                    
+                    <div class="ml-card">
+                        <h4><i class="fas fa-cube"></i> TensorFlow</h4>
+                        <p>Biblioteca de código abierto desarrollada por Google para aprendizaje automático e inteligencia artificial.</p>
+                    </div>
+                    
+                    <div class="ml-card">
+                        <h4><i class="fas fa-brain"></i> PyTorch</h4>
+                        <p>Desarrollado por Facebook, es popular para investigación y desarrollo de redes neuronales.</p>
+                    </div>
+                    
+                    <div class="ml-card">
+                        <h4><i class="fas fa-chart-bar"></i> Scikit-learn</h4>
+                        <p>Una de las bibliotecas más completas para ML clásico en Python.</p>
+                    </div>
+                </div>
+
+                <h2>6. Cómo Empezar con Machine Learning</h2>
+                
+                <h3>1. Aprende los Fundamentos de Python</h3>
+                <p>Python es el lenguaje más utilizado en ML. Familiarí­zate con su sintaxis y bibliotecas básicas.</p>
+                
+                <h3>2. Estudia Matemáticas Básicas</h3>
+                <p>ílgebra lineal, cálculo, probabilidad y estadí­stica son fundamentales para entender cómo funcionan los algoritmos.</p>
+                
+                <h3>3. Toma Cursos en Lí­nea</h3>
+                <p>Plataformas como Coursera, edX y Udacity ofrecen excelentes cursos introductorios de ML.</p>
+                
+                <h3>4. Practica con Proyectos</h3>
+                <p>Comienza con conjuntos de datos pequeños y proyectos simples, como predicción de precios o clasificación de imágenes.</p>
+                
+                <div class="code-block">
+                    <code>
+                        # Ejemplo simple de regresión lineal con scikit-learn
+                        from sklearn.linear_model import LinearRegression
+                        from sklearn.metrics import mean_squared_error
+                        import numpy as np
+                        
+                        # Datos de ejemplo
+                        X = np.array([[1], [2], [3], [4], [5]])  # Caracterí­stica
+                        y = np.array([2, 4, 5, 4, 5])             # Etiqueta
+                        
+                        # Crear y entrenar el modelo
+                        model = LinearRegression()
+                        model.fit(X, y)
+                        
+                        # Hacer predicciones
+                        predictions = model.predict(X)
+                        
+                        # Evaluar el modelo
+                        mse = mean_squared_error(y, predictions)
+                        print(f"Error cuadrático medio: {mse:.2f}")
+                    </code>
+                </div>
+
+                <h2>7. Aplicaciones del Machine Learning</h2>
+                
+                <div class="ml-grid">
+                    <div class="ml-card">
+                        <h4><i class="fas fa-comment-dots"></i> Chatbots</h4>
+                        <p>Asistentes virtuales que entienden y responden al lenguaje natural.</p>
+                    </div>
+                    
+                    <div class="ml-card">
+                        <h4><i class="fas fa-camera"></i> Visión por Computadora</h4>
+                        <p>Reconocimiento de imágenes, detección de objetos y más.</p>
+                    </div>
+                    
+                    <div class="ml-card">
+                        <h4><i class="fas fa-stethoscope"></i> Diagnóstico Médico</h4>
+                        <p>Ayuda en el diagnóstico de enfermedades a partir de imágenes médicas.</p>
+                    </div>
+                    
+                    <div class="ml-card">
+                        <h4><i class="fas fa-shopping-cart"></i> Recomendaciones</h4>
+                        <p>Sistemas de recomendación como los de Netflix o Amazon.</p>
+                    </div>
+                </div>
+
+                <h2>Conclusión</h2>
+                <p>El Machine Learning es un campo emocionante y en constante evolución que está transformando industrias enteras. Aunque puede parecer abrumador al principio, con los recursos adecuados y práctica constante, cualquiera puede comenzar a construir modelos de ML.</p>
+                
+                <p>Recuerda que el aprendizaje es un viaje. Comienza con los conceptos básicos, practica con proyectos pequeños y gradualmente avanza hacia temas más complejos. ¡El mundo del Machine Learning está lleno de oportunidades para aquellos dispuestos a aprender!</p>
+                
+                <div class="tip-box">
+                    <h4><i class="fas fa-book"></i> Recursos Adicionales</h4>
+                    <ul>
+                        <li><a href="https://www.coursera.org/learn/machine-learning" target="_blank">Curso de Machine Learning de Andrew Ng</a></li>
+                        <li><a href="https://scikit-learn.org/stable/" target="_blank">Documentación de scikit-learn</a></li>
+                        <li><a href="https://www.kaggle.com/" target="_blank">Kaggle</a> - Para practicar con conjuntos de datos reales</li>
+                        <li><a href="https://www.fast.ai/" target="_blank">Fast.ai</a> - Cursos prácticos de deep learning</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer se cargará aquí­ dinámicamente -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="/periodico-digital/js/config.min.js"></script>
+    <script src="/periodico-digital/js/load-header.min.js"></script>
+    <script src="/periodico-digital/js/load-footer.min.js"></script>
+    <script src="/periodico-digital/js/navbar.min.js"></script>
+    <script>
+        // Cargar header y footer
+        document.addEventListener('DOMContentLoaded', function() {
+            loadHeader('header-container');
+            loadFooter('footer-container');
+        });
+    </script>
+</body>
+</html>
+
+

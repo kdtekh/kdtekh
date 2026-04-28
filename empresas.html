@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark" itemscope itemtype="https://schema.org/Organization">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    
+    <!-- Primary Meta Tags -->
+    <title>Soluciones Empresariales | Formación Tecnológica para Empresas | KDTech</title>
+    <meta name="title" content="Soluciones Empresariales | Formación Tecnológica para Empresas | KDTech">
+    <meta name="description" content="Capacitación tecnológica para empresas. Mejora las habilidades digitales de tu equipo con nuestros programas de formación corporativa en programación, ciberseguridad y transformación digital.">
+    <meta name="keywords" content="formación empresas, capacitación tecnológica, cursos para empresas, desarrollo profesional, formación corporativa, upskilling tecnológico, digitalización empresarial, transformación digital, KDTech empresas">
+    <meta name="author" content="KDTech">
+    <link rel="canonical" href="https://kdtekh.com/empresas.html">
+    
+    <!-- Favicon -->
+        <link rel="icon" type="image/png" href="/img/logo_small.png">
+        <link rel="icon" type="image/png" href="/img/logo_small.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#1a365d">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kdtekh.com/empresas.html">
+    <meta property="og:title" content="Soluciones Empresariales | Formación Tecnológica para Empresas | KDTech">
+    <meta property="og:description" content="Capacitación tecnológica para empresas. Mejora las habilidades digitales de tu equipo con nuestros programas de formación corporativa en programación, ciberseguridad y transformación digital.">
+    <meta property="og:image" content="https://kdtekh.com/img/og-empresas.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kdtekh.com/empresas.html">
+    <meta property="twitter:title" content="Soluciones Empresariales | Formación Tecnológica para Empresas | KDTech">
+    <meta property="twitter:description" content="Capacitación tecnológica para empresas. Mejora las habilidades digitales de tu equipo con nuestros programas de formación corporativa.">
+    <meta property="twitter:image" content="https://kdtekh.com/img/og-empresas.jpg">
+    
+    <!-- Preconnect a recursos externos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Preload de recursos críticos -->
+    <link rel="preload" href="/css/styles.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="/css/styles.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Schema.org para la organización -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "KDTech",
+        "url": "https://kdtekh.com",
+        "logo": "https://kdtekh.com/img/logo.png",
+        "description": "Formación tecnológica especializada para empresas y profesionales",
+        "sameAs": [
+            "https://www.facebook.com/kdtekhofficial",
+            "https://twitter.com/kdtekhofficial",
+            "https://www.linkedin.com/company/kdtekh"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+34-XXX-XXX-XXX",
+            "contactType": "customer service",
+            "availableLanguage": ["Spanish", "English"],
+            "areaServed": "ES"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Valencia",
+            "addressRegion": "Valencia",
+            "addressCountry": "ES"
+        }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Carga del script de Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Estilos generales */
+        .blog-hero {
+            background: linear-gradient(135deg, var(--primary), #1a365d);
+            color: white;
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .blog-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .search-bar {
+            max-width: 600px;
+            margin: 2rem auto;
+            display: flex;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-bar input {
+            flex: 1;
+            padding: 15px 25px;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .search-bar button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .search-bar button:hover {
+            background: #4a2d8a;
+        }
+        
+        .category-filters {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .category-btn {
+            padding: 8px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: transparent;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .category-btn:hover,
+        .category-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .enterprise-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .card {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-container {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-container h3 {
+            margin-top: 0;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+<br>
+    <main>
+        <section class="blog-hero" itemscope itemtype="https://schema.org/WebPage">
+            <div class="container">
+                <h1 itemprop="headline">Soluciones Tecnológicas para Empresas</h1>
+                <p itemprop="description">Mejora las habilidades de tu equipo con nuestras soluciones formativas en tecnología y transformación digital</p>
+            </div>
+        </section>
+
+        <div class="enterprise-container" itemscope itemtype="https://schema.org/ItemList">
+            <div class="card" itemscope itemtype="https://schema.org/Service">
+                <h2 itemprop="name">Nuestros Servicios para Empresas</h2>
+                <p itemprop="description">Ofrecemos soluciones personalizadas para mejorar las competencias tecnológicas de tu equipo y potenciar la transformación digital de tu organización.</p>
+                <meta itemprop="provider" itemscope itemtype="https://schema.org/EducationalOrganization" itemref="publisher" content="KDTech">
+                <meta itemprop="serviceType" content="Formación corporativa">
+                <meta itemprop="areaServed" content="España">
+                <meta itemprop="availableChannel" content="Online">
+                <meta itemprop="isRelatedTo" content="Formación tecnológica">
+                
+                <h3 style="margin-top: 2rem;" id="charlas-didacticas">Charlas Didácticas</h3>
+                <div class="table-responsive" itemscope itemtype="https://schema.org/ItemList">
+                    <table aria-labelledby="charlas-didacticas" role="table">
+                        <caption class="sr-only">Lista de charlas didácticas disponibles para empresas</caption>
+                        <thead>
+                            <tr role="row">
+                                <th scope="col" role="columnheader">Tema</th>
+                                <th scope="col" role="columnheader">Duración</th>
+                                <th scope="col" role="columnheader">Nivel</th>
+                                <th scope="col" role="columnheader">Beneficios</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr role="row" itemprop="itemListElement" itemscope itemtype="https://schema.org/Course">
+                                <td itemprop="name">Ciberseguridad Básica</td>
+                                <td itemprop="timeRequired" content="PT2H">2 horas</td>
+                                <td><span class="badge" itemprop="educationalLevel" content="beginner">Básico</span></td>
+                                <td itemprop="description">Protección contra amenazas comunes</td>
+                                <meta itemprop="provider" content="KDTech">
+                                <meta itemprop="inLanguage" content="es-ES">
+                            </tr>
+                            <tr role="row" itemprop="itemListElement" itemscope itemtype="https://schema.org/Course">
+                                <td itemprop="name">Introducción al IoT</td>
+                                <td itemprop="timeRequired" content="PT3H">3 horas</td>
+                                <td><span class="badge" itemprop="educationalLevel" content="intermediate">Intermedio</span></td>
+                                <td itemprop="description">Fundamentos de IoT empresarial</td>
+                                <meta itemprop="provider" content="KDTech">
+                                <meta itemprop="inLanguage" content="es-ES">
+                            </tr>
+                            <tr role="row" itemprop="itemListElement" itemscope itemtype="https://schema.org/Course">
+                                <td itemprop="name">Automatización con Python</td>
+                                <td itemprop="timeRequired" content="PT4H">4 horas</td>
+                                <td><span class="badge" itemprop="educationalLevel" content="intermediate">Intermedio</span></td>
+                                <td itemprop="description">Automatización de tareas</td>
+                                <meta itemprop="provider" content="KDTech">
+                                <meta itemprop="inLanguage" content="es-ES">
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <style>
+                    .badge {
+                        display: inline-block;
+                        padding: 0.25em 0.6em;
+                        font-size: 0.85em;
+                        font-weight: 600;
+                        line-height: 1;
+                        text-align: center;
+                        white-space: nowrap;
+                        vertical-align: baseline;
+                        border-radius: 0.25rem;
+                        background-color: var(--primary);
+                        color: white;
+                    }
+                    .sr-only {
+                        position: absolute;
+                        width: 1px;
+                        height: 1px;
+                        padding: 0;
+                        margin: -1px;
+                        overflow: hidden;
+                        clip: rect(0, 0, 0, 0);
+                        white-space: nowrap;
+                        border: 0;
+                    }
+                </style>
+
+                <div class="chart-container" style="margin: 3rem 0; text-align: center;" itemscope itemtype="https://schema.org/Dataset">
+                    <h3 itemprop="name">Beneficios Potenciales para Empresas</h3>
+                    <p class="chart-description" style="max-width: 800px; margin: 0 auto 2rem; color: #A0AEC0;">
+                        Nuestros programas de formación están diseñados para impulsar el crecimiento empresarial a través de la mejora de competencias tecnológicas.
+                    </p>
+                    
+                    <div style="max-width: 800px; margin: 0 auto; height: 400px;">
+                        <canvas id="businessBenefitsChart" style="width: 100%; height: 100%;"></canvas>
+                    </div>
+                    
+                    <div style="margin-top: 1.5rem; font-size: 0.85rem; color: #9CA3AF;">
+                        * Beneficios potenciales basados en análisis de mercado y tendencias del sector
+                    </div>
+                    
+                    <meta itemprop="description" content="Beneficios potenciales de la formación tecnológica para empresas">
+                    <meta itemprop="variableMeasured" content="Mejoras en productividad, eficiencia y rentabilidad">
+                </div>
+                
+                <style>
+                    .chart-description {
+                        color: #A0AEC0;
+                        margin-bottom: 1.5rem;
+                        line-height: 1.6;
+                        text-align: center;
+                        max-width: 800px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                </style>
+
+                <section aria-labelledby="proyectos-practicos">
+                    <h3 id="proyectos-practicos">Proyectos Prácticos</h3>
+                    <p>Implementamos proyectos personalizados para tu empresa, adaptándonos a tus necesidades específicas:</p>
+                    <ul class="project-list" itemscope itemtype="https://schema.org/ItemList">
+                        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+                            <span itemprop="name">Análisis de seguridad informática</span>
+                            <meta itemprop="provider" content="KDTech">
+                            <meta itemprop="serviceType" content="Servicios de ciberseguridad">
+                        </li>
+                        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+                            <span itemprop="name">Implementación de soluciones IoT</span>
+                            <meta itemprop="provider" content="KDTech">
+                            <meta itemprop="serviceType" content="Soluciones IoT empresarial">
+                        </li>
+                        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+                            <span itemprop="name">Automatización de procesos</span>
+                            <meta itemprop="provider" content="KDTech">
+                            <meta itemprop="serviceType" content="Automatización empresarial">
+                        </li>
+                        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
+                            <span itemprop="name">Migración a la nube</span>
+                            <meta itemprop="provider" content="KDTech">
+                            <meta itemprop="serviceType" content="Migración a la nube">
+                        </li>
+                    </ul>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <a href="/contacto.html" class="btn-cta" style="display: inline-block; margin: 1rem 0; padding: 0.8rem 2rem; background: var(--primary); color: white; text-decoration: none; border-radius: 5px; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.background='#4f46e5'" onmouseout="this.style.background='var(--primary)'" aria-label="Contacta con nosotros para más información">
+                            <i class="fas fa-envelope" style="margin-right: 8px;"></i> Contáctanos para más información
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Sección KDTekh con Contacto -->
+                <div class="footer-section">
+                    <img src="/img/logo.png" alt="KDTekh Logo" class="footer-logo">
+                    <p>Transformando carreras a través de educación tecnológica de vanguardia. Comprometidos con la excelencia en formación digital.</p>
+                    
+                    <div class="contact-info" style="margin-top: 20px;">
+                        <p><i class="fas fa-envelope"></i> kdtekh@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +34 666 699 328</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Madrid, España</p>
+                    </div>
+                </div>
+
+                <!-- Enlaces Rápidos -->
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="/"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="/cursos.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+                        <li><a href="/blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                        <li><a href="/sobre-nosotros.html"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+                        <li><a href="/contacto.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Síguenos -->
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <p>Únete a una comunidad de profesionales tech en crecimiento. Contenido exclusivo, ofertas de empleo y primeros accesos a nuevos programas formativos.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.youtube.com/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-section newsletter">
+                    <h3>¡Mantente Actualizado!</h3>
+                    <p>Suscríbete a nuestro boletín para recibir las últimas noticias, cursos y ofertas exclusivas directamente en tu bandeja de entrada.</p>
+                    <form class="newsletter-form" id="footerNewsletterForm" action="/php/newsletter.php" method="POST">
+                        <!-- Token CSRF -->
+                        <input type="hidden" name="csrf_token" id="newsletterCsrfToken" value="de94a73ae5102a8b8a9ccfc36125d87e6c9efcaf64aab8857b321d7cf9a7c1b1">
+                        <div class="form-group">
+                            <input type="email" 
+                                   name="email" 
+                                   id="footerNewsletterEmail" 
+                                   placeholder="Tu correo electrónico" 
+                                   required 
+                                   aria-label="Correo electrónico"
+                                   class="newsletter-email">
+                            <button type="submit" 
+                                    class="btn-submit" 
+                                    aria-label="Suscribirse"
+                                    id="newsletterSubmitBtn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span class="btn-text">Suscribirse</span>
+                            </button>
+                        </div>
+                        <div class="newsletter-message"></div>
+                    </form>
+                    <p class="newsletter-note">Nos tomamos en serio tu privacidad. Nunca compartiremos tu información.</p>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                © <span id="currentYear">2025</span> KD Tech. Todos los derechos reservados. | 
+                <a href="aviso-legal.html">Aviso Legal</a> | 
+                <a href="politica-privacidad.html">Política de Privacidad</a>
+            </div>
+        </div>
+    </footer>
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <!-- Scripts del encabezado -->
+    <script src="/periodico-digital/js/config.min.js"></script>
+    <script src="/periodico-digital/js/load-header.min.js"></script>
+    
+    <!-- Script del gráfico simplificado -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Datos del gráfico con variación experta en marketing
+        const data = {
+            labels: [
+                'Aumento de productividad',
+                'Eficiencia operativa',
+                'Reducción de costes',
+                'Satisfacción del cliente',
+                'Ventaja competitiva'
+            ],
+            datasets: [{
+                data: [
+                    45,  // Aumento de productividad (más bajo, ya que requiere tiempo)
+                    65,  // Eficiencia operativa (impacto rápido)
+                    38,  // Reducción de costes (impacto variable)
+                    82,  // Satisfacción del cliente (alto impacto)
+                    58   // Ventaja competitiva (impacto a medio plazo)
+                ],
+                backgroundColor: [
+                    'rgba(66, 153, 225, 0.8)',    // Azul
+                    'rgba(72, 187, 120, 0.8)',    // Verde
+                    'rgba(237, 137, 54, 0.8)',    // Naranja
+                    'rgba(159, 122, 234, 0.8)',   // Púrpura
+                    'rgba(236, 72, 153, 0.8)'     // Rosa
+                ],
+                borderColor: [
+                    'rgba(66, 153, 225, 1)',
+                    'rgba(72, 187, 120, 1)',
+                    'rgba(237, 137, 54, 1)',
+                    'rgba(159, 122, 234, 1)',
+                    'rgba(236, 72, 153, 1)'
+                ],
+                borderWidth: 1,
+                hoverOffset: 10  // Efecto hover más pronunciado
+            }]
+        };
+
+        // Configuración del gráfico
+        const config = {
+            type: 'doughnut',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            color: '#E2E8F0',
+                            padding: 15,
+                            font: {
+                                size: 14
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(26, 32, 44, 0.95)',
+                        titleColor: '#fff',
+                        bodyColor: '#E5E7EB',
+                        padding: 12,
+                        cornerRadius: 6,
+                        callbacks: {
+                            label: function(context) {
+                                return context.label + ': ' + context.raw + '% de mejora potencial';
+                            },
+                            labelTextColor: function() {
+                                return '#E5E7EB';
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+
+        // Crear el gráfico
+        try {
+            const ctx = document.getElementById('businessBenefitsChart').getContext('2d');
+            new Chart(ctx, config);
+            console.log('Gráfico creado exitosamente');
+        } catch (error) {
+            console.error('Error al crear el gráfico:', error);
+        }
+    });
+    </script>
+    <!-- Scripts -->
+    <script src="/js/theme-switcher.js"></script>
+    <script src="/js/main.min.js"></script>
+    <script src="/js/load-header.min.js"></script>
+    <script src="/js/header.js"></script>
+    <script>
+        // Actualizar el año del copyright
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Inicialización del menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('nav ul');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    nav.classList.toggle('show');
+                    this.classList.toggle('active');
+                });
+            }
+            
+            // Cerrar menú al hacer clic en un enlace
+            document.querySelectorAll('nav ul li a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('show');
+                    if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

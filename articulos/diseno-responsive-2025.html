@@ -1,0 +1,417 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño Responsivo en 2025 | KDTech</title>
+    <meta name="description" content="Descubre las mejores prácticas y tendencias actuales para crear diseños web completamente responsivos que funcionen en cualquier dispositivo.">
+    <meta name="keywords" content="diseño web, responsive design, desarrollo web, CSS, media queries, mobile first, diseño adaptable">
+    <meta name="author" content="KDTech">
+    <link rel="icon" type="image/png" href="/img/logo_small.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .article-header {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .article-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border: 1px solid var(--border-color);
+        }
+        .article-content h2 {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: #6a11cb;
+        }
+        .article-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #2575fc;
+        }
+        .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    background-color: var(--primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 1.5rem 0 2rem 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.back-link:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    color: white;
+}
+
+.back-link i {
+    transition: transform 0.3s ease;
+}
+
+.back-link:hover i {
+    transform: translateX(-3px);
+}
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .code-block {
+            background-color: #2d2d2d;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+            border-left: 4px solid #6a11cb;
+        }
+        .tip-box {
+            background-color: rgba(106, 17, 203, 0.1);
+            border-left: 4px solid #6a11cb;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .tip-box h4 {
+            margin-top: 0;
+            color: #6a11cb;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .device-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .device {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .device i {
+            font-size: 2.5rem;
+            color: #6a11cb;
+            margin-bottom: 1rem;
+        }
+        .device h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-primary);
+        }
+        .device p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+        .grid-example {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .grid-item {
+            background: #6a11cb;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 4px;
+        }
+        @media (max-width: 600px) {
+            .grid-example {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container">
+        <!-- Header se cargará aquí­ dinámicamente -->
+    </div>
+
+    <main class="container">
+        <a href="/blog.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Volver al blog
+        </a>
+        
+        <article class="article-container">
+            <header class="article-header">
+                <div class="container">
+                    
+                    <h1>Diseño Responsivo en 2025</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar-alt"></i> 20 Abril 2025</span>
+                        <span><i class="far fa-clock"></i> 7 min de lectura</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="article-content">
+                <img src="https://via.placeholder.com/800x450/6a11cb/FFFFFF?text=Dise%C3%B1o+Responsive+2025" alt="Diseño Responsivo en 2025" class="article-image">
+                
+                <p>En la era actual de la web, donde los usuarios acceden a los sitios desde una amplia variedad de dispositivos, el diseño responsivo ha dejado de ser una opción para convertirse en una necesidad. En este artí­culo, exploraremos las mejores prácticas y tendencias actuales para crear experiencias web completamente responsivas que ofrezcan un rendimiento óptimo en cualquier pantalla.</p>
+
+                <div class="tip-box">
+                    <h4><i class="fas fa-lightbulb"></i> ¿Qué es el diseño responsivo?</h4>
+                    <p>El diseño web responsivo es un enfoque de diseño que permite que las páginas web se adapten automáticamente al tamaño de la pantalla del dispositivo que se esté utilizando, ya sea un teléfono móvil, una tableta, una computadora portátil o un monitor de escritorio.</p>
+                </div>
+
+                <h2>1. Enfoque Mobile-First</h2>
+                
+                <p>El enfoque mobile-first se ha consolidado como la mejor práctica para el diseño responsivo. Consiste en diseñar primero para dispositivos móviles y luego escalar la experiencia para pantallas más grandes.</p>
+                
+                <div class="code-block">
+                    <code>
+                        /* Estilos base para móviles */
+                        .container {
+                            width: 100%;
+                            padding: 0 15px;
+                        }
+                        
+                        /* Media queries para dispositivos más grandes */
+                        @media (min-width: 768px) {
+                            .container {
+                                max-width: 720px;
+                                margin: 0 auto;
+                                padding: 0;
+                            }
+                        }
+                        
+                        @media (min-width: 992px) {
+                            .container {
+                                max-width: 960px;
+                            }
+                        }
+                        
+                        @media (min-width: 1200px) {
+                            .container {
+                                max-width: 1140px;
+                            }
+                        }
+                    </code>
+                </div>
+
+                <h2>2. Unidades de Medida Relativas</h2>
+                
+                <p>El uso de unidades relativas como rem, em, % y vw/vh asegura que los elementos escalen correctamente en diferentes tamaños de pantalla.</p>
+                
+                <div class="code-block">
+                    <code>
+                        /* Buenas prácticas para tipografí­a responsiva */
+                        html {
+                            font-size: 16px; /* Tamaño base */
+                        }
+                        
+                        h1 {
+                            font-size: 2.5rem; /* 40px en pantallas grandes */
+                            margin-bottom: 1.5rem;
+                        }
+                        
+                        p {
+                            font-size: 1rem;
+                            line-height: 1.6;
+                            margin-bottom: 1.5rem;
+                        }
+                        
+                        /* Contenedor fluido */
+                        .container {
+                            width: 100%;
+                            max-width: 1200px;
+                            margin: 0 auto;
+                            padding: 0 1rem;
+                        }
+                    </code>
+                </div>
+
+                <h2>3. Imágenes y Medios Responsivos</h2>
+                
+                <p>Las imágenes deben ser flexibles y optimizadas para diferentes dispositivos:</p>
+                
+                <div class="code-block">
+                    <code>
+                        /* Imágenes responsivas */
+                        img {
+                            max-width: 100%;
+                            height: auto;
+                            display: block;
+                        }
+                        
+                        /* Imágenes de fondo responsivas */
+                        .hero {
+                            background-image: url('imagen-pequeña.jpg');
+                            background-size: cover;
+                            background-position: center;
+                            height: 200px;
+                        }
+                        
+                        @media (min-width: 768px) {
+                            .hero {
+                                background-image: url('imagen-grande.jpg');
+                                height: 400px;
+                            }
+                        }
+                        
+                        /* Picture element para diferentes resoluciones */
+                        &lt;picture&gt;
+                            &lt;source media="(min-width: 768px)" srcset="imagen-grande.jpg">
+                            &lt;source media="(min-width: 480px)" srcset="imagen-mediana.jpg">
+                            &lt;img src="imagen-pequeña.jpg" alt="Descripción de la imagen"&gt;
+                        &lt;/picture&gt;
+                    </code>
+                </div>
+
+                <h2>4. CSS Grid y Flexbox</h2>
+                
+                <p>Estas poderosas herramientas de CSS permiten crear diseños complejos y responsivos con menos código:</p>
+                
+                <div class="code-block">
+                    <code>
+                        /* Ejemplo con CSS Grid */
+                        .grid-container {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                            gap: 1.5rem;
+                            padding: 1rem;
+                        }
+                        
+                        /* Ejemplo con Flexbox */
+                        .card {
+                            display: flex;
+                            flex-direction: column;
+                            border: 1px solid #ddd;
+                            border-radius: 8px;
+                            overflow: hidden;
+                        }
+                        
+                        .card-content {
+                            flex: 1;
+                            padding: 1rem;
+                        }
+                        
+                        .card-footer {
+                            padding: 1rem;
+                            background: #f5f5f5;
+                        }
+                    </code>
+                </div>
+                
+                <div class="grid-example">
+                    <div class="grid-item">Elemento 1</div>
+                    <div class="grid-item">Elemento 2</div>
+                    <div class="grid-item">Elemento 3</div>
+                    <div class="grid-item">Elemento 4</div>
+                </div>
+
+                <h2>5. Tendencias Actuales en Diseño Responsivo</h2>
+                
+                <div class="device-showcase">
+                    <div class="device">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Diseño Adaptativo</h4>
+                        <p>Experiencias personalizadas para diferentes dispositivos</p>
+                    </div>
+                    <div class="device">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <h4>Rendimiento</h4>
+                        <p>Enfoque en la optimización para móviles</p>
+                    </div>
+                    <div class="device">
+                        <i class="fas fa-palette"></i>
+                        <h4>Modo Oscuro</h4>
+                        <p>Soporte nativo para preferencias del sistema</p>
+                    </div>
+                    <div class="device">
+                        <i class="fas fa-mouse-pointer"></i>
+                        <h4>Interacciones Táctiles</h4>
+                        <p>Diseño para pantallas táctiles primero</p>
+                    </div>
+                </div>
+
+                <h2>6. Herramientas y Recursos</h2>
+                
+                <ul>
+                    <li><strong>Chrome DevTools:</strong> Para probar diseños en diferentes dispositivos</li>
+                    <li><strong>Frameworks CSS:</strong> Tailwind CSS, Bootstrap, Bulma</li>
+                    <li><strong>Herramientas de prueba:</strong> BrowserStack, LambdaTest</li>
+                    <li><strong>Optimización de imágenes:</strong> ImageOptim, TinyPNG</li>
+                    <li><strong>Lazy loading:</strong> Carga diferida de imágenes y componentes</li>
+                </ul>
+
+                <h2>7. Pruebas en Múltiples Dispositivos</h2>
+                
+                <p>Es fundamental probar tus diseños en tantos dispositivos como sea posible:</p>
+                
+                <ul>
+                    <li>Usa las herramientas de desarrollo del navegador</li>
+                    <li>Prueba en dispositivos fí­sicos reales</li>
+                    <li>Verifica la accesibilidad</li>
+                    <li>Prueba la conexión de red lenta</li>
+                    <li>Verifica la orientación del dispositivo (vertical/horizontal)</li>
+                </ul>
+
+                <h2>Conclusión</h2>
+                <p>El diseño responsivo sigue evolucionando, pero los principios fundamentales permanecen: crear experiencias accesibles, rápidas y agradables en cualquier dispositivo. Al adoptar un enfoque mobile-first, utilizar unidades relativas y aprovechar las capacidades modernas de CSS, podemos construir sitios web que funcionen perfectamente en la amplia gama de dispositivos disponibles hoy en dí­a.</p>
+                
+                <p>Recuerda que el diseño responsivo no se trata solo de hacer que las cosas se vean bien en diferentes tamaños de pantalla, sino de crear experiencias significativas y funcionales para todos los usuarios, independientemente de cómo accedan a tu sitio web.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer se cargará aquí­ dinámicamente -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="/periodico-digital/js/config.min.js"></script>
+    <script src="/periodico-digital/js/load-header.min.js"></script>
+    <script src="/periodico-digital/js/load-footer.min.js"></script>
+    <script src="/periodico-digital/js/navbar.min.js"></script>
+    <script>
+        // Cargar header y footer
+        document.addEventListener('DOMContentLoaded', function() {
+            loadHeader('header-container');
+            loadFooter('footer-container');
+        });
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | KDTech</title>
+    <meta name="description" content="Descubre artículos y noticias sobre tecnología, programación y tendencias digitales en el blog oficial de KDTech.">
+    <meta name="keywords" content="blog de tecnología, programación, desarrollo web, inteligencia artificial, ciberseguridad, tendencias digitales, KDTech blog">
+    <meta name="author" content="KDTech">
+    <link rel="icon" type="image/png" href="/img/logo_small.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header-container"></div>
+    <main class="blog-page">
+        <section class="blog-hero">
+            <div class="container">
+                <h1>Blog de KDTech</h1>
+                <p>Descubre artículos, tutoriales y noticias sobre tecnología, programación y más.</p>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Buscar artículos...">
+                    <button id="searchButton"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="category-filters">
+                    <button class="category-btn active" data-category="all">Todos</button>
+                    <button class="category-btn" data-category="programacion">Programación</button>
+                    <button class="category-btn" data-category="ciberseguridad">Ciberseguridad</button>
+                    <button class="category-btn" data-category="ia">IA & ML</button>
+                    <button class="category-btn" data-category="web">Desarrollo Web</button>
+                    <button class="category-btn" data-category="tutoriales">Tutoriales</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-content">
+            <div class="container">
+                <div id="blogGrid" class="blog-grid">
+                    <!-- Los artículos se cargarán aquí dinámicamente -->
+                </div>
+                <div class="pagination" id="pagination">
+                    <!-- La paginación se generará aquí -->
+                </div>
+            </div>
+        </section>
+        
+        <style>
+            .category-filters {
+                margin: 20px 0;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: center;
+            }
+            
+            .category-btn {
+                padding: 8px 16px;
+                border: 1px solid var(--primary);
+                background: transparent;
+                color: var(--text-primary);
+                border-radius: 20px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            
+            .category-btn:hover,
+            .category-btn.active {
+                background: var(--primary);
+                color: white;
+            }
+            
+            .pagination {
+                display: flex;
+                justify-content: center;
+                margin-top: 30px;
+                gap: 10px;
+            }
+            
+            .pagination button {
+                padding: 8px 15px;
+                border: 1px solid var(--border-color);
+                background: var(--bg-secondary);
+                color: var(--text-primary);
+                cursor: pointer;
+                border-radius: 4px;
+            }
+            
+            .pagination button.active {
+                background: var(--primary);
+                color: white;
+                border-color: var(--primary);
+            }
+            
+            .pagination button:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+            
+            .no-results {
+                grid-column: 1 / -1;
+                text-align: center;
+                padding: 40px 0;
+                color: var(--text-secondary);
+            }
+        </style>
+        
+        <script>
+            // Datos de los artículos del blog
+            const blogPosts = [
+                {
+                    id: 1,
+                    title: "El Ecosistema Tech en Colombia: Oportunidades y Desafíos en 2025",
+                    excerpt: "Un análisis detallado del sector tecnológico colombiano, destacando las oportunidades de crecimiento y los desafíos que enfrenta en el 2025.",
+                    category: "tendencias",
+                    date: "14 Junio 2025",
+                    readTime: "6 min",
+                    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    url: "articulos/ecosistema-tech-colombia-2025.html",
+                    tags: ["tecnología", "Colombia", "startups", "innovación"]
+                },
+                {
+                    id: 2,
+                    title: "Tendencias en Desarrollo Web para el 2025: Lo que Debes Saber",
+                    excerpt: "Descubre las tecnologías y metodologías que están marcando la pauta en el desarrollo web este año y cómo mantenerte actualizado.",
+                    category: "web",
+                    date: "14 Junio 2025",
+                    readTime: "7 min",
+                    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+                    url: "articulos/tendencias-desarrollo-web-2025.html",
+                    tags: ["desarrollo web", "tendencias", "frameworks", "JavaScript"]
+                },
+                {
+                    id: 3,
+                    title: "Inteligencia Artificial en Colombia: Casos de Éxito y Aplicaciones Prácticas",
+                    excerpt: "Explora cómo las empresas colombianas están implementando soluciones de IA para resolver problemas reales y mejorar sus operaciones.",
+                    category: "ia",
+                    date: "14 Junio 2025",
+                    readTime: "8 min",
+                    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1365&q=80",
+                    url: "articulos/ia-colombia-casos-exito.html",
+                    tags: ["inteligencia artificial", "casos de éxito", "Colombia", "tecnología"]
+                },
+                {
+                    id: 4,
+                    title: "Guía Completa para Aprender Python desde Cero",
+                    excerpt: "Descubre cómo comenzar con Python, uno de los lenguajes de programación más populares y versátiles del mundo.",
+                    category: "programacion",
+                    date: "15 Mayo 2025",
+                    readTime: "5 min",
+                    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    url: "articulos/guia-python.html",
+                    tags: ["python", "programación", "tutorial"]
+                },
+                {
+                    id: 5,
+                    title: "Seguridad en Aplicaciones Web: Mejores Prácticas",
+                    excerpt: "Protege tus aplicaciones web de amenazas comunes con estas estrategias de seguridad esenciales.",
+                    category: "ciberseguridad",
+                    date: "10 Mayo 2025",
+                    readTime: "7 min",
+                    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    url: "articulos/seguridad-web.html",
+                    tags: ["seguridad", "web", "ciberseguridad"]
+                },
+                {
+                    id: 6,
+                    title: "Introducción a React en 2025",
+                    excerpt: "Todo lo que necesitas saber para comenzar con el desarrollo frontend usando React en el año 2025.",
+                    category: "web",
+                    date: "5 Mayo 2025",
+                    readTime: "8 min",
+                    image: "https://images.unsplash.com/photo-1633356122544-f134324b6cee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    url: "articulos/react-2025.html",
+                    tags: ["react", "frontend", "javascript"]
+                },
+                {
+                    id: 7,
+                    title: "Machine Learning para Principiantes",
+                    excerpt: "Una introducción amigable al mundo del Machine Learning y cómo puedes comenzar tu viaje en este campo.",
+                    category: "ia",
+                    date: "1 Mayo 2025",
+                    readTime: "10 min",
+                    image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+                    url: "articulos/ml-para-principiantes.html",
+                    tags: ["machine learning", "ia", "aprendizaje automático"]
+                },
+                {
+                    id: 8,
+                    title: "Guía de Git y GitHub para Desarrolladores",
+                    excerpt: "Domina el control de versiones y la colaboración con esta guía completa de Git y GitHub.",
+                    category: "tutoriales",
+                    date: "25 Abril 2025",
+                    readTime: "6 min",
+                    image: "https://images.unsplash.com/photo-1566837945700-30057509d6cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    url: "articulos/guia-git-github.html",
+                    tags: ["git", "github", "control de versiones"]
+                },
+                {
+                    id: 9,
+                    title: "Diseño Responsivo en 2025",
+                    excerpt: "Las mejores prácticas y tendencias actuales para crear diseños web completamente responsivos.",
+                    category: "web",
+                    date: "20 Abril 2025",
+                    readTime: "7 min",
+                    image: "https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1436&q=80",
+                    url: "articulos/diseno-responsive-2025.html",
+                    tags: ["diseño web", "responsive", "frontend"]
+                }
+            ];
+            
+            // Variables de estado
+            let currentPage = 1;
+            const postsPerPage = 6;
+            let currentCategory = 'all';
+            let currentSearchTerm = '';
+            
+            // Elementos del DOM
+            const blogGrid = document.getElementById('blogGrid');
+            const paginationEl = document.getElementById('pagination');
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            
+            // Inicialización
+            document.addEventListener('DOMContentLoaded', () => {
+                renderBlogPosts();
+                setupEventListeners();
+            });
+            
+            // Configurar event listeners
+            function setupEventListeners() {
+                // Búsqueda
+                searchButton.addEventListener('click', () => {
+                    currentSearchTerm = searchInput.value.toLowerCase();
+                    currentPage = 1;
+                    renderBlogPosts();
+                });
+                
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        currentSearchTerm = searchInput.value.toLowerCase();
+                        currentPage = 1;
+                        renderBlogPosts();
+                    }
+                });
+                
+                // Filtros de categoría
+                categoryButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        // Actualizar botones activos
+                        categoryButtons.forEach(btn => btn.classList.remove('active'));
+                        button.classList.add('active');
+                        
+                        // Actualizar categoría actual y resetear página
+                        currentCategory = button.dataset.category;
+                        currentPage = 1;
+                        renderBlogPosts();
+                    });
+                });
+            }
+            
+            // Filtrar publicaciones según búsqueda y categoría
+            function getFilteredPosts() {
+                return blogPosts.filter(post => {
+                    const matchesSearch = post.title.toLowerCase().includes(currentSearchTerm) || 
+                                        post.excerpt.toLowerCase().includes(currentSearchTerm) ||
+                                        post.tags.some(tag => tag.includes(currentSearchTerm));
+                    const matchesCategory = currentCategory === 'all' || post.category === currentCategory;
+                    return matchesSearch && matchesCategory;
+                });
+            }
+            
+            // Renderizar publicaciones
+            function renderBlogPosts() {
+                const filteredPosts = getFilteredPosts();
+                const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+                
+                // Ajustar página actual si es necesario
+                if (currentPage > totalPages && totalPages > 0) {
+                    currentPage = totalPages;
+                }
+                
+                // Calcular índices de las publicaciones a mostrar
+                const startIndex = (currentPage - 1) * postsPerPage;
+                const endIndex = startIndex + postsPerPage;
+                const postsToShow = filteredPosts.slice(startIndex, endIndex);
+                
+                // Limpiar el contenedor
+                blogGrid.innerHTML = '';
+                
+                // Mostrar mensaje si no hay resultados
+                if (postsToShow.length === 0) {
+                    blogGrid.innerHTML = `
+                        <div class="no-results">
+                            <h3>No se encontraron artículos</h3>
+                            <p>Intenta con otros términos de búsqueda o categorías.</p>
+                        </div>
+                    `;
+                    paginationEl.innerHTML = '';
+                    return;
+                }
+                
+                // Renderizar publicaciones
+                postsToShow.forEach(post => {
+                    const article = document.createElement('article');
+                    article.className = 'blog-card';
+                    article.innerHTML = `
+                        <div class="blog-card-image">
+                            <img src="${post.image}" alt="${post.title}" loading="lazy">
+                            <span class="blog-category">${formatCategory(post.category)}</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="blog-date"><i class="far fa-calendar-alt"></i> ${post.date}</span>
+                                <span class="blog-read-time"><i class="far fa-clock"></i> ${post.readTime}</span>
+                            </div>
+                            <h3><a href="${post.url}">${post.title}</a></h3>
+                            <p>${post.excerpt}</p>
+                            <a href="${post.url}" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    `;
+                    blogGrid.appendChild(article);
+                });
+                
+                // Renderizar paginación
+                renderPagination(filteredPosts.length);
+            }
+            
+            // Renderizar controles de paginación
+            function renderPagination(totalPosts) {
+                const totalPages = Math.ceil(totalPosts / postsPerPage);
+                
+                // Si solo hay una página, no mostrar la paginación
+                if (totalPages <= 1) {
+                    paginationEl.innerHTML = '';
+                    return;
+                }
+                
+                let paginationHTML = '';
+                
+                // Botón Anterior
+                paginationHTML += `
+                    <button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                `;
+                
+                // Números de página
+                for (let i = 1; i <= totalPages; i++) {
+                    if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+                        paginationHTML += `
+                            <button class="${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">
+                                ${i}
+                            </button>
+                        `;
+                    } else if (i === currentPage - 2 || i === currentPage + 2) {
+                        paginationHTML += '<span class="ellipsis">...</span>';
+                    }
+                }
+                
+                // Botón Siguiente
+                paginationHTML += `
+                    <button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                `;
+                
+                paginationEl.innerHTML = paginationHTML;
+            }
+            
+            // Cambiar de página
+            window.changePage = function(page) {
+                currentPage = page;
+                renderBlogPosts();
+                // Desplazarse suavemente hacia arriba
+                window.scrollTo({
+                    top: document.querySelector('.blog-content').offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            };
+            
+            // Formatear categoría para mostrar
+            function formatCategory(category) {
+                const categories = {
+                    'programacion': 'Programación',
+                    'ciberseguridad': 'Ciberseguridad',
+                    'ia': 'IA & ML',
+                    'web': 'Desarrollo Web',
+                    'tutoriales': 'Tutoriales'
+                };
+                return categories[category] || category;
+            }
+        </script>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+        <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Sección KDTekh con Contacto -->
+                <div class="footer-section">
+                    <img src="/img/logo.png" alt="KDTekh Logo" class="footer-logo">
+                    <p>Transformando carreras a través de educación tecnológica de vanguardia. Comprometidos con la excelencia en formación digital.</p>
+                    
+                    <div class="contact-info" style="margin-top: 20px;">
+                        <p><i class="fas fa-envelope"></i> kdtekh@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +34 666 699 328</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Madrid, España</p>
+                    </div>
+                </div>
+
+                <!-- Enlaces Rápidos -->
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="/"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="/cursos.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+                        <li><a href="/blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                        <li><a href="/sobre-nosotros.html"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+                        <li><a href="/contacto.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Síguenos -->
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <p>Únete a una comunidad de profesionales tech en crecimiento. Contenido exclusivo, ofertas de empleo y primeros accesos a nuevos programas formativos.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.youtube.com/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-section newsletter">
+                    <h3>¡Mantente Actualizado!</h3>
+                    <p>Suscríbete a nuestro boletín para recibir las últimas noticias, cursos y ofertas exclusivas directamente en tu bandeja de entrada.</p>
+                    <form class="newsletter-form" id="footerNewsletterForm" action="/php/newsletter.php" method="POST">
+                        <!-- Token CSRF -->
+                        <input type="hidden" name="csrf_token" id="newsletterCsrfToken" value="">
+                        <div class="form-group">
+                            <input type="email" 
+                                   name="email" 
+                                   id="footerNewsletterEmail" 
+                                   placeholder="Tu correo electrónico" 
+                                   required 
+                                   aria-label="Correo electrónico"
+                                   class="newsletter-email">
+                            <button type="submit" 
+                                    class="btn-submit" 
+                                    aria-label="Suscribirse"
+                                    id="newsletterSubmitBtn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span class="btn-text">Suscribirse</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                &copy; <span id="currentYear"></span> KD Tech. Todos los derechos reservados. | 
+                <a href="aviso-legal.html">Aviso Legal</a> | 
+                <a href="politica-privacidad.html">Política de Privacidad</a>
+            </div>
+            <script>
+                // Actualizar el año del copyright
+                document.getElementById('currentYear').textContent = new Date().getFullYear();
+            </script>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/theme-switcher.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/load-header.min.js"></script>
+    <script src="/js/header.js"></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guí­a Completa para Aprender Python desde Cero | KDTech</title>
+    <meta name="description" content="Aprende Python desde cero con esta guí­a completa. Descubre los conceptos básicos, sintaxis y aplicaciones prácticas de uno de los lenguajes de Programación más populares.">
+    <meta name="keywords" content="python, Programación, aprender python, tutorial python, Programación para principiantes">
+    <meta name="author" content="KDTech">
+    <link rel="icon" type="image/png" href="/img/logo_small.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .article-header {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .article-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .article-content h2 {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        .article-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    background-color: var(--primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 1.5rem 0 2rem 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.back-link:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    color: white;
+}
+
+.back-link i {
+    transition: transform 0.3s ease;
+}
+
+.back-link:hover i {
+    transform: translateX(-3px);
+}
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container">
+        <!-- Header se cargará aquí­ dinámicamente -->
+    </div>
+
+    <main>
+        <a href="/blog.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Volver al blog
+        </a>
+        
+        <article class="article-container">
+            <header class="article-header">
+                <div class="container">
+                    
+                    <h1>Guí­a Completa para Aprender Python desde Cero</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar-alt"></i> 15 Mayo 2025</span>
+                        <span><i class="far fa-clock"></i> 5 min de lectura</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="article-content">
+                <img src="https://via.placeholder.com/800x450/1e293b/ffffff?text=Python+Programming" alt="Programación en Python" class="article-image">
+                
+                <p>Python se ha convertido en uno de los lenguajes de Programación más populares y versátiles del mundo. Su sintaxis clara y legible lo convierte en una excelente opción para principiantes, mientras que su poder y flexibilidad lo hacen ideal para proyectos avanzados de desarrollo web, análisis de datos, inteligencia artificial y más.</p>
+
+                <h2>¿Por qué aprender Python?</h2>
+                <p>Existen muchas razones por las que Python es una excelente opción para comenzar tu viaje en la Programación:</p>
+                <ul>
+                    <li><strong>Sintaxis sencilla:</strong> El código Python se asemeja al inglés, lo que facilita su lectura y escritura.</li>
+                    <li><strong>Versatilidad:</strong> Desde desarrollo web hasta análisis de datos, inteligencia artificial y automatización, Python lo hace todo.</li>
+                    <li><strong>Gran comunidad:</strong> Una comunidad activa significa acceso a miles de bibliotecas y marcos de trabajo.</li>
+                    <li><strong>Alta demanda laboral:</strong> Las habilidades en Python son de las más buscadas en el mercado laboral tecnológico.</li>
+                </ul>
+
+                <h2>Configuración del entorno</h2>
+                <p>Para comenzar con Python, necesitarás:</p>
+                <ol>
+                    <li>Instalar Python desde <a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">python.org</a></li>
+                    <li>Un editor de código como Visual Studio Code o PyCharm</li>
+                    <li>Opcionalmente, un entorno virtual para gestionar dependencias</li>
+                </ol>
+
+                <h2>Conceptos básicos de Python</h2>
+                <p>Estos son algunos de los conceptos fundamentales que necesitarás dominar:</p>
+                
+                <h3>Variables y tipos de datos</h3>
+                <pre><code># Enteros y flotantes
+edad = 25
+precio = 19.99
+
+# Cadenas de texto
+nombre = "Ana"
+mensaje = 'Hola, ¿cómo estás?'
+
+# Booleanos
+es_estudiante = True
+tiene_experiencia = False
+
+# Listas
+numeros = [1, 2, 3, 4, 5]
+nombres = ["Ana", "Carlos", "Diana"]
+
+# Diccionarios
+persona = {
+    "nombre": "Ana",
+    "edad": 25,
+    "ciudad": "Madrid"
+}</code></pre>
+
+                <h3>Estructuras de control</h3>
+                <pre><code># Condicionales
+edad = 20
+if edad >= 18:
+    print("Eres mayor de edad")
+elif edad >= 13:
+    print("Eres un adolescente")
+else:
+    print("Eres un niño")
+
+# Bucles
+# Bucle for
+for i in range(5):
+    print(f"Número: {i}")
+
+# Bucle while
+contador = 0
+while contador < 5:
+    print(f"Contador: {contador}")
+    contador += 1</code></pre>
+
+                <h2>Funciones en Python</h2>
+                <p>Las funciones te permiten organizar y reutilizar tu código:</p>
+                <pre><code>def saludar(nombre):
+    """
+    Esta función saluda a la persona pasada como parámetro
+    """
+    return f"¡Hola, {nombre}! ¿Cómo estás?"
+
+# Llamando a la función
+mensaje = saludar("Carlos")
+print(mensaje)  # Imprime: ¡Hola, Carlos! ¿Cómo estás?</code></pre>
+
+                <h2>Próximos pasos</h2>
+                <p>Ahora que conoces los conceptos básicos de Python, te recomendamos:</p>
+                <ul>
+                    <li>Practicar con ejercicios en plataformas como LeetCode o HackerRank</li>
+                    <li>Explorar bibliotecas populares como NumPy, Pandas y Django</li>
+                    <li>Contribuir a proyectos de código abierto</li>
+                    <li>Tomar cursos avanzados para profundizar en temas especí­ficos</li>
+                </ul>
+
+                <p>Recuerda que la práctica constante es clave para dominar cualquier lenguaje de Programación. ¡No te rindas y sigue aprendiendo!</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer se cargará aquí­ dinámicamente -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="/periodico-digital/js/config.min.js"></script>
+    <script src="/periodico-digital/js/load-header.min.js"></script>
+    <script src="/periodico-digital/js/load-footer.min.js"></script>
+    <script src="/periodico-digital/js/navbar.min.js"></script>
+    <script>
+        // Cargar header y footer
+        document.addEventListener('DOMContentLoaded', function() {
+            loadHeader('header-container');
+            loadFooter('footer-container');
+        });
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,45 @@
+﻿# PHP y backend
+*.php
+*.sql
+admin/
+php/
+config/
+includes/*.php
+composer.json
+composer.lock
+package.json
+package-lock.json
+
+# Credenciales y configuración sensible
+js/config.js
+js/config.min.js
+js/min/
+
+# Logs y datos
+logs/
+data/
+*.log
+php.ini
+nginx-config.conf
+
+# Scripts de desarrollo
+*.ps1
+*.py
+*.bat
+*.bak
+*.backup
+*.bak2
+*.tmp
+OPTIMIZACION.md
+UPDATE-HEADERS-README.md
+
+# Archivos de mantenimiento
+fix-*.html
+test.html
+hosting-check.php
+
+# htaccess
+.htaccess
+img/.htaccess
+js/.htaccess
+php/.htaccess
