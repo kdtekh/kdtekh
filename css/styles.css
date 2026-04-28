@@ -27,9 +27,10 @@ input, textarea, select, button,
 }
 /* Estilos básicos heredados de style.css */
 .animate-on-scroll {
-    opacity: 1; /* Cambiado de 0 a 1 para que sea visible inicialmente */
-    transform: translateY(0); /* Cambiado de translateY(20px) a 0 */
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
 }
 
 /* Esta clase se puede seguir usando para animaciones específicas */
@@ -85,9 +86,10 @@ input, textarea, select, button,
 
 .footer-section h3 {
     font-size: 1.5rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
     color: var(--text-primary);
     font-weight: 700;
+    letter-spacing: 0.02em;
     background: linear-gradient(90deg, var(--primary) 0%, #00a8ff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -111,7 +113,8 @@ input, textarea, select, button,
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
     font-size: 1rem;
-    line-height: 1.7;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
 }
 
 /* Estilos específicos para la sección de newsletter */
@@ -385,8 +388,8 @@ input, textarea, select, button,
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
     /* Tipografía */
-    --font-primary: 'San Francisco Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
-    --font-secondary: 'Roboto Slab', serif;
+    --font-primary: 'Inter', 'San Francisco Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+    --font-secondary: 'Roboto Slab', 'Georgia', serif;
     
     /* Bordes redondeados */
     --radius-sm: 4px;
@@ -436,7 +439,8 @@ body {
     font-family: var(--font-primary);
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    line-height: 1.6;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -526,13 +530,13 @@ a:hover::after {
 
 /* ===== Estilos de las secciones ===== */
 .section {
-    padding: 6rem 0;
+    padding: 7rem 0;
 }
 
 .section-header {
     text-align: center;
     max-width: 700px;
-    margin: 0 auto 3rem;
+    margin: 0 auto 4rem;
 }
 
 /* Timeline de Historia */
@@ -600,7 +604,8 @@ a:hover::after {
     border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 2rem;
-    transition: all 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, box-shadow;
 }
 
 .team-member:hover {
@@ -895,9 +900,10 @@ a:hover::after {
     border: 1px solid var(--border-color);
     border-radius: 16px;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     box-shadow: var(--shadow);
+    will-change: transform, box-shadow;
 }
 
 .course-card:hover {
@@ -1019,7 +1025,8 @@ a:hover::after {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
 }
 
 .course-card:hover .course-image img {
@@ -1134,15 +1141,15 @@ a:hover::after {
 }
 
 .category-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--dark-2);
     border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 2rem;
     text-align: center;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
     position: relative;
     overflow: hidden;
-    box-shadow: var(--shadow);
+    will-change: transform, box-shadow;
 }
 
 .category-card::before {
@@ -1180,17 +1187,29 @@ a:hover::after {
     font-size: 2rem;
 }
 
+.blog-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+}
+
 .category-title {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: var(--text-primary);
     font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
 }
 
 .category-description {
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
-    line-height: 1.6;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
 }
 
 .category-link {
@@ -1232,6 +1251,8 @@ a:hover::after {
     color: var(--text-primary);
     position: relative;
     display: inline-block;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
 }
 
 .section-title::after {
@@ -1267,10 +1288,11 @@ a:hover::after {
     font-weight: 500;
     text-align: center;
     cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-    font-size: 1rem;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease, box-shadow 0.3s ease;
+    display: inline-flex;
+    align-items: center;
     gap: 0.5rem;
+    will-change: transform;
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -2190,7 +2212,7 @@ main {
     -webkit-backdrop-filter: blur(20px) saturate(160%);
     border-radius: 15px;
     padding: 1.8rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid rgba(156, 102, 255, 0.15);
     box-shadow: 
         0 8px 32px 0 rgba(15, 5, 36, 0.4),
@@ -2198,6 +2220,7 @@ main {
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
     position: relative;
     overflow: hidden;
+    will-change: transform, box-shadow;
 }
 
 .card::before {
