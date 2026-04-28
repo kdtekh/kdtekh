@@ -133,11 +133,8 @@ async function updateFooters() {
             'cursos/marketing-digital.html',
             'cursos/programacion.html',
             'cursos.html',
-            'iniciar-sesion.html',
             'metodo.html',
             'politica-privacidad.html',
-            'registro-exitoso.html',
-            'registro.html',
             'sobre-nosotros.html'
         ];
 

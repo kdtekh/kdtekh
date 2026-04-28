@@ -43,3 +43,5 @@ hosting-check.php
 img/.htaccess
 js/.htaccess
 php/.htaccess
+
+client_secret.json
