@@ -920,20 +920,20 @@
                     const title = card.querySelector('.resource-title').textContent.toLowerCase();
                     const description = card.querySelector('.resource-description').textContent.toLowerCase();
                     const category = (card.dataset.category || '').toLowerCase();
-                    const level = normalizeDifficulty(getLevelText(card));
-                    
+                    const rawLevelLabel = getLevelLabelText(card);
+
                     // Búsqueda
-                    const matchesSearch = !searchTerm || 
-                        title.includes(searchTerm) || 
+                    const matchesSearch = !searchTerm ||
+                        title.includes(searchTerm) ||
                         description.includes(searchTerm) ||
                         category.includes(searchTerm);
-                    
+
                     // Filtros
-                    const matchesCategory = activeCategories.has('todos') || 
+                    const matchesCategory = activeCategories.has('todos') ||
                         activeCategories.has(category) ||
                         activeCategories.has(category.replace('-', ' '));
-                    const matchesDifficulty = activeDifficulty === 'todos' || activeDifficulty === level;
-                    
+                    const matchesDifficulty = difficultyMatches(activeDifficulty, rawLevelLabel);
+
                     if (matchesSearch && matchesCategory && matchesDifficulty) {
                         card.classList.remove('hidden');
                         visibleCards.push(card);
@@ -946,20 +946,57 @@
                 updateResultCount(visibleCards.length, resourceCards.length);
             }
             
-            function getLevelText(card) {
-                return card.querySelector('.resource-level')?.textContent?.split('\n')[1]?.trim() || '';
+            function getLevelLabelText(card) {
+                const wrap = card.querySelector('.resource-level');
+                if (!wrap) return '';
+
+                const clone = wrap.cloneNode(true);
+                clone.querySelectorAll('i,svg,.fa-fw').forEach(el => el.remove());
+                const txt = clone.textContent || '';
+                return txt.replace(/\s+/g, ' ').trim();
             }
 
-            function normalizeDifficulty(value) {
-                const normalized = (value || '')
+            function normalizeLabel(value) {
+                return (value || '')
                     .toLowerCase()
                     .normalize('NFD')
-                    .replace(/[\u0300-\u036f]/g, '');
+                    .replace(/[\u0300-\u036f]/g, '')
+                    .trim();
+            }
 
-                if (normalized.includes('principiante')) return 'principiante';
-                if (normalized.includes('intermedio')) return 'intermedio';
-                if (normalized.includes('avanzad')) return 'avanzado';
-                return normalized;
+            function difficultyMatches(active, rawLevelLabel) {
+                if (!active || active === 'todos') return true;
+
+                const lbl = normalizeLabel(rawLevelLabel);
+                if (
+                    /\btodos\b/.test(lbl) &&
+                    (lbl.includes('todos los niveles') || /\btodos los niveles\b/.test(lbl))
+                ) {
+                    return true;
+                }
+
+                const raw = normalizeLabel(rawLevelLabel);
+                const hasBeg = /\bprincipiante\b/.test(raw);
+                const hasMid = /\bintermedio\b/.test(raw);
+                const hasAdv = /\bavanzad(?:o|a)?\b/.test(raw);
+
+                const isBegMid = /\bprincipiante\b(?:\s*-\s*|\/)intermedi(?:o|a)\b/.test(raw);
+
+                switch (active) {
+                    case 'principiante':
+                        return hasBeg && !isBegMid && !(/\b(?:intermedia?|intermedio)-avanzad/.test(raw));
+
+                    case 'intermedio':
+                        if (/\b(?:intermedia?|intermedio)\s*-\s*avanzad/.test(raw)) return false;
+
+                        return hasMid || isBegMid;
+
+                    case 'avanzado':
+                        return hasAdv;
+
+                    default:
+                        return true;
+                }
             }
             
             function updateResultCount(visible, total) {
