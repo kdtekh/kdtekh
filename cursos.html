@@ -13,7 +13,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         /* Estilos específicos para la página de recursos - movidos a styles.css */
-        /* Solo se mantienen estilos únicos si los hubiera */
+        .resource-preview-link {
+            position: absolute;
+            inset: 0;
+            display: block;
+            z-index: 1;
+        }
+
+        .resource-preview-link::after {
+            content: none !important;
+        }
+
+        .resource-preview-link:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: -2px;
+        }
     </style>
 </head>
 <body>
@@ -135,7 +149,7 @@
                             <h3 class="resource-title">Curso de Django - Framework Python</h3>
                             <p class="resource-description">Aprende a crear aplicaciones web profesionales con Django, el framework de Python.</p>
                             <div class="resource-meta">
-                                <span class="resource-duration"><i class="far fa-clock"></i> 5 horas 13 minutos</span>
+                                <span class="resource-duration"><i class="far fa-clock"></i> 3h 29m 4s</span>
                                 <span class="resource-level"><i class="fas fa-signal"></i> Intermedio</span>
                             </div>
                             <a href="https://www.youtube.com/watch?v=T1intZyhXDU" class="resource-link">Ver Recurso</a>
