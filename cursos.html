@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/img/logo_small.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos Educativos | KDTech</title>
+    <meta name="description" content="Explora los cursos y recursos educativos de KDTech para dominar programación, ciberseguridad, redes y más competencias tecnológicas.">
+    <link rel="canonical" href="https://kdtekh.com/cursos.html">
+    <meta property="og:title" content="Recursos Educativos | KDTech">
+    <meta property="og:description" content="Explora los cursos y recursos educativos de KDTech para dominar programación, ciberseguridad, redes y más competencias tecnológicas.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kdtekh.com/cursos.html">
+    <meta property="og:image" content="https://kdtekh.com/img/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Recursos Educativos | KDTech">
+    <meta name="twitter:description" content="Explora los cursos y recursos educativos de KDTech para dominar programación, ciberseguridad, redes y más competencias tecnológicas.">
+    <meta name="twitter:image" content="https://kdtekh.com/img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Estilos específicos para la página de recursos */
+        .resources-page {
+            padding-top: 80px;
+        }
+
+        .resources-hero {
+            background: linear-gradient(135deg, var(--primary), #6a11cb);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .resources-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .resources-hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .resources-container {
+            padding: 2rem 1rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Filtros y búsqueda */
+        .filters-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+
+        .search-container {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 10px 15px 10px 40px;
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        #searchInput:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(156, 102, 255, 0.2);
+        }
+
+        .filter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .filter-tag {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 8px 18px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--text-primary);
+            white-space: nowrap;
+        }
+
+        .filter-tag:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-tag.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(156, 102, 255, 0.3);
+        }
+
+        /* Grid de recursos */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .resource-card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid var(--border-color);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .resource-preview {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            overflow: hidden;
+            background: #1a1a1a;
+        }
+
+        .resource-preview iframe,
+        .resource-preview img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .resource-type {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .resource-content {
+            padding: 1.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0 0 0.75rem;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .resource-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            line-height: 1.5;
+        }
+
+        .resource-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.8rem;
+        }
+
+        .resource-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .resource-tag {
+            background: rgba(156, 102, 255, 0.1);
+            color: var(--primary);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+        }
+
+        .resource-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .resource-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: color 0.2s ease;
+        }
+
+        .resource-link:hover {
+            color: var(--primary-light);
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filters-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-container {
+                width: 100%;
+            }
+        }
+
+        /* Estilos para los tipos de recursos */
+        .type-youtube { color: #ff0000; }
+        .type-github { color: #333; }
+        .type-article { color: #1a73e8; }
+        .type-documentation { color: #0f9d58; }
+        .type-course { color: #9c27b0; }
+        
+        /* Estilos para el footer */
+        .footer {
+            background-color: #1a1a2e;
+            color: #fff;
+            padding: 4rem 0 0;
+            margin-top: 4rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-about .footer-logo {
+            max-width: 150px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-about-text {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .footer-contact {
+            margin-top: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .contact-item i {
+            margin-right: 10px;
+            color: var(--primary);
+            width: 20px;
+            text-align: center;
+        }
+        
+        .footer-title {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .footer-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-menu li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-menu a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 0.3rem 0;
+        }
+        
+        .footer-menu a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+        
+        .social-text {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .newsletter-form .form-group {
+            position: relative;
+            display: flex;
+            margin-top: 1rem;
+        }
+        
+        .newsletter-form input {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(156, 102, 255, 0.05);
+        }
+        
+        .newsletter-form .btn-submit {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form .btn-submit:hover {
+            background: #7c4dff;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+        }
+        
+        .footer-bottom .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 1rem;
+        }
+        
+        .legal-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem 1rem;
+        }
+        
+        .legal-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .legal-links a:hover {
+            color: var(--primary);
+        }
+        
+        .divider {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-title {
+                margin-top: 1.5rem;
+            }
+            
+            .footer-about {
+                text-align: center;
+            }
+            
+            .footer-about .footer-logo {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .contact-item {
+                justify-content: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .course-duration, .course-level {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .course-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .course-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(156, 102, 255, 0.3);
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-button {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-button:hover, .filter-button.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .courses-hero {
+                padding: 4rem 1rem;
+            }
+            
+            .courses-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .filters {
+                padding: 0 1rem;
+            }
+            
+            .filter-button {
+                padding: 0.4rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header will be loaded dynamically via JavaScript -->
+    <div id="header-container"></div>
+
+    <main class="resources-page">
+        <!-- Hero Section -->
+        <section class="resources-hero">
+            <div class="container">
+                <h1>Recursos Educativos</h1>
+                <p>Descubre una amplia variedad de cursos y tutoriales escogidos para potenciar tus habilidades tecnológicas.</p>
+                <div class="filters-container">
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="search" id="searchInput" placeholder="Usáme para buscar...">
+                    </div>
+                    <div class="filter-tags">
+                        <button class="filter-tag active" data-tag="todos">Todos</button>
+                        <button class="filter-tag" data-tag="programación">Programación</button>
+                        <button class="filter-tag" data-tag="web">Web</button>
+                        <button class="filter-tag" data-tag="idiomas">Idiomas</button>
+                        <button class="filter-tag" data-tag="ofimática">Ofimática</button>
+                        <button class="filter-tag" data-tag="ciberseguridad">Ciberseguridad</button>
+                        <button class="filter-tag" data-tag="redes">Redes</button>
+                        <button class="filter-tag" data-tag="ciencia de datos">Datos</button>
+                    </div>        </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recursos -->
+        <section class="resources-container">
+            <div class="container">
+                <div class="resources-grid">
+                    <!-- Recurso 1 -->
+                    <div class="resource-card" data-category="ciberseguridad">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/fNzpcB7ODxQ/maxresdefault.jpg" alt="Curso de Hacking ético">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de Hacking ético</h3>
+                            <p class="resource-description">Aprende los fundamentos de la ciberseguridad y el hacking ético desde cero.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 5 horas 18 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Avanzado</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=fNzpcB7ODxQ" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Recurso 2 -->
+                    <div class="resource-card" data-category="web">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/ELSm-G201Ls/maxresdefault.jpg" alt="Curso de HTML y CSS Básico">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de HTML y CSS Básico</h3>
+                            <p class="resource-description">Aprende a crear páginas web estáticas con HTML y CSS desde cero.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 6 horas 31 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Intermedio</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=ELSm-G201Ls" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Recurso 3 -->
+                    <div class="resource-card" data-category="web">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/1glVfFxj8a4/maxresdefault.jpg" alt="Curso de JavaScript desde Cero">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de JavaScript desde Cero</h3>
+                            <p class="resource-description">Aprende JavaScript, el lenguaje de programación más popular para desarrollo web.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 6 horas 45 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Principiante</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=1glVfFxj8a4" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Recurso 4 -->
+                    <div class="resource-card" data-category="programación">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/TkN2i-_4N4g/maxresdefault.jpg" alt="Curso de Python para Principiantes">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de Python para Principiantes</h3>
+                            <p class="resource-description">Aprende Python desde cero, ideal para quienes dan sus primeros pasos en programación.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 6 horas 14 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Avanzado</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=TkN2i-_4N4g" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Recurso 5 -->
+                    <div class="resource-card" data-category="datos">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/T1intZyhXDU/maxresdefault.jpg" alt="Curso de Django - Framework Python">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de Django - Framework Python</h3>
+                            <p class="resource-description">Aprende a crear aplicaciones web profesionales con Django, el framework de Python.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 5 horas 13 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Intermedio</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=T1intZyhXDU" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Recurso 6 -->
+                    <div class="resource-card" data-category="idiomas">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/44brYSuVuVA/maxresdefault.jpg" alt="Curso de Inglés B1/B2">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de Inglés B1/B2</h3>
+                            <p class="resource-description">Mejora tu nivel de inglés con este curso completo de nivel intermedio.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 5 horas 13 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Avanzado</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=44brYSuVuVA" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Recurso 7 -->
+                    <div class="resource-card" data-category="idiomas">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/j8gVyWFZgVQ/maxresdefault.jpg" alt="Vocabulario Inglés B1/B2">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Vocabulario Inglés B1/B2</h3>
+                            <p class="resource-description">Amplía tu vocabulario en inglés con palabras y frases de nivel intermedio.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 5 horas 13 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Intermedio</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=j8gVyWFZgVQ" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Recurso 9 -->
+                    <div class="resource-card" data-category="programación">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/uUdKAYl-F7g/maxresdefault.jpg" alt="Curso de SQL desde Cero">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de SQL desde Cero</h3>
+                            <p class="resource-description">Aprende SQL para gestionar bases de datos relacionales de forma profesional.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 4 horas 20 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Principiante</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=uUdKAYl-F7g" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Recurso 10 -->
+                    <div class="resource-card" data-category="datos">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/VdGzPZ31ts8/maxresdefault.jpg" alt="Curso de Git y GitHub">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de Git y GitHub</h3>
+                            <p class="resource-description">Aprende a usar Git y GitHub para el control de versiones de tus proyectos.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 5 horas 18 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Intermedio</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=VdGzPZ31ts8" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Recurso 11 -->
+                    <div class="resource-card" data-category="programación">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/4Dko5W96WHg/maxresdefault.jpg" alt="Curso de Docker para Desarrolladores">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de Docker para Desarrolladores</h3>
+                            <p class="resource-description">Aprende a usar Docker para crear, desplegar y ejecutar aplicaciones en contenedores.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 4 horas 15 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Avanzado</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=4Dko5W96WHg" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Recurso 12 -->
+                    <div class="resource-card" data-category="datos">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/UWKQca26LLo/maxresdefault.jpg" alt="Introducción a la Ciencia de Datos">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Introducción a la Ciencia de Datos</h3>
+                            <p class="resource-description">Conoce los fundamentos de la ciencia de datos y el análisis de datos con Python.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 6 horas 32 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Intermedio</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=UWKQca26LLo" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Recurso 13 -->
+                    <div class="resource-card" data-category="ofimática">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/jqyGUK4VvjQ/maxresdefault.jpg" alt="Curso de Excel desde Cero">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de Excel desde Cero</h3>
+                            <p class="resource-description">Aprende Excel desde lo más básico hasta funciones avanzadas y tablas dinámicas.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 5 horas 18 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Principiante</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=jqyGUK4VvjQ" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Recurso 14 -->
+                    <div class="resource-card" data-category="ofimática">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/2jvEaBEJinI/maxresdefault.jpg" alt="Curso de Word Básico a Avanzado">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de Word Básico a Avanzado</h3>
+                            <p class="resource-description">Domina Microsoft Word para crear documentos profesionales de manera eficiente.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 4 horas 15 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Intermedio</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=2jvEaBEJinI" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Recurso 15 -->
+                    <div class="resource-card" data-category="ofimática">
+                        <div class="resource-preview">
+                            <img src="https://i.ytimg.com/vi/ZDvxqqSoyZs/maxresdefault.jpg" alt="Curso Completo de Microsoft Teams">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso Completo de Microsoft Teams</h3>
+                            <p class="resource-description">Aprende a usar Microsoft Teams para la colaboración y comunicación en equipo.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 6 horas 32 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Avanzado</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=ZDvxqqSoyZs&list=PLMd59HZRUmEg539WgqJjbsvto4V3fRwn5" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Recurso 16 -->
+                    <div class="resource-card" data-category="datos">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/mlO_OoGM5-I/maxresdefault.jpg" alt="Curso de Power BI Completo">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de Power BI Completo</h3>
+                            <p class="resource-description">Aprende a crear dashboards y reportes interactivos con Microsoft Power BI.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 5 horas 13 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Intermedio</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=mlO_OoGM5-I" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Recurso 17 -->
+                    <div class="resource-card" data-category="programación">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/L906Kti3gzE/maxresdefault.jpg" alt="Curso de Linux para Principiantes">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de Linux para Principiantes</h3>
+                            <p class="resource-description">Aprende a usar el sistema operativo Linux desde cero, ideal para desarrolladores.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 4 horas 15 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Principiante</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=L906Kti3gzE" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Recurso 18 -->
+                    
+                    <div class="resource-card" data-category="programación">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/MJkdaVFHrto/maxresdefault.jpg" alt="Curso de HTML desde Cero">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de HTML desde Cero</h3>
+                            <p class="resource-description">Aprende HTML5 desde lo más básico hasta conceptos avanzados para crear páginas web.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 4 horas 32 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Principiante</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=MJkdaVFHrto" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Recurso 19 -->
+                    <div class="resource-card" data-category="redes">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/TrnIksOSu5M/maxresdefault.jpg" alt="Curso de Redes CCNA">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de Redes CCNA</h3>
+                            <p class="resource-description">Preparación para la certificación CCNA de Cisco sobre redes de computadoras.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 6 horas 32 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Intermedio</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=TrnIksOSu5M" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Recurso 20 -->
+                    <div class="resource-card" data-category="ciberseguridad">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/TrnIksOSu5M/maxresdefault.jpg" alt="Curso de Fortinet NSE4">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de Fortinet NSE4</h3>
+                            <p class="resource-description">Preparación para la certificación NSE4 de Fortinet en seguridad de redes.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 5 horas 18 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Avanzado</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=TrnIksOSu5M&list=PLf0g2cV4iCkGfcElaW4_jPgRQHBWOuYG4" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- New Course: Bootstrap 5 -->
+                    <div class="resource-card" data-category="web">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/QCw0L6FupQ0/maxresdefault.jpg" alt="Curso de Bootstrap 5">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de Bootstrap 5</h3>
+                            <p class="resource-description">Aprende a crear diseños web responsivos con el framework CSS más popular.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 8 horas 12 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Intermedio</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=QCw0L6FupQ0" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- New Course: Tailwind CSS -->
+                    <div class="resource-card" data-category="web">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/R5EXap3vNDA/maxresdefault.jpg" alt="Curso de Tailwind CSS">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de Tailwind CSS</h3>
+                            <p class="resource-description">Domina el framework de utilidades CSS para crear diseños modernos y personalizables.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 6 horas 40 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Intermedio</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=R5EXap3vNDA" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- New Course: C# -->
+                    <div class="resource-card" data-category="programación">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/8IKEiKU-1-c/maxresdefault.jpg" alt="Curso de C#">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de C#</h3>
+                            <p class="resource-description">Aprende programación en C# desde cero hasta nivel avanzado.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 5 horas 45 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Principiante</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=8IKEiKU-1-c" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- New Course: SEO -->
+                    <div class="resource-card" data-category="web">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/Q1JsDwRlhsk/maxresdefault.jpg" alt="Curso de SEO 2025">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de SEO 2025</h3>
+                            <p class="resource-description">Aprende las últimas técnicas de posicionamiento en buscadores para 2025.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 4 horas 30 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Intermedio</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=Q1JsDwRlhsk" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- New Course: Google Ads -->
+                    <div class="resource-card" data-category="web">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/9I_HypyPlXg/maxresdefault.jpg" alt="Curso de Google Ads">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de Google Ads</h3>
+                            <p class="resource-description">Domina la publicidad en Google con este curso completo de Google Ads.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 8 horas 12 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Intermedio</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=9I_HypyPlXg" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- New Course: Marketing Digital -->
+                    <div class="resource-card" data-category="web">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/v17EXDu3t0E/maxresdefault.jpg" alt="Curso de Marketing Digital">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de Marketing Digital</h3>
+                            <p class="resource-description">Aprende las estrategias más efectivas de marketing digital para hacer crecer tu negocio en línea.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 4 horas 30 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Principiante</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=v17EXDu3t0E" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- New Course: R -->
+                    <div class="resource-card" data-category="datos">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/WCcHcWsMN1o/maxresdefault.jpg" alt="Curso de R">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de R</h3>
+                            <p class="resource-description">Aprende programación en R para análisis estadístico y visualización de datos.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 4 horas 15 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Intermedio</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=WCcHcWsMN1o" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- New Course: Deep Learning -->
+                    <div class="resource-card" data-category="datos">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/IA3WxTTPXqQ/maxresdefault.jpg" alt="Curso de Deep Learning">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de Deep Learning</h3>
+                            <p class="resource-description">Aprende los fundamentos del aprendizaje profundo y redes neuronales.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 5 horas 18 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Avanzado</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=IA3WxTTPXqQ" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- New Course: Data Science -->
+                    <div class="resource-card" data-category="datos">
+                        <div class="resource-preview">
+                            <img src="https://img.youtube.com/vi/Rgag-Clu5L4/maxresdefault.jpg" alt="Curso de Data Science">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de Data Science</h3>
+                            <p class="resource-description">Aprende ciencia de datos desde cero con Python y sus librerías más populares.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 6 horas 32 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Intermedio</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=Rgag-Clu5L4" class="resource-link">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Canal Píldoras Informáticas -->
+                    <div class="resource-card" data-category="ciberseguridad">
+                        <div class="resource-preview">
+                            <img src="https://i.ytimg.com/vi/fNzpcB7ODxQ/maxresdefault.jpg" alt="Píldoras Informáticas">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Píldoras Informáticas</h3>
+                            <p class="resource-description">Canal educativo con tutoriales de programación, bases de datos, desarrollo web y más. Ideal para aprender desde cero con explicaciones claras y detalladas.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 1000+ videos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Todos los niveles</span>
+                            </div>
+                            <a href="https://www.youtube.com/@pildorasinformaticas" class="resource-link" target="_blank">Visitar Canal</a>
+                        </div>
+                    </div>
+
+                    <!-- Canal Dorian Designs -->
+                    <div class="resource-card" data-category="diseño">
+                        <div class="resource-preview">
+                            <img src="https://i.ytimg.com/vi/1WmNXEVia8I/maxresdefault.jpg" alt="Dorian Designs">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Dorian Designs</h3>
+                            <p class="resource-description">Tutoriales de diseño gráfico, edición de video, animación y herramientas creativas. Aprende a dominar Adobe Photoshop, Illustrator, After Effects y más.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 500+ videos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Intermedio-Avanzado</span>
+                            </div>
+                            <a href="https://www.youtube.com/@DorianDesings" class="resource-link" target="_blank">Visitar Canal</a>
+                        </div>
+                    </div>
+
+                    <!-- 600 English Words for Everyday Life -->
+                    <div class="resource-card" data-category="idiomas">
+                        <div class="resource-preview">
+                            <img src="https://i.ytimg.com/vi/5qiYEKVZAIM/maxresdefault.jpg" alt="600 English Words for Everyday Life">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">600 English Words for Everyday Life</h3>
+                            <p class="resource-description">Aprende 600 palabras esenciales en inglés para la vida diaria. Vocabulario práctico y útil para mejorar tu fluidez en conversaciones cotidianas.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 1 hora 30 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Intermedio</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=5qiYEKVZAIM" class="resource-link" target="_blank">Ver Video</a>
+                        </div>
+                    </div>
+
+                    <!-- Canal Coding is Fun -->
+                    <div class="resource-card" data-category="programación">
+                        <div class="resource-preview">
+                            <img src="https://i.ytimg.com/vi/1Rs2ND1ryYc/maxresdefault.jpg" alt="Coding is Fun">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Coding is Fun</h3>
+                            <p class="resource-description">Tutoriales de programación, desarrollo web, aplicaciones móviles y proyectos prácticos. Aprende Python, JavaScript, React, Node.js y más tecnologías modernas.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 300+ videos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Principiante-Intermedio</span>
+                            </div>
+                            <a href="https://www.youtube.com/@CodingIsFun" class="resource-link" target="_blank">Visitar Canal</a>
+                        </div>
+                    </div>
+
+                    <!-- Curso de Active Directory -->
+                    <div class="resource-card" data-category="ciberseguridad">
+                        <div class="resource-preview">
+                            <img src="https://i.ytimg.com/vi/daYt6R4PJrI/maxresdefault.jpg" alt="Curso de Active Directory">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de Active Directory</h3>
+                            <p class="resource-description">Aprende sobre Active Directory aplicado a la ciberseguridad. Configuración básica, gestión de usuarios y conceptos esenciales de seguridad en entornos de red Windows.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 2 horas 15 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Intermedio</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=daYt6R4PJrI" class="resource-link" target="_blank">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Curso de Redes para Hacking Ético -->
+                    <div class="resource-card" data-category="ciberseguridad">
+                        <div class="resource-preview">
+                            <img src="https://i.ytimg.com/vi/tNeRFm2jY7c/maxresdefault.jpg" alt="Redes para Hacking Ético">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Redes para Hacking Ético</h3>
+                            <p class="resource-description">Fundamentos de redes informáticas aplicados al hacking ético. Aprende sobre protocolos, análisis de tráfico y técnicas de seguridad en redes.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 3 horas 45 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Intermedio</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=tNeRFm2jY7c" class="resource-link" target="_blank">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Curso de Python para Ciberseguridad -->
+                    <div class="resource-card" data-category="ciberseguridad">
+                        <div class="resource-preview">
+                            <img src="https://i.ytimg.com/vi/ER9S6sI-QLI/maxresdefault.jpg" alt="Python para Ciberseguridad">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Python para Ciberseguridad</h3>
+                            <p class="resource-description">Aprende a utilizar Python para tareas de ciberseguridad. Automatización de pruebas de penetración, análisis de malware y más con Python.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 4 horas 10 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Intermedio-Avanzado</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=ER9S6sI-QLI" class="resource-link" target="_blank">Ver Recurso</a>
+                        </div>
+                    </div>
+
+                    <!-- Curso de Hacking Ético Completo -->
+                    <div class="resource-card" data-category="ciberseguridad">
+                        <div class="resource-preview">
+                            <img src="https://i.ytimg.com/vi/L96SqQeBMa8/maxresdefault.jpg" alt="Curso de Hacking Ético Completo">
+                        </div>
+                        <div class="resource-content">
+                            <h3 class="resource-title">Curso de Hacking Ético Completo</h3>
+                            <p class="resource-description">Curso completo de hacking ético que cubre desde los fundamentos hasta técnicas avanzadas de seguridad informática y pruebas de penetración.</p>
+                            <div class="resource-meta">
+                                <span class="resource-duration"><i class="far fa-clock"></i> 8 horas 30 minutos</span>
+                                <span class="resource-level"><i class="fas fa-signal"></i> Avanzado</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=L96SqQeBMa8" class="resource-link" target="_blank">Ver Recurso</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Sección KDTekh con Contacto -->
+                <div class="footer-section">
+                    <img src="/img/logo.png" alt="KDTekh Logo" class="footer-logo">
+                    <p>Transformando carreras a través de educación tecnológica de vanguardia. Comprometidos con la excelencia en formación digital.</p>
+                    
+                    <div class="contact-info" style="margin-top: 20px;">
+                        <p><i class="fas fa-envelope"></i> kdtekh@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +34 666 699 328</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Madrid, España</p>
+                    </div>
+                </div>
+
+                <!-- Enlaces Rápidos -->
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="/"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="/cursos.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+                        <li><a href="/blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                        <li><a href="/sobre-nosotros.html"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+                        <li><a href="/contacto.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Síguenos -->
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <p>Únete a una comunidad de profesionales tech en crecimiento. Contenido exclusivo, ofertas de empleo y primeros accesos a nuevos programas formativos.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.youtube.com/kdtekh" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-section newsletter">
+                    <h3>¡Mantente Actualizado!</h3>
+                    <p>Suscríbete a nuestro boletín para recibir las últimas noticias, cursos y ofertas exclusivas directamente en tu bandeja de entrada.</p>
+                    <form class="newsletter-form" id="footerNewsletterForm" action="/php/newsletter.php" method="POST">
+                        <!-- Token CSRF -->
+                        <input type="hidden" name="csrf_token" id="newsletterCsrfToken" value="de94a73ae5102a8b8a9ccfc36125d87e6c9efcaf64aab8857b321d7cf9a7c1b1">
+                        <div class="form-group">
+                            <input type="email" 
+                                   name="email" 
+                                   id="footerNewsletterEmail" 
+                                   placeholder="Tu correo electrónico" 
+                                   required 
+                                   aria-label="Correo electrónico"
+                                   class="newsletter-email">
+                            <button type="submit" 
+                                    class="btn-submit" 
+                                    aria-label="Suscribirse"
+                                    id="newsletterSubmitBtn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span class="btn-text">Suscribirse</span>
+                            </button>
+                        </div>
+                        <div class="newsletter-message"></div>
+                    </form>
+                    <p class="newsletter-note">Nos tomamos en serio tu privacidad. Nunca compartiremos tu información.</p>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                &copy; <span id="currentYear">2025</span> KD Tech. Todos los derechos reservados. | 
+                <a href="/aviso-legal.html">Aviso Legal</a> | 
+                <a href="/politica-privacidad.html">Política de Privacidad</a>
+            </div>
+            <script>
+                // Actualizar el año del copyright
+                document.getElementById('currentYear').textContent = new Date().getFullYear();
+            </script>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="/js/theme-switcher.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/load-header.min.js"></script>
+    <script src="/js/header.js"></script>
+    <script>
+        // Actualizar el copyright
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Inicialización del menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('nav ul');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    nav.classList.toggle('show');
+                    this.classList.toggle('active');
+                });
+            }
+            
+            // Cerrar menú al hacer clic en un enlace
+            document.querySelectorAll('nav ul li a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('show');
+                    if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
+                });
+            });
+            
+            // Inicializar la funcionalidad de filtrado
+            initFiltering();
+        });
+        
+        // Funcionalidad de filtrado
+        function initFiltering() {
+            const searchInput = document.getElementById('searchInput');
+            const filterTags = document.querySelectorAll('.filter-tag');
+            const resourceCards = document.querySelectorAll('.resource-card');
+            
+            // Manejar búsqueda
+            searchInput.addEventListener('input', filterResources);
+            
+            // Manejar clics en etiquetas de filtro
+            filterTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    // Actualizar estado activo
+                    if (this.dataset.tag === 'todos') {
+                        // Si se hace clic en 'Todos', desactivar otros filtros
+                        filterTags.forEach(t => t.classList.remove('active'));
+                        this.classList.add('active');
+                    } else {
+                        // Si se selecciona otro filtro, desmarcar 'Todos'
+                        document.querySelector('.filter-tag[data-tag="todos"]').classList.remove('active');
+                        this.classList.toggle('active');
+                    }
+                    
+                    filterResources();
+                });
+            });
+            
+            function filterResources() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const activeTags = Array.from(document.querySelectorAll('.filter-tag.active[data-tag]'))
+                    .map(btn => btn.dataset.tag.toLowerCase())
+                    .filter(tag => tag !== 'todos');
+                
+                resourceCards.forEach(card => {
+                    const title = card.querySelector('.resource-title').textContent.toLowerCase();
+                    const description = card.querySelector('.resource-description').textContent.toLowerCase();
+                    const category = card.dataset.category.toLowerCase();
+                    
+                    // Verificar si coincide con el término de búsqueda
+                    const matchesSearch = !searchTerm || 
+                        title.includes(searchTerm) || 
+                        description.includes(searchTerm) ||
+                        category.includes(searchTerm);
+                    
+                    // Verificar si coincide con las etiquetas activas
+                    const matchesTags = activeTags.length === 0 || 
+                        activeTags.some(tag => 
+                            category === tag || 
+                            title.includes(tag) || 
+                            description.includes(tag)
+                        );
+                    
+                    // Mostrar u ocultar la tarjeta según los filtros
+                    if (matchesSearch && matchesTags) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // Actualizar contador de resultados
+                updateResultCount();
+            }
+            
+            function updateResultCount() {
+                const visibleCount = document.querySelectorAll('.resource-card[style*="display: block"]').length;
+                const totalCount = resourceCards.length;
+                const resultCount = document.getElementById('resultCount') || createResultCountElement();
+                
+                resultCount.textContent = `Mostrando ${visibleCount} de ${totalCount} recursos`;
+                
+                // Mover el contador después del título si no está ya en el DOM
+                if (!document.getElementById('resultCount')) {
+                    const title = document.querySelector('.resources-hero h1');
+                    if (title) {
+                        title.insertAdjacentElement('afterend', resultCount);
+                    }
+                }
+            }
+            
+            function createResultCountElement() {
+                const resultCount = document.createElement('p');
+                resultCount.id = 'resultCount';
+                resultCount.style.margin = '0.5rem 0 1.5rem';
+                resultCount.style.color = 'var(--text-secondary)';
+                return resultCount;
+            }
+            
+            // Inicializar contador
+            updateResultCount();
+        }
+    </script>
+</body>
+</html>
