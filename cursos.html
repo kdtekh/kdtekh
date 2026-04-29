@@ -99,6 +99,13 @@
             transition: all 0.2s ease;
             color: var(--text-primary);
             white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .filter-tag i {
+            font-size: 0.85rem;
         }
 
         .filter-tag:hover {
@@ -117,6 +124,31 @@
             box-shadow: 0 4px 12px rgba(156, 102, 255, 0.3);
         }
 
+        /* Sort container */
+        .sort-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+
+        .sort-container select {
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .sort-container i {
+            color: var(--text-secondary);
+        }
+
         /* Grid de recursos */
         .resources-grid {
             display: grid;
@@ -130,16 +162,51 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
             display: flex;
             flex-direction: column;
             height: 100%;
             border: 1px solid var(--border-color);
+            opacity: 1;
+            animation: slideIn 0.4s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .resource-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .resource-card.hidden {
+            display: none;
+        }
+
+        /* Iconos de categoría */
+        .category-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(156, 102, 255, 0.9);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 14px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
         .resource-preview {
@@ -243,6 +310,26 @@
         }
 
         /* Responsive */
+        @media (max-width: 1200px) {
+            .filters-container {
+                gap: 0.75rem;
+            }
+            
+            .filter-tags {
+                gap: 0.3rem;
+            }
+            
+            .filter-tag {
+                padding: 6px 12px;
+                font-size: 0.85rem;
+            }
+            
+            .sort-container {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .resources-grid {
                 grid-template-columns: 1fr;
@@ -251,10 +338,21 @@
             .filters-container {
                 flex-direction: column;
                 align-items: stretch;
+                gap: 1rem;
             }
             
             .search-container {
                 width: 100%;
+            }
+
+            .filter-tags {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .sort-container {
+                width: 100%;
+                justify-content: space-between;
             }
         }
 
@@ -584,15 +682,27 @@
                         <input type="search" id="searchInput" placeholder="Usáme para buscar...">
                     </div>
                     <div class="filter-tags">
-                        <button class="filter-tag active" data-tag="todos">Todos</button>
-                        <button class="filter-tag" data-tag="programación">Programación</button>
-                        <button class="filter-tag" data-tag="web">Web</button>
-                        <button class="filter-tag" data-tag="inglés">Inglés</button>
-                        <button class="filter-tag" data-tag="ofimática">Ofimática</button>
-                        <button class="filter-tag" data-tag="ciberseguridad">Ciberseguridad</button>
-                        <button class="filter-tag" data-tag="redes">Redes</button>
-                        <button class="filter-tag" data-tag="ciencia de datos">Datos</button>
-                    </div>        </div>
+                        <button class="filter-tag active" data-tag="todos"><i class="fas fa-grid"></i> Todos</button>
+                        <button class="filter-tag" data-tag="programación"><i class="fas fa-code"></i> Programación</button>
+                        <button class="filter-tag" data-tag="web"><i class="fas fa-globe"></i> Web</button>
+                        <button class="filter-tag" data-tag="ciberseguridad"><i class="fas fa-shield-alt"></i> Ciberseguridad</button>
+                        <button class="filter-tag" data-tag="datos"><i class="fas fa-database"></i> Datos</button>
+                        <button class="filter-tag" data-tag="ofimática"><i class="fas fa-file-alt"></i> Ofimática</button>
+                        <button class="filter-tag" data-tag="redes"><i class="fas fa-network-wired"></i> Redes</button>
+                        <button class="filter-tag" data-tag="idiomas"><i class="fas fa-language"></i> Idiomas</button>
+                        <button class="filter-tag" data-tag="diseño"><i class="fas fa-palette"></i> Diseño</button>
+                    </div>
+                    <div class="sort-container">
+                        <i class="fas fa-sort"></i>
+                        <select id="sortSelect" aria-label="Ordenar recursos">
+                            <option value="relevancia">Relevancia</option>
+                            <option value="duracion-menor">Duración: Menor</option>
+                            <option value="duracion-mayor">Duración: Mayor</option>
+                            <option value="nivel-principiante">Nivel: Principiante</option>
+                            <option value="nivel-intermedio">Nivel: Intermedio</option>
+                            <option value="nivel-avanzado">Nivel: Avanzado</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </section>
@@ -602,15 +712,16 @@
             <div class="container">
                 <div class="resources-grid">
                     <!-- Recurso 1 -->
-                    <div class="resource-card" data-category="ciberseguridad">
+                    <div class="resource-card" data-category="ciberseguridad" data-level="3" data-duration="318">
                         <div class="resource-preview">
+                            <span class="category-badge"><i class="fas fa-shield-alt"></i> Ciberseguridad</span>
                             <img src="https://img.youtube.com/vi/fNzpcB7ODxQ/maxresdefault.jpg" alt="Curso de Hacking ético">
                         </div>
                         <div class="resource-content">
                             <h3 class="resource-title">Curso de Hacking ético</h3>
                             <p class="resource-description">Aprende los fundamentos de la ciberseguridad y el hacking ético desde cero.</p>
                             <div class="resource-meta">
-                                <span class="resource-duration"><i class="far fa-clock"></i> 5 horas 18 minutos</span>
+                                <span class="resource-duration"><i class="far fa-clock"></i> 5h 18m</span>
                                 <span class="resource-level"><i class="fas fa-signal"></i> Avanzado</span>
                             </div>
                             <a href="https://www.youtube.com/watch?v=fNzpcB7ODxQ" class="resource-link">Ver Recurso</a>
@@ -1291,7 +1402,6 @@
         </div>
     </footer>
     
-    <!-- Scripts -->
     <script src="/js/theme-switcher.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/load-header.min.js"></script>
@@ -1320,100 +1430,188 @@
                 });
             });
             
-            // Inicializar la funcionalidad de filtrado
-            initFiltering();
+            // Inicializar la funcionalidad de filtrado y ordenamiento
+            initResourcesFiltering();
         });
         
-        // Funcionalidad de filtrado
-        function initFiltering() {
+        // Sistema mejorado de filtrado y ordenamiento
+        function initResourcesFiltering() {
             const searchInput = document.getElementById('searchInput');
             const filterTags = document.querySelectorAll('.filter-tag');
+            const sortSelect = document.getElementById('sortSelect');
             const resourceCards = document.querySelectorAll('.resource-card');
+            let activeFilters = new Set(['todos']);
             
             // Manejar búsqueda
-            searchInput.addEventListener('input', filterResources);
+            searchInput.addEventListener('input', debounce(filterAndSort, 300));
+            
+            // Manejar ordenamiento
+            if (sortSelect) {
+                sortSelect.addEventListener('change', filterAndSort);
+            }
             
             // Manejar clics en etiquetas de filtro
             filterTags.forEach(tag => {
-                tag.addEventListener('click', function() {
-                    // Actualizar estado activo
-                    if (this.dataset.tag === 'todos') {
-                        // Si se hace clic en 'Todos', desactivar otros filtros
-                        filterTags.forEach(t => t.classList.remove('active'));
-                        this.classList.add('active');
+                tag.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tagValue = this.dataset.tag;
+                    
+                    if (tagValue === 'todos') {
+                        activeFilters.clear();
+                        activeFilters.add('todos');
+                        filterTags.forEach(t => {
+                            t.classList.remove('active');
+                            if (t.dataset.tag === 'todos') t.classList.add('active');
+                        });
                     } else {
-                        // Si se selecciona otro filtro, desmarcar 'Todos'
-                        document.querySelector('.filter-tag[data-tag="todos"]').classList.remove('active');
+                        activeFilters.delete('todos');
                         this.classList.toggle('active');
+                        if (this.classList.contains('active')) {
+                            activeFilters.add(tagValue);
+                        } else {
+                            activeFilters.delete(tagValue);
+                        }
+                        
+                        if (activeFilters.size === 0) {
+                            activeFilters.add('todos');
+                            filterTags.forEach(t => {
+                                t.classList.remove('active');
+                                if (t.dataset.tag === 'todos') t.classList.add('active');
+                            });
+                        } else {
+                            document.querySelector('.filter-tag[data-tag="todos"]').classList.remove('active');
+                        }
                     }
                     
-                    filterResources();
+                    filterAndSort();
                 });
             });
             
-            function filterResources() {
-                const searchTerm = searchInput.value.toLowerCase();
-                const activeTags = Array.from(document.querySelectorAll('.filter-tag.active[data-tag]'))
-                    .map(btn => btn.dataset.tag.toLowerCase())
-                    .filter(tag => tag !== 'todos');
+            function filterAndSort() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                const sortValue = sortSelect ? sortSelect.value : 'relevancia';
+                let visibleCards = [];
                 
                 resourceCards.forEach(card => {
                     const title = card.querySelector('.resource-title').textContent.toLowerCase();
                     const description = card.querySelector('.resource-description').textContent.toLowerCase();
-                    const category = card.dataset.category.toLowerCase();
+                    const category = (card.dataset.category || '').toLowerCase();
                     
-                    // Verificar si coincide con el término de búsqueda
+                    // Búsqueda
                     const matchesSearch = !searchTerm || 
                         title.includes(searchTerm) || 
                         description.includes(searchTerm) ||
                         category.includes(searchTerm);
                     
-                    // Verificar si coincide con las etiquetas activas
-                    const matchesTags = activeTags.length === 0 || 
-                        activeTags.some(tag => 
-                            category === tag || 
-                            title.includes(tag) || 
-                            description.includes(tag)
-                        );
+                    // Filtros
+                    const matchesFilters = activeFilters.has('todos') || 
+                        activeFilters.has(category) ||
+                        activeFilters.has(category.replace('-', ' '));
                     
-                    // Mostrar u ocultar la tarjeta según los filtros
-                    if (matchesSearch && matchesTags) {
-                        card.style.display = 'block';
+                    if (matchesSearch && matchesFilters) {
+                        card.classList.remove('hidden');
+                        visibleCards.push(card);
                     } else {
-                        card.style.display = 'none';
+                        card.classList.add('hidden');
                     }
                 });
                 
-                // Actualizar contador de resultados
-                updateResultCount();
+                // Aplicar ordenamiento
+                applySort(visibleCards, sortValue);
+                
+                // Actualizar contador
+                updateResultCount(visibleCards.length, resourceCards.length);
             }
             
-            function updateResultCount() {
-                const visibleCount = document.querySelectorAll('.resource-card[style*="display: block"]').length;
-                const totalCount = resourceCards.length;
-                const resultCount = document.getElementById('resultCount') || createResultCountElement();
+            function applySort(cards, sortValue) {
+                const parent = document.querySelector('.resources-grid');
                 
-                resultCount.textContent = `Mostrando ${visibleCount} de ${totalCount} recursos`;
+                cards.sort((a, b) => {
+                    switch(sortValue) {
+                        case 'duracion-menor': {
+                            const durationA = parseDuration(a);
+                            const durationB = parseDuration(b);
+                            return durationA - durationB;
+                        }
+                        case 'duracion-mayor': {
+                            const durationA = parseDuration(a);
+                            const durationB = parseDuration(b);
+                            return durationB - durationA;
+                        }
+                        case 'nivel-principiante': {
+                            const levelOrder = { 'Principiante': 1, 'Intermedio': 2, 'Avanzado': 3 };
+                            const levelA = levelOrder[getLevelText(a)] || 0;
+                            const levelB = levelOrder[getLevelText(b)] || 0;
+                            return levelA - levelB;
+                        }
+                        case 'nivel-avanzado': {
+                            const levelOrder = { 'Principiante': 1, 'Intermedio': 2, 'Avanzado': 3 };
+                            const levelA = levelOrder[getLevelText(a)] || 0;
+                            const levelB = levelOrder[getLevelText(b)] || 0;
+                            return levelB - levelA;
+                        }
+                        case 'nivel-intermedio': {
+                            const levelOrder = { 'Principiante': 1, 'Intermedio': 2, 'Avanzado': 3 };
+                            const levelA = Math.abs(levelOrder[getLevelText(a)] - 2) || 3;
+                            const levelB = Math.abs(levelOrder[getLevelText(b)] - 2) || 3;
+                            return levelA - levelB;
+                        }
+                        default: return 0; // relevancia
+                    }
+                });
                 
-                // Mover el contador después del título si no está ya en el DOM
-                if (!document.getElementById('resultCount')) {
+                // Re-insertar tarjetas ordenadas
+                cards.forEach(card => {
+                    parent.appendChild(card);
+                });
+            }
+            
+            function parseDuration(card) {
+                const durationText = card.querySelector('.resource-duration')?.textContent || '';
+                const matches = durationText.match(/(\d+)/g);
+                if (!matches) return 0;
+                const hours = parseInt(matches[0]) || 0;
+                const minutes = parseInt(matches[1]) || 0;
+                return hours * 60 + minutes;
+            }
+            
+            function getLevelText(card) {
+                return card.querySelector('.resource-level')?.textContent?.split('\n')[1]?.trim() || '';
+            }
+            
+            function updateResultCount(visible, total) {
+                let resultCount = document.getElementById('resultCount');
+                if (!resultCount) {
+                    resultCount = document.createElement('p');
+                    resultCount.id = 'resultCount';
+                    resultCount.style.cssText = 'margin: 0.5rem 0 1.5rem; color: var(--text-secondary); text-align: center;';
                     const title = document.querySelector('.resources-hero h1');
                     if (title) {
                         title.insertAdjacentElement('afterend', resultCount);
                     }
                 }
+                
+                const message = visible === total 
+                    ? `Mostrando ${visible} recursos` 
+                    : `Mostrando ${visible} de ${total} recursos`;
+                resultCount.textContent = message;
             }
             
-            function createResultCountElement() {
-                const resultCount = document.createElement('p');
-                resultCount.id = 'resultCount';
-                resultCount.style.margin = '0.5rem 0 1.5rem';
-                resultCount.style.color = 'var(--text-secondary)';
-                return resultCount;
+            // Debounce helper
+            function debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
             }
             
-            // Inicializar contador
-            updateResultCount();
+            // Inicializar
+            filterAndSort();
         }
     </script>
 </body>
