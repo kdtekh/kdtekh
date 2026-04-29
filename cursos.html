@@ -14,6 +14,17 @@
     <style>
         /* Estilos específicos para la página de recursos - movidos a styles.css */
         /* Solo se mantienen estilos únicos si los hubiera */
+        .resource-preview-link {
+            position: absolute;
+            inset: 0;
+            display: block;
+            z-index: 1;
+        }
+
+        .resource-preview-link:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: -2px;
+        }
     </style>
 </head>
 <body>
@@ -793,34 +804,30 @@
             resourceCards.forEach(card => {
                 const preview = card.querySelector('.resource-preview');
                 const resourceLink = card.querySelector('.resource-link');
+                const media = preview?.querySelector('img, iframe');
 
-                if (!preview || !resourceLink || preview.dataset.clickableReady === 'true') return;
+                if (!preview || !resourceLink || !media) return;
+                if (media.parentElement?.classList.contains('resource-preview-link')) return;
 
                 const href = resourceLink.getAttribute('href');
                 if (!href) return;
 
-                preview.dataset.clickableReady = 'true';
-                preview.style.cursor = 'pointer';
-                preview.setAttribute('tabindex', '0');
-                preview.setAttribute('role', 'link');
-                preview.setAttribute('aria-label', `Abrir ${card.querySelector('.resource-title')?.textContent?.trim() || 'recurso'}`);
+                const previewLink = document.createElement('a');
+                previewLink.className = 'resource-preview-link';
+                previewLink.href = href;
+                previewLink.setAttribute('aria-label', `Abrir ${card.querySelector('.resource-title')?.textContent?.trim() || 'recurso'}`);
 
-                const openResource = () => {
-                    const target = resourceLink.getAttribute('target');
-                    if (target === '_blank') {
-                        window.open(href, '_blank', 'noopener,noreferrer');
-                    } else {
-                        window.location.href = href;
-                    }
-                };
+                const target = resourceLink.getAttribute('target');
+                if (target) {
+                    previewLink.target = target;
+                }
 
-                preview.addEventListener('click', openResource);
-                preview.addEventListener('keydown', event => {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                        event.preventDefault();
-                        openResource();
-                    }
-                });
+                if (previewLink.target === '_blank') {
+                    previewLink.rel = 'noopener noreferrer';
+                }
+
+                preview.insertBefore(previewLink, media);
+                previewLink.appendChild(media);
             });
         }
         
