@@ -13,6 +13,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         /* Estilos específicos para la página de recursos - movidos a styles.css */
+        .resources-hero h1 {
+            text-align: center;
+            width: 100%;
+        }
+
+        .filters-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.9rem;
+        }
+
+        .filter-tags {
+            width: 100%;
+            justify-content: center;
+        }
+
         .resource-preview-link {
             position: absolute;
             inset: 0;
@@ -46,26 +63,21 @@
                         <input type="search" id="searchInput" placeholder="Usáme para buscar...">
                     </div>
                     <div class="filter-tags">
-                        <button class="filter-tag active" data-tag="todos"><i class="fas fa-grid"></i> Todos</button>
-                        <button class="filter-tag" data-tag="programación"><i class="fas fa-code"></i> Programación</button>
-                        <button class="filter-tag" data-tag="web"><i class="fas fa-globe"></i> Web</button>
-                        <button class="filter-tag" data-tag="ciberseguridad"><i class="fas fa-shield-alt"></i> Ciberseguridad</button>
-                        <button class="filter-tag" data-tag="datos"><i class="fas fa-database"></i> Datos</button>
-                        <button class="filter-tag" data-tag="ofimática"><i class="fas fa-file-alt"></i> Ofimática</button>
-                        <button class="filter-tag" data-tag="redes"><i class="fas fa-network-wired"></i> Redes</button>
-                        <button class="filter-tag" data-tag="idiomas"><i class="fas fa-language"></i> Idiomas</button>
-                        <button class="filter-tag" data-tag="diseño"><i class="fas fa-palette"></i> Diseño</button>
+                        <button class="filter-tag category-filter-tag active" data-tag="todos"><i class="fas fa-grid"></i> Todos</button>
+                        <button class="filter-tag category-filter-tag" data-tag="programación"><i class="fas fa-code"></i> Programación</button>
+                        <button class="filter-tag category-filter-tag" data-tag="web"><i class="fas fa-globe"></i> Web</button>
+                        <button class="filter-tag category-filter-tag" data-tag="ciberseguridad"><i class="fas fa-shield-alt"></i> Ciberseguridad</button>
+                        <button class="filter-tag category-filter-tag" data-tag="datos"><i class="fas fa-database"></i> Datos</button>
+                        <button class="filter-tag category-filter-tag" data-tag="ofimática"><i class="fas fa-file-alt"></i> Ofimática</button>
+                        <button class="filter-tag category-filter-tag" data-tag="redes"><i class="fas fa-network-wired"></i> Redes</button>
+                        <button class="filter-tag category-filter-tag" data-tag="idiomas"><i class="fas fa-language"></i> Idiomas</button>
+                        <button class="filter-tag category-filter-tag" data-tag="diseño"><i class="fas fa-palette"></i> Diseño</button>
                     </div>
-                    <div class="sort-container">
-                        <i class="fas fa-sort"></i>
-                        <select id="sortSelect" aria-label="Ordenar recursos">
-                            <option value="relevancia">Relevancia</option>
-                            <option value="duracion-menor">Duración: Menor</option>
-                            <option value="duracion-mayor">Duración: Mayor</option>
-                            <option value="nivel-principiante">Nivel: Principiante</option>
-                            <option value="nivel-intermedio">Nivel: Intermedio</option>
-                            <option value="nivel-avanzado">Nivel: Avanzado</option>
-                        </select>
+                    <div class="filter-tags difficulty-tags">
+                        <button class="filter-tag difficulty-filter-tag active" data-difficulty="todos"><i class="fas fa-layer-group"></i> Todos</button>
+                        <button class="filter-tag difficulty-filter-tag" data-difficulty="principiante"><i class="fas fa-seedling"></i> Principiante</button>
+                        <button class="filter-tag difficulty-filter-tag" data-difficulty="intermedio"><i class="fas fa-chart-line"></i> Intermedio</button>
+                        <button class="filter-tag difficulty-filter-tag" data-difficulty="avanzado"><i class="fas fa-rocket"></i> Avanzado</button>
                     </div>
                 </div>
             </div>
@@ -841,65 +853,74 @@
         // Sistema mejorado de filtrado y ordenamiento
         function initResourcesFiltering() {
             const searchInput = document.getElementById('searchInput');
-            const filterTags = document.querySelectorAll('.filter-tag');
-            const sortSelect = document.getElementById('sortSelect');
+            const categoryTags = document.querySelectorAll('.category-filter-tag');
+            const difficultyTags = document.querySelectorAll('.difficulty-filter-tag');
             const resourceCards = document.querySelectorAll('.resource-card');
-            let activeFilters = new Set(['todos']);
+            let activeCategories = new Set(['todos']);
+            let activeDifficulty = 'todos';
             
             // Manejar búsqueda
-            searchInput.addEventListener('input', debounce(filterAndSort, 300));
-            
-            // Manejar ordenamiento
-            if (sortSelect) {
-                sortSelect.addEventListener('change', filterAndSort);
-            }
+            searchInput.addEventListener('input', debounce(filterResources, 300));
             
             // Manejar clics en etiquetas de filtro
-            filterTags.forEach(tag => {
+            categoryTags.forEach(tag => {
                 tag.addEventListener('click', function(e) {
                     e.preventDefault();
                     const tagValue = this.dataset.tag;
                     
                     if (tagValue === 'todos') {
-                        activeFilters.clear();
-                        activeFilters.add('todos');
-                        filterTags.forEach(t => {
+                        activeCategories.clear();
+                        activeCategories.add('todos');
+                        categoryTags.forEach(t => {
                             t.classList.remove('active');
                             if (t.dataset.tag === 'todos') t.classList.add('active');
                         });
                     } else {
-                        activeFilters.delete('todos');
+                        activeCategories.delete('todos');
                         this.classList.toggle('active');
                         if (this.classList.contains('active')) {
-                            activeFilters.add(tagValue);
+                            activeCategories.add(tagValue);
                         } else {
-                            activeFilters.delete(tagValue);
+                            activeCategories.delete(tagValue);
                         }
                         
-                        if (activeFilters.size === 0) {
-                            activeFilters.add('todos');
-                            filterTags.forEach(t => {
+                        if (activeCategories.size === 0) {
+                            activeCategories.add('todos');
+                            categoryTags.forEach(t => {
                                 t.classList.remove('active');
                                 if (t.dataset.tag === 'todos') t.classList.add('active');
                             });
                         } else {
-                            document.querySelector('.filter-tag[data-tag="todos"]').classList.remove('active');
+                            const allTag = document.querySelector('.category-filter-tag[data-tag="todos"]');
+                            if (allTag) allTag.classList.remove('active');
                         }
                     }
                     
-                    filterAndSort();
+                    filterResources();
                 });
             });
-            
-            function filterAndSort() {
+
+            difficultyTags.forEach(tag => {
+                tag.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    activeDifficulty = this.dataset.difficulty || 'todos';
+
+                    difficultyTags.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+
+                    filterResources();
+                });
+            });
+
+            function filterResources() {
                 const searchTerm = searchInput.value.toLowerCase().trim();
-                const sortValue = sortSelect ? sortSelect.value : 'relevancia';
                 let visibleCards = [];
                 
                 resourceCards.forEach(card => {
                     const title = card.querySelector('.resource-title').textContent.toLowerCase();
                     const description = card.querySelector('.resource-description').textContent.toLowerCase();
                     const category = (card.dataset.category || '').toLowerCase();
+                    const level = normalizeDifficulty(getLevelText(card));
                     
                     // Búsqueda
                     const matchesSearch = !searchTerm || 
@@ -908,79 +929,37 @@
                         category.includes(searchTerm);
                     
                     // Filtros
-                    const matchesFilters = activeFilters.has('todos') || 
-                        activeFilters.has(category) ||
-                        activeFilters.has(category.replace('-', ' '));
+                    const matchesCategory = activeCategories.has('todos') || 
+                        activeCategories.has(category) ||
+                        activeCategories.has(category.replace('-', ' '));
+                    const matchesDifficulty = activeDifficulty === 'todos' || activeDifficulty === level;
                     
-                    if (matchesSearch && matchesFilters) {
+                    if (matchesSearch && matchesCategory && matchesDifficulty) {
                         card.classList.remove('hidden');
                         visibleCards.push(card);
                     } else {
                         card.classList.add('hidden');
                     }
                 });
-                
-                // Aplicar ordenamiento
-                applySort(visibleCards, sortValue);
-                
+
                 // Actualizar contador
                 updateResultCount(visibleCards.length, resourceCards.length);
             }
             
-            function applySort(cards, sortValue) {
-                const parent = document.querySelector('.resources-grid');
-                
-                cards.sort((a, b) => {
-                    switch(sortValue) {
-                        case 'duracion-menor': {
-                            const durationA = parseDuration(a);
-                            const durationB = parseDuration(b);
-                            return durationA - durationB;
-                        }
-                        case 'duracion-mayor': {
-                            const durationA = parseDuration(a);
-                            const durationB = parseDuration(b);
-                            return durationB - durationA;
-                        }
-                        case 'nivel-principiante': {
-                            const levelOrder = { 'Principiante': 1, 'Intermedio': 2, 'Avanzado': 3 };
-                            const levelA = levelOrder[getLevelText(a)] || 0;
-                            const levelB = levelOrder[getLevelText(b)] || 0;
-                            return levelA - levelB;
-                        }
-                        case 'nivel-avanzado': {
-                            const levelOrder = { 'Principiante': 1, 'Intermedio': 2, 'Avanzado': 3 };
-                            const levelA = levelOrder[getLevelText(a)] || 0;
-                            const levelB = levelOrder[getLevelText(b)] || 0;
-                            return levelB - levelA;
-                        }
-                        case 'nivel-intermedio': {
-                            const levelOrder = { 'Principiante': 1, 'Intermedio': 2, 'Avanzado': 3 };
-                            const levelA = Math.abs(levelOrder[getLevelText(a)] - 2) || 3;
-                            const levelB = Math.abs(levelOrder[getLevelText(b)] - 2) || 3;
-                            return levelA - levelB;
-                        }
-                        default: return 0; // relevancia
-                    }
-                });
-                
-                // Re-insertar tarjetas ordenadas
-                cards.forEach(card => {
-                    parent.appendChild(card);
-                });
-            }
-            
-            function parseDuration(card) {
-                const durationText = card.querySelector('.resource-duration')?.textContent || '';
-                const matches = durationText.match(/(\d+)/g);
-                if (!matches) return 0;
-                const hours = parseInt(matches[0]) || 0;
-                const minutes = parseInt(matches[1]) || 0;
-                return hours * 60 + minutes;
-            }
-            
             function getLevelText(card) {
                 return card.querySelector('.resource-level')?.textContent?.split('\n')[1]?.trim() || '';
+            }
+
+            function normalizeDifficulty(value) {
+                const normalized = (value || '')
+                    .toLowerCase()
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '');
+
+                if (normalized.includes('principiante')) return 'principiante';
+                if (normalized.includes('intermedio')) return 'intermedio';
+                if (normalized.includes('avanzad')) return 'avanzado';
+                return normalized;
             }
             
             function updateResultCount(visible, total) {
@@ -1015,7 +994,7 @@
             }
             
             // Inicializar
-            filterAndSort();
+            filterResources();
         }
     </script>
 </body>
