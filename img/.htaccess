@@ -1,0 +1,63 @@
+# Habilitar reescritura de URL
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+</IfModule>
+
+# Permitir el acceso a archivos de imagen
+<FilesMatch "\.(jpg|jpeg|png|gif|svg|webp|ico)$">
+    <IfModule !mod_authz_core.c>
+        Order Allow,Deny
+        Allow from all
+    </IfModule>
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+    
+    # Configuración de caché para imágenes (1 año)
+    <IfModule mod_headers.c>
+        Header set Cache-Control "max-age=31536000, public, must-revalidate"
+        Header set X-Content-Type-Options "nosniff"
+        Header set Access-Control-Allow-Origin "*"
+        Header set Access-Control-Allow-Methods "GET, OPTIONS"
+        Header set Access-Control-Allow-Headers "Content-Type"
+    </IfModule>
+    
+    # Configuración de expiración
+    <IfModule mod_expires.c>
+        ExpiresActive On
+        ExpiresDefault "access plus 1 year"
+    </IfModule>
+</FilesMatch>
+
+# Configuración para archivos SVG
+<FilesMatch "\.svg$">
+    AddType image/svg+xml .svg
+    AddOutputFilterByType DEFLATE image/svg+xml
+</FilesMatch>
+
+# Configuración para archivos WebP
+<IfModule mod_mime.c>
+    AddType image/webp .webp
+</IfModule>
+
+# Deshabilitar el listado de directorios
+Options -Indexes
+
+# Prevenir acceso a archivos ocultos
+<FilesMatch "^\.">
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+</FilesMatch>
+
+# Prevenir hotlinking
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?kdtekh\.com/.*$ [NC]
+    RewriteRule \.(jpg|jpeg|png|gif|svg|webp|ico)$ - [F,NC,L]
+</IfModule>

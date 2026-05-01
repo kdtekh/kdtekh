@@ -1,0 +1,14 @@
+{
+    "require": {
+        "phpmailer/phpmailer": "*",
+        "google/apiclient": "^2.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "Google\\": "vendor/google/apiclient/src/Google"
+        }
+    },
+    "config": {
+        "process-timeout": 600
+    }
+}

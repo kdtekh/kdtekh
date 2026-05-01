@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tendencias en Desarrollo Web para el 2025: Lo que Debes Saber | KDTech</title>
+    <title>Tendencias en Desarrollo Web para el 2025: Lo que Debes Saber | KDTekh</title>
     <meta name="description" content="Descubre las tecnologías y tendencias que están definiendo el desarrollo web en 2025, desde frameworks emergentes hasta nuevas prácticas de diseño y rendimiento.">
     <meta name="keywords" content="desarrollo web, tendencias 2025, frameworks, JavaScript, React, Vue, Next.js, rendimiento web">
-    <meta name="author" content="KDTech">
+    <meta name="author" content="KDTekh">
     <link rel="icon" type="image/png" href="/img/logo_small.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -212,28 +212,16 @@
         </article>
     </main>
 
-    <div id="footer-container">
-        <!-- Footer se cargará aquí dinámicamente -->
-    </div>
+    <div id="footer-container"></div>
 
+    <script src="/js/load-header.min.js" defer></script>
+    <script src="/js/config.min.js" defer></script>
+    <script src="/js/main.min.js" defer></script>
     <script>
-        // Cargar header y footer dinámicamente
         document.addEventListener('DOMContentLoaded', function() {
-            // Cargar header
-            fetch('/header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header-container').innerHTML = data;
-                });
-            
-            // Cargar footer
-            fetch('/footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-container').innerHTML = data;
-                });
+            loadHeader('header-container');
+            loadFooter('footer-container');
         });
     </script>
-    <script src="/js/main.js"></script>
 </body>
 </html>

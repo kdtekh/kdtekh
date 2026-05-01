@@ -1,47 +1,68 @@
-﻿# PHP y backend
-*.php
+﻿# ============================================
+# ARCHIVOS SENSIBLES Y CREDENCIALES
+# ============================================
+client_secret.json
+.env
+.env.*
 *.sql
-admin/
-php/
-config/
-includes/*.php
-composer.json
-composer.lock
-package.json
-package-lock.json
 
-# Credenciales y configuración sensible
-js/config.js
-js/config.min.js
-js/min/
-
-# Logs y datos
+# ============================================
+# LOGS Y DATOS
+# ============================================
 logs/
 data/
 *.log
-php.ini
-nginx-config.conf
+error_log
+register_errors.log
 
-# Scripts de desarrollo
-*.ps1
-*.py
-*.bat
+# ============================================
+# BACKUPS Y TEMPORALES
+# ============================================
 *.bak
 *.backup
 *.bak2
 *.tmp
-OPTIMIZACION.md
-UPDATE-HEADERS-README.md
+*.swp
+*~
 
-# Archivos de mantenimiento
-fix-*.html
+# ============================================
+# CONFIGURACIN DE ENTORNO LOCAL
+# ============================================
+php.ini
+nginx-config.conf
+.vscode/
+
+# ============================================
+# ARCHIVOS DE DESARROLLO Y TEST (no produccin)
+# ============================================
+*.ps1
+*.py
+*.bat
+create_*.php
+check_*.php
+test_*.php
+test-*.php
+fix_*.html
 test.html
 hosting-check.php
+info.php
+phpinfo.php
+migrate_*.php
+setup_*.php
+init_*.php
+install.php
+debug*.php
+verify_*.php
+reset_*.php
 
-# htaccess
-.htaccess
-img/.htaccess
-js/.htaccess
-php/.htaccess
+# ============================================
+# BUILD ARTIFACTS (regenerables)
+# ============================================
+*.min.css.map
+*.min.js.map
 
-client_secret.json
+# ============================================
+# DEPENDENCIAS
+# ============================================
+node_modules/
+vendor/

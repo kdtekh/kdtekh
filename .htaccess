@@ -1,0 +1,216 @@
+# ============================================
+# KDTekh - .htaccess Optimizado
+# Versin: 3.0 | Hosting: Hostinger + Cloudflare
+# ============================================
+
+# --------------------------------------------
+# 1. REWRITES (HTTPS, WWW, RUTAS)
+# --------------------------------------------
+RewriteEngine On
+RewriteBase /
+
+# Forzar HTTPS y eliminar www
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,NE,R=301]
+
+# Alias /workingsheet -> /intervention-form
+RewriteRule ^workingsheet(?:/(.*))?$ intervention-form/$1 [L,NC]
+
+# Permitir acceso a la carpeta php
+RewriteRule ^php/ - [L,NC]
+
+# Bloquear directorios del sistema/framework
+RewriteRule ^(app|config|database|node_modules|storage|tests|vendor|resources/views|resources/lang|database/migrations|database/seeds|bootstrap/cache|storage/logs|storage/framework) - [F,L,NC]
+
+# Servir archivos/directorios existentes directamente
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -l
+RewriteRule ^ - [L]
+
+# Fallback a index.php para rutas amigables
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+# Prevenir hotlinking de imgenes
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https?://([^/]+\.)?%{HTTP_HOST}/ [NC]
+RewriteRule \.(jpe?g|png|gif|webp|svg|ico)$ - [NC,F,L]
+
+# --------------------------------------------
+# 2. SEGURIDAD
+# --------------------------------------------
+
+# Deshabilitar listado de directorios
+Options -Indexes
+
+# Prevenir acceso a archivos ocultos
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Bloquear acceso a archivos sensibles
+<FilesMatch "^(composer\.(json|lock)|package(-lock)?\.json|\.env|\.git|\.svn|README\.md|CHANGELOG\.md|LICENSE|web\.config|php\.ini|\.htaccess|\.htpasswd|error_log|.*\.log|.*\.sql|.*\.(bak|backup|tmp|swp|dist)|.*~)$">
+    Require all denied
+</FilesMatch>
+
+# Cabeceras de seguridad globales
+<IfModule mod_headers.c>
+    # Proteccin contra clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # Prevenir MIME type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Proteccin XSS
+    Header always set X-XSS-Protection "1; mode=block"
+
+    # Polticas de referencia y permisos
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    Header always set X-Permitted-Cross-Domain-Policies "none"
+
+    # HSTS (descomentar cuando HTTPS est activo)
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+</IfModule>
+
+# --------------------------------------------
+# 3. CORS (restringido al propio dominio)
+# --------------------------------------------
+<IfModule mod_headers.c>
+    # CORS para peticiones dinmicas
+    Header set Access-Control-Allow-Origin "https://kdtekh.com"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept, X-CSRF-Token"
+
+    # CORS para recursos estticos (CDN-compatible)
+    <FilesMatch "\.(jpg|jpeg|png|gif|svg|webp|ico|js|css|woff|woff2|ttf|eot)$">
+        Header set Access-Control-Allow-Origin "https://kdtekh.com"
+        Header set Access-Control-Allow-Methods "GET, OPTIONS"
+    </FilesMatch>
+
+    # Manejar preflight OPTIONS
+    RewriteCond %{REQUEST_METHOD} OPTIONS
+    RewriteRule ^(.*)$ $1 [R=200,L]
+</IfModule>
+
+# --------------------------------------------
+# 4. COMPRESIN (Brotli + GZIP)
+# --------------------------------------------
+
+# Brotli (preferido si est disponible)
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS \
+        text/html text/plain text/css text/xml text/javascript \
+        application/javascript application/json application/ld+json \
+        application/xml application/xml+rss application/rss+xml \
+        image/svg+xml font/ttf font/otf font/woff font/woff2
+</IfModule>
+
+# GZIP (fallback)
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE \
+        text/html text/plain text/css text/xml text/javascript \
+        application/javascript application/json application/ld+json \
+        application/xml application/xml+rss application/rss+xml \
+        image/svg+xml font/ttf font/otf font/woff font/woff2
+
+    # Evitar doble compresin
+    SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|zip|gz|rar|7z|mp[34]|webm|webp|svgz?|woff2?)$ no-gzip dont-vary
+
+    # Compatibilidad navegadores antiguos
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSI[Ee] !no-gzip !gzip-only-text/html
+    Header append Vary Accept-Encoding
+</IfModule>
+
+# --------------------------------------------
+# 5. CACH DEL NAVEGADOR
+# --------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 2 days"
+
+    # HTML: 1 hora (contenido dinmico)
+    ExpiresByType text/html "access plus 1 hour"
+
+    # CSS y JS: 1 mes
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+
+    # Fuentes e imgenes: 1 ao
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+
+    # Multimedia: 1 mes
+    ExpiresByType audio/ogg "access plus 1 month"
+    ExpiresByType video/mp4 "access plus 1 month"
+    ExpiresByType video/webm "access plus 1 month"
+
+    # PDF: 1 semana
+    ExpiresByType application/pdf "access plus 1 week"
+</IfModule>
+
+# Cabeceras Cache-Control adicionales
+<IfModule mod_headers.c>
+    # Recursos estticos (cacheable)
+    <FilesMatch "\.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot|otf)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # Contenido dinmico (no cacheable)
+    <FilesMatch "\.(html|htm|php)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+    </FilesMatch>
+</IfModule>
+
+# --------------------------------------------
+# 6. CONFIGURACIN PHP (Hostinger)
+# --------------------------------------------
+<IfModule mod_php.c>
+    # Visualizacin de errores
+    php_flag display_errors off
+    php_flag display_startup_errors off
+    php_flag log_errors on
+    php_flag expose_php off
+
+    # Lmites de recursos
+    php_value memory_limit 256M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+    php_value post_max_size 64M
+    php_value upload_max_filesize 64M
+    php_value max_file_uploads 20
+
+    # Seguridad
+    php_flag allow_url_fopen on
+    php_flag allow_url_include off
+
+    # Zona horaria
+    php_value date.timezone Europe/Madrid
+
+    # Sesin
+    php_value session.gc_maxlifetime 14400
+    php_value session.cookie_lifetime 0
+    php_flag session.cookie_httponly on
+    php_flag session.cookie_secure on
+    php_flag session.use_only_cookies on
+
+    # OPcache
+    php_flag opcache.enable 1
+    php_flag opcache.enable_cli 1
+</IfModule>

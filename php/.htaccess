@@ -1,0 +1,179 @@
+# Habilitar reescritura de URL
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Bloquear acceso directo a archivos sensibles
+    RewriteCond %{REQUEST_URI} \.(env|log|ini|htaccess|htpasswd|sql|sh|bak|swp|inc|cfg|dist|config|json)$ [NC,OR]
+    RewriteCond %{REQUEST_FILENAME} -f [AND] %{REQUEST_URI} ^.*\.(php|phtml|phar|phps|pht|php3|php4|php5|php6|php7|php8|inc|tpl|twig|log|sql|env|json|lock|md|gitignore|htaccess|htpasswd|example|dist|config|yml|yaml|xml|ini|bak|swp|sqlite|db|db3|sqlite3|db-journal|sql-wal|sql-shm)$ [NC]
+    RewriteRule ^ - [F,L,NC]
+    
+    # Redirigir todas las solicitudes a index.php si el archivo no existe
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+</IfModule>
+
+# Desactivar la lista de directorios
+Options -Indexes
+
+# Configuración de seguridad
+<IfModule mod_headers.c>
+    # Configuración de CORS
+    SetEnvIf Origin "^https://(www\.)?kdtekh\.com$" ORIGIN_DOMAIN=$0
+    Header set Access-Control-Allow-Origin "%{ORIGIN_DOMAIN}e" env=ORIGIN_DOMAIN
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS, DELETE"
+    Header set Access-Control-Allow-Headers "Content-Type, X-CSRF-Token, X-Requested-With, Authorization"
+    Header set Access-Control-Allow-Credentials "true"
+    
+    # Configuración de seguridad adicional
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    
+    # Configuración de caché para archivos PHP
+    <FilesMatch "\.php$">
+        Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+        Header set Pragma "no-cache"
+        Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
+    </FilesMatch>
+    
+    # Prevenir MIME type sniffing
+    Header set X-Content-Type-Options "nosniff"
+    
+    # Protección contra clickjacking
+    Header always append X-Frame-Options SAMEORIGIN
+    
+    # Protección XSS
+    Header set X-XSS-Protection "1; mode=block"
+    
+    # Configuración de HSTS (Strict Transport Security)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
+    # Configuración de Content Security Policy
+    Header set Content-Security-Policy "default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';"
+</IfModule>
+
+# Manejo de errores
+ErrorDocument 400 /error.php?code=400
+ErrorDocument 401 /error.php?code=401
+ErrorDocument 403 /error.php?code=403
+ErrorDocument 404 /error.php?code=404
+ErrorDocument 500 /error.php?code=500
+
+# Configuración de PHP para Hostinger
+<IfModule mod_php.c>
+    # Configuración de visualización de errores
+    php_flag display_errors off
+    php_flag log_errors on
+    php_value error_log "/home/u507128367/domains/kdtekh.com/error_log/php_errors.log"
+    
+    # Configuración de zona horaria
+    php_value date.timezone "America/Mexico_City"
+    
+    # Límites de recursos
+    php_value max_execution_time 300
+    php_value max_input_time 300
+    php_value memory_limit 256M
+    php_value post_max_size 64M
+    php_value upload_max_filesize 64M
+    php_value max_file_uploads 20
+    
+    # Configuración de seguridad
+    php_flag expose_php off
+    php_flag allow_url_fopen on
+    php_flag allow_url_include off
+    
+    # Configuración de sesión
+    php_value session.gc_maxlifetime 14400
+    php_value session.cookie_lifetime 0
+    php_value session.cookie_httponly on
+    php_value session.cookie_secure on
+    php_value session.use_only_cookies on
+    
+    # Habilitar opcache si está disponible
+    php_flag opcache.enable 1
+    
+    # Configuración para el formulario de contacto
+    <Files "process-contact.php">
+        php_value max_execution_time 120
+        php_value memory_limit 256M
+    </Files>
+    
+    # Configuración para el newsletter
+    <Files "newsletter.php">
+        php_value max_execution_time 120
+        php_value memory_limit 256M
+    </Files>
+</IfModule>
+
+# Bloquear acceso a archivos específicos
+<FilesMatch "^\.|~$|\.(env|log|ini|htaccess|htpasswd|sql|sh|bak|swp|inc|cfg|dist|config|json|lock|md|gitignore|example|dist|config|yml|yaml|xml|db|db3|sqlite|sqlite3|db-journal|sql-wal|sql-shm)$">
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+</FilesMatch>
+
+# Permitir acceso solo a archivos PHP específicos
+<FilesMatch "^(index\.php|newsletter\.php|contact\.php|.*\.(css|js|jpg|jpeg|png|gif|svg|webp|ico)|error\.php)$">
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Allow from all
+    </IfModule>
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+</FilesMatch>
+
+# Configuración adicional para archivos específicos
+<Files "newsletter.php">
+    <IfModule mod_php7.c>
+        php_value max_execution_time 300
+        php_value max_input_time 300
+        php_value memory_limit 256M
+        php_value post_max_size 64M
+    </IfModule>
+</Files>
+
+# Configuración de tipos MIME
+<IfModule mod_mime.c>
+    AddType application/javascript          js
+    AddType application/json                json
+    AddType application/x-font-woff         woff
+    AddType application/font-woff2          woff2
+    AddType application/vnd.ms-fontobject   eot
+    AddType application/x-font-ttf          ttf ttc
+    AddType font/opentype                   otf
+    AddType image/svg+xml                   svg svgz
+    AddType image/webp                      webp
+    AddType image/x-icon                    ico
+    AddType text/css                        css
+    AddType text/html                       html htm
+    AddType text/plain                     txt
+    AddType text/x-component                htc
+</IfModule>
+
+# Compresión GZIP
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE application/x-font-ttf
+    AddOutputFilterByType DEFLATE application/x-font-opentype
+    AddOutputFilterByType DEFLATE application/x-font-truetype
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE image/x-icon
+</IfModule>

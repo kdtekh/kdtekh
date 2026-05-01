@@ -1,0 +1,33 @@
+# Habilitar reescritura de URL
+RewriteEngine On
+
+# Asegurar que las solicitudes pasen por index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?$1 [L,QSA]
+
+# Forzar HTTPS
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Configuración de PHP
+php_flag display_errors on
+php_value error_reporting E_ALL
+php_value log_errors On
+php_value error_log "/home/u507128367/domains/kdtekh.com/public_html/admin/logs/php_errors.log"
+
+# Configuración de sesión segura
+php_value session.cookie_httponly 1
+php_value session.cookie_secure 1
+php_value session.cookie_samesite "Lax"
+
+# Evitar listado de directorios
+Options -Indexes
+
+# Configuración adicional de seguridad
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>

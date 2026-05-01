@@ -1,0 +1,20 @@
+# Permitir el acceso a archivos JavaScript
+<FilesMatch "\.js$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# Deshabilitar la lista de directorios
+Options -Indexes
+
+# Habilitar CORS para archivos JS
+<IfModule mod_headers.c>
+    <FilesMatch "\.js$">
+        Header set Access-Control-Allow-Origin "*"
+        Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+        Header set Access-Control-Allow-Headers "Content-Type"
+    </FilesMatch>
+</IfModule>
+
+# Configurar el tipo MIME para JavaScript
+AddType application/javascript .js

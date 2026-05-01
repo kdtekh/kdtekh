@@ -1,0 +1,44 @@
+# Deshabilitar listado de directorios
+Options -Indexes
+
+# Asegurar que se utilice PHP
+<IfModule mod_php7.c>
+    # Configuración de PHP
+</IfModule>
+
+
+# Reglas de reescritura
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Redirigir a index.php si se accede al directorio
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php [L,QSA]
+</IfModule>
+
+# Protección básica
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Permitir solo archivos específicos
+<FilesMatch "^(index\.php|exportar\.php|_config\.php|debug\.php)?$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>
+
+# Prevenir acceso a archivos sensibles
+<FilesMatch "(\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|sw[op])|~)$">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</FilesMatch>
+
+# Configuración de caché
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|jpg|jpeg|png|gif|svg|woff|woff2|ttf|eot)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+</IfModule>

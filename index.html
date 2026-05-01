@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es" data-theme="dark">
 <head>
     <meta charset="UTF-8">
@@ -455,7 +455,7 @@
 
             <!-- Copyright -->
             <div class="footer-bottom">
-                &copy; <span id="currentYear"></span> KD Tech. Todos los derechos reservados. | 
+                &copy; <span id="currentYear"></span> KDTekh. Todos los derechos reservados. | 
                 <a href="aviso-legal.html">Aviso Legal</a> | 
                 <a href="politica-privacidad.html">Política de Privacidad</a>
             </div>
@@ -468,98 +468,10 @@
 
     <!-- Scripts principales (combinados y minificados) -->
     <script src="/js/load-header.min.js" defer></script>
-    <script src="/js/min/all.min.js" defer></script>
+    <script src="/js/main.min.js" defer></script>
+    <script src="/js/newsletter-form.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
-    <!-- Script para el formulario de newsletter -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const newsletterForm = document.getElementById('footerNewsletterForm');
-        const submitBtn = document.getElementById('newsletterSubmitBtn');
-        const messageDiv = document.querySelector('.newsletter-message');
-        const csrfTokenInput = document.getElementById('newsletterCsrfToken');
-        
-        // Cargar token CSRF
-        fetch('/php/csrf-token.php?form=newsletter')
-            .then(response => response.json())
-            .then(data => {
-                if (data.token) {
-                    csrfTokenInput.value = data.token;
-                }
-            });
-        
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                const email = document.getElementById('footerNewsletterEmail').value.trim();
-                
-                if (!email) {
-                    showMessage('Por favor ingresa tu correo electrónico', 'error');
-                    return;
-                }
-                
-                // Validar formato de email
-                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                    showMessage('Por favor ingresa un correo electrónico válido', 'error');
-                    return;
-                }
-                
-                // Deshabilitar el botón para evitar múltiples envíos
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-                
-                try {
-                    const formData = new FormData();
-                    formData.append('email', email);
-                    formData.append('csrf_token', csrfTokenInput.value);
-                    
-                    const response = await fetch('/php/newsletter.php', {
-                        method: 'POST',
-                        body: formData
-                    });
-                    
-                    const result = await response.json();
-                    
-                    if (response.ok && result.success) {
-                        showMessage('¡Gracias por suscribirte! Pronto recibirás nuestras novedades.', 'success');
-                        newsletterForm.reset();
-                        
-                        // Recargar el token CSRF para el próximo envío
-                        const newTokenResponse = await fetch('/php/csrf-token.php?form=newsletter');
-                        const newTokenData = await newTokenResponse.json();
-                        if (newTokenData.token) {
-                            csrfTokenInput.value = newTokenData.token;
-                        }
-                    } else {
-                        showMessage(result.message || 'Error al procesar la suscripción', 'error');
-                    }
-                } catch (error) {
-                    console.error('Error:', error);
-                    showMessage('Error de conexión. Por favor, inténtalo de nuevo más tarde.', 'error');
-                } finally {
-                    // Restaurar el botón
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i><span class="btn-text">Suscribirse</span>';
-                }
-            });
-        }
-        
-        function showMessage(message, type = 'success') {
-            if (!messageDiv) return;
-            
-            messageDiv.textContent = message;
-            messageDiv.className = 'newsletter-message';
-            messageDiv.classList.add(type);
-            
-            // Ocultar el mensaje después de 5 segundos
-            setTimeout(() => {
-                messageDiv.textContent = '';
-                messageDiv.className = 'newsletter-message';
-            }, 5000);
-        }
-    });
-    </script>
     <!-- Cookie Consent Banner -->
     <div id="cookie-consent" class="cookie-consent">
         <div class="container">
@@ -684,45 +596,8 @@
                 }
             }
         });
-
-        // Menú móvil
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-
-            if (hamburger && navMenu) {
-                hamburger.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    navMenu.classList.toggle('active');
-                    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-                });
-                
-                // Cerrar menú al hacer clic en un enlace
-                document.querySelectorAll('.nav-menu a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        hamburger.classList.remove('active');
-                        navMenu.classList.remove('active');
-                        document.body.style.overflow = '';
-                    });
-                });
-            }
-        });
     </script>
 
 
-    <!-- Script de depuración para verificar el formulario -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Verificando formulario en el DOM...');
-            const form = document.getElementById('footerNewsletterForm');
-            console.log('Formulario encontrado en el DOM:', form);
-            if (form) {
-                console.log('Formulario HTML:', form.outerHTML);
-            }
-        });
-    </script>
-    
-    <!-- Cargar newsletter-form.min.js al final del body -->
-    <!-- Script de newsletter ya incluido -->
 </body>
 </html>

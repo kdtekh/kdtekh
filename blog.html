@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | KDTech</title>
-    <meta name="description" content="Descubre artículos y noticias sobre tecnología, programación y tendencias digitales en el blog oficial de KDTech.">
-    <meta name="keywords" content="blog de tecnología, programación, desarrollo web, inteligencia artificial, ciberseguridad, tendencias digitales, KDTech blog">
-    <meta name="author" content="KDTech">
+    <title>Blog | KDTekh</title>
+    <meta name="description" content="Descubre artículos y noticias sobre tecnología, programación y tendencias digitales en el blog oficial de KDTekh.">
+    <meta name="keywords" content="blog de tecnología, programación, desarrollo web, inteligencia artificial, ciberseguridad, tendencias digitales, KDTekh blog">
+    <meta name="author" content="KDTekh">
     <link rel="icon" type="image/png" href="/img/logo_small.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,7 @@
     <main class="blog-page">
         <section class="blog-hero">
             <div class="container">
-                <h1>Blog de KDTech</h1>
+                <h1>Blog de KDTekh</h1>
                 <p>Descubre artículos, tutoriales y noticias sobre tecnología, programación y más.</p>
                 <div class="search-bar">
                     <input type="text" id="searchInput" placeholder="Buscar artículos...">
@@ -46,66 +46,6 @@
                 </div>
             </div>
         </section>
-        
-        <style>
-            .category-filters {
-                margin: 20px 0;
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-                justify-content: center;
-            }
-            
-            .category-btn {
-                padding: 8px 16px;
-                border: 1px solid var(--primary);
-                background: transparent;
-                color: var(--text-primary);
-                border-radius: 20px;
-                cursor: pointer;
-                transition: all 0.3s ease;
-            }
-            
-            .category-btn:hover,
-            .category-btn.active {
-                background: var(--primary);
-                color: white;
-            }
-            
-            .pagination {
-                display: flex;
-                justify-content: center;
-                margin-top: 30px;
-                gap: 10px;
-            }
-            
-            .pagination button {
-                padding: 8px 15px;
-                border: 1px solid var(--border-color);
-                background: var(--bg-secondary);
-                color: var(--text-primary);
-                cursor: pointer;
-                border-radius: 4px;
-            }
-            
-            .pagination button.active {
-                background: var(--primary);
-                color: white;
-                border-color: var(--primary);
-            }
-            
-            .pagination button:disabled {
-                opacity: 0.5;
-                cursor: not-allowed;
-            }
-            
-            .no-results {
-                grid-column: 1 / -1;
-                text-align: center;
-                padding: 40px 0;
-                color: var(--text-secondary);
-            }
-        </style>
         
         <script>
             // Datos de los artículos del blog
@@ -478,7 +418,7 @@
             </div>
             
             <div class="footer-bottom">
-                &copy; <span id="currentYear"></span> KD Tech. Todos los derechos reservados. | 
+                &copy; <span id="currentYear"></span> KDTekh. Todos los derechos reservados. | 
                 <a href="aviso-legal.html">Aviso Legal</a> | 
                 <a href="politica-privacidad.html">Política de Privacidad</a>
             </div>
@@ -490,9 +430,9 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="/js/theme-switcher.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="/js/theme-switcher.min.js"></script>
+    <script src="/js/main.min.js"></script>
     <script src="/js/load-header.min.js"></script>
-    <script src="/js/header.js"></script>
+    <script src="/js/newsletter-form.min.js" defer></script>
 </body>
 </html>
