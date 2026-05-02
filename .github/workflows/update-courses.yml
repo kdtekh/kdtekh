@@ -15,7 +15,6 @@ jobs:
 
       - name: Extract courses from HTML
         run: |
-          # Simple Python script to extract courses
           python3 << 'EOF'
 import re
 import csv
@@ -23,22 +22,23 @@ import csv
 with open('cursos.html', 'r', encoding='utf-8') as f:
     html = f.read()
 
-# Pattern to extract course data
-pattern = r'<h3 class="resource-title">([^<]+)</h3>.*?<p class="resource-description">([^<]+)</p>.*?<span class="resource-duration"><i[^>]*></i>([^<]+)</span>.*?<span class="resource-level"><i[^>]*></i>([^<]+)</span>.*?<a href="([^"]+)"'
+# Pattern to extract course data including category
+pattern = r'<div class="resource-card" data-category="([^"]+)".*?<h3 class="resource-title">([^<]+)</h3>.*?<p class="resource-description">([^<]+)</p>.*?<span class="resource-duration"><i[^>]*></i>([^<]+)</span>.*?<span class="resource-level"><i[^>]*></i>([^<]+)</span>.*?<a href="([^"]+)"'
 
 courses = []
 for match in re.finditer(pattern, html, re.DOTALL):
-    title = match.group(1).strip()
-    description = match.group(2).strip()
-    duration = match.group(3).strip()
-    level = match.group(4).strip()
-    url = match.group(5).strip()
-    courses.append([title, duration, description, level, url])
+    category = match.group(1).strip()
+    title = match.group(2).strip()
+    description = match.group(3).strip()
+    duration = match.group(4).strip()
+    level = match.group(5).strip()
+    url = match.group(6).strip()
+    courses.append([title, category, duration, description, level, url])
 
 # Write CSV
 with open('data/cursos.csv', 'w', newline='', encoding='utf-8') as f:
     writer = csv.writer(f)
-    writer.writerow(['titulo', 'duracion', 'descripcion', 'dificultad', 'url'])
+    writer.writerow(['titulo', 'categoria', 'duracion', 'descripcion', 'dificultad', 'url'])
     for course in courses:
         writer.writerow(course)
 
