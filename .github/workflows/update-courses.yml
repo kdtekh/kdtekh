@@ -1,0 +1,54 @@
+name: Update Courses CSV
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'cursos.html'
+
+jobs:
+  update-csv:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Extract courses from HTML
+        run: |
+          # Simple Python script to extract courses
+          python3 << 'EOF'
+import re
+import csv
+
+with open('cursos.html', 'r', encoding='utf-8') as f:
+    html = f.read()
+
+# Pattern to extract course data
+pattern = r'<h3 class="resource-title">([^<]+)</h3>.*?<p class="resource-description">([^<]+)</p>.*?<span class="resource-duration"><i[^>]*></i>([^<]+)</span>.*?<span class="resource-level"><i[^>]*></i>([^<]+)</span>.*?<a href="([^"]+)"'
+
+courses = []
+for match in re.finditer(pattern, html, re.DOTALL):
+    title = match.group(1).strip()
+    description = match.group(2).strip()
+    duration = match.group(3).strip()
+    level = match.group(4).strip()
+    url = match.group(5).strip()
+    courses.append([title, duration, description, level, url])
+
+# Write CSV
+with open('data/cursos.csv', 'w', newline='', encoding='utf-8') as f:
+    writer = csv.writer(f)
+    writer.writerow(['titulo', 'duracion', 'descripcion', 'dificultad', 'url'])
+    for course in courses:
+        writer.writerow(course)
+
+print(f"Updated {len(courses)} courses")
+EOF
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/cursos.csv
+          git diff --staged --quiet || git commit -m "chore: update cursos.csv from cursos.html"
+          git push
