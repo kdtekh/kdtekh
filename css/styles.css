@@ -5,11 +5,15 @@ body {
     text-justify: inter-word;
 }
 
-/* Excepciones para elementos que deben estar alineados a la izquierda */
+/* Títulos centrados */
 h1, h2, h3, h4, h5, h6,
+.hero-title, .section-title, .category-title, .blog-title,
+.cta-title, .footer-title, .newsletter-title {
+    text-align: center;
+}
+
+/* Elementos que deben permanecer alineados a la izquierda */
 .navbar, .btn, .btn-primary, .btn-outline,
-.hero-title, .section-title, .category-title, .blog-title, .testimonial-author h4,
-.cta-title, .footer-title, .newsletter-title,
 input, textarea, select, button,
 .nav-menu, .footer-links, .social-links,
 .testimonial-rating, .blog-date, .blog-meta,
