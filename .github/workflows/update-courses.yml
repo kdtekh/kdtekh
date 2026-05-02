@@ -15,15 +15,14 @@ jobs:
 
       - name: Extract courses from HTML
         run: |
-          python3 << 'EOF'
+          python3 -c "
 import re
 import csv
 
 with open('cursos.html', 'r', encoding='utf-8') as f:
     html = f.read()
 
-# Pattern to extract course data including category
-pattern = r'<div class="resource-card" data-category="([^"]+)".*?<h3 class="resource-title">([^<]+)</h3>.*?<p class="resource-description">([^<]+)</p>.*?<span class="resource-duration"><i[^>]*></i>([^<]+)</span>.*?<span class="resource-level"><i[^>]*></i>([^<]+)</span>.*?<a href="([^"]+)"'
+pattern = r'<div class=\"resource-card\" data-category=\"([^\"]+)\".*?<h3 class=\"resource-title\">([^<]+)</h3>.*?<p class=\"resource-description\">([^<]+)</p>.*?<span class=\"resource-duration\"><i[^>]*>([^<]+)</span>.*?<span class=\"resource-level\"><i[^>]*>([^<]+)</span>.*?<a href=\"([^\"]+)\"'
 
 courses = []
 for match in re.finditer(pattern, html, re.DOTALL):
@@ -35,15 +34,14 @@ for match in re.finditer(pattern, html, re.DOTALL):
     url = match.group(6).strip()
     courses.append([title, category, duration, description, level, url])
 
-# Write CSV
 with open('data/cursos.csv', 'w', newline='', encoding='utf-8') as f:
     writer = csv.writer(f)
     writer.writerow(['titulo', 'categoria', 'duracion', 'descripcion', 'dificultad', 'url'])
     for course in courses:
         writer.writerow(course)
 
-print(f"Updated {len(courses)} courses")
-EOF
+print(f'Updated {len(courses)} courses')
+"
 
       - name: Commit and push changes
         run: |
