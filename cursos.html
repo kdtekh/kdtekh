@@ -797,35 +797,47 @@
                         <div class="newsletter-message"></div>
                     </form>
                     <p class="newsletter-note">Nos tomamos en serio tu privacidad. Nunca compartiremos tu información.</p>
-                </div>
-            </div>
+                </form>
+                     <p class="newsletter-note">Nos tomamos en serio tu privacidad. Nunca compartiremos tu información.</p>
+                 </div>
+             </div>
+             
+             <script src="/js/theme-switcher.min.js"></script>
+             <script src="/js/main.min.js"></script>
+             <script src="/js/load-header.min.js"></script>
+             <script src="/js/newsletter-form.min.js" defer></script>
+             <script>
+                 // Inicialización del menú móvil
+                 document.addEventListener('DOMContentLoaded', function() {
+                     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+                     const nav = document.querySelector('nav ul');
+                     
+                     if (mobileMenuBtn) {
+                         mobileMenuBtn.addEventListener('click', function() {
+                             nav.classList.toggle('show');
+                             this.classList.toggle('active');
+                         });
+                     }
+                     
+                     // Cerrar menú al hacer clic en un enlace
+                     document.querySelectorAll('nav ul li a').forEach(link => {
+                         link.addEventListener('click', () => {
+                             nav.classList.remove('show');
+                             if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
+                         });
+                     });
 
-            
-            <script>
-                // Actualizar el año del copyright
-                document.getElementById('currentYear').textContent = new Date().getFullYear();
-            </script>
-        </div>
-    </footer>
-    
-    <script src="/js/theme-switcher.min.js"></script>
-    <script src="/js/main.min.js"></script>
-    <script src="/js/load-header.min.js"></script>
-    <script src="/js/newsletter-form.min.js" defer></script>
-    <script>
-        // Actualizar el copyright
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
-        // Inicialización del menú móvil
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const nav = document.querySelector('nav ul');
-            
-            if (mobileMenuBtn) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    nav.classList.toggle('show');
-                    this.classList.toggle('active');
-                });
+                     // Hacer clicable la imagen de cada recurso con el mismo destino de "Ver Recurso"
+                     initResourcePreviewLinks();
+                     
+                     // Inicializar la funcionalidad de filtrado y ordenamiento
+                     try {
+                         initResourcesFiltering();
+                         console.log('initResourcesFiltering called successfully');
+                     } catch(e) {
+                         console.error('Error in initResourcesFiltering:', e);
+                     }
+                 });
             }
             
             // Cerrar menú al hacer clic en un enlace
