@@ -122,7 +122,7 @@
                     </div>
 
                     <!-- Recurso 6 -->
-                    <div class="resource-card" data-category="inglés">
+                    <div class="resource-card" data-category="idiomas">
                         <div class="resource-preview">
                             <span class="category-badge"><i class="fas fa-language"></i> Idiomas</span>
                             <img src="https://img.youtube.com/vi/44brYSuVuVA/maxresdefault.jpg" alt="Curso de Inglés B1/B2">
@@ -156,7 +156,7 @@
                     </div>
 
                     <!-- Recurso 8 -->
-                    <div class="resource-card" data-category="inglés">
+                    <div class="resource-card" data-category="idiomas">
                         <div class="resource-preview">
                             <span class="category-badge"><i class="fas fa-language"></i> Idiomas</span>
                             <img src="https://img.youtube.com/vi/j8gVyWFZgVQ/maxresdefault.jpg" alt="Vocabulario Inglés B1/B2">
@@ -599,7 +599,7 @@
                     </div>
 
                     <!-- Curso de Redes para Hacking Ético -->
-                    <div class="resource-card" data-category="cibersuridad">
+                    <div class="resource-card" data-category="ciberseguridad">
                         <div class="resource-preview">
                             <span class="category-badge"><i class="fas fa-shield-alt"></i> Ciberseguridad</span>
                             <img src="https://i.ytimg.com/vi/tNeRFm2jY7c/maxresdefault.jpg" alt="Redes para Hacking Ético">
@@ -908,10 +908,11 @@
                     } else {
                         activeCategories.delete('todos');
                         this.classList.toggle('active');
+                        const normalizeTag = tag => tag.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
                         if (this.classList.contains('active')) {
-                            activeCategories.add(tagValue);
+                            activeCategories.add(normalizeTag(tagValue));
                         } else {
-                            activeCategories.delete(tagValue);
+                            activeCategories.delete(normalizeTag(tagValue));
                         }
                         
                         if (activeCategories.size === 0) {
@@ -959,9 +960,10 @@
                         category.includes(searchTerm);
 
                     // Filtros
+                    const normalize = s => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
                     const matchesCategory = activeCategories.has('todos') ||
-                        activeCategories.has(category) ||
-                        activeCategories.has(category.replace('-', ' '));
+                        activeCategories.has(normalize(category)) ||
+                        activeCategories.has(normalize(category).replace('-', ' '));
                     const matchesDifficulty = difficultyMatches(activeDifficulty, rawLevelLabel);
 
                     if (matchesSearch && matchesCategory && matchesDifficulty) {
