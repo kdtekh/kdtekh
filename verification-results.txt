@@ -1,0 +1,81 @@
+VERIFICATION RESULTS
+================================================================================
+
+OK: 24 | PROBLEMS: 12
+
+PROBLEMS FOUND:
+--------------------------------------------------------------------------------
+#8 [ERROR] ID: j8gVyWFZgVQ
+   CURRENT: Vocabulario Inglés B1/B2
+
+#13 [PROBLEM] ID: jqyGUK4VvjQ
+   CURRENT: Curso de Excel desde Cero [+ 200 ejercicios en 1 video]
+   REAL:    🚀 Curso de Excel completo y gratis [+ 200 ejercicios en 1 video]
+
+#14 [PROBLEM] ID: 2jvEaBEJinI
+   CURRENT: Curso Completo de Word Básico a Avanzado - Básico e Intermedio 🎓 Dostin Hurtado
+   REAL:    Curso Completo de Word 2024 en 1 Vídeo - Básico e Intermedio 🎓 Dostin Hurtado
+
+#16 [PROBLEM] ID: mlO_OoGM5-I
+   CURRENT: Curso de Power BI Completo 🚀 Curso GRATIS para empezar YA
+   REAL:    Power BI sin complicaciones 🚀 Curso GRATIS para empezar YA
+
+#19 [PROBLEM] ID: TrnIksOSu5M
+   CURRENT: Curso de Redes CCNA
+   REAL:    Fortinet: de principiante a experto - Presentacion
+
+#20 [PROBLEM] ID: TrnIksOSu5M
+   CURRENT: Curso de Fortinet NSE4
+   REAL:    Fortinet: de principiante a experto - Presentacion
+
+#24 [PROBLEM] ID: Q1JsDwRlhsk
+   CURRENT: Curso de SEO 2025 - SEO para principiantes (Paso a paso)
+   REAL:    Tutorial completo de RankMath SEO 2025 - SEO para principiantes (Paso a paso)
+
+#27 [PROBLEM] ID: WCcHcWsMN1o
+   CURRENT: Curso de R | Programación en R para análisis de datos | RStudio
+   REAL:    Aprende PROGRAMACIÓN en R en 90 MINUTOS | Programación en R para análisis de datos | RStudio
+
+#29 [PROBLEM] ID: Rgag-Clu5L4
+   CURRENT: Curso de Data Science (12 Horas)
+   REAL:    Curso de Python para Data Science desde 0 (12 Horas)
+
+#35 [PROBLEM] ID: tNeRFm2jY7c
+   CURRENT: Curso de Redes para Hacking Ético desde CERO para PRINCIPIANTES
+   REAL:    Curso de BASH SCRIPTING desde CERO para PRINCIPIANTES
+
+#36 [PROBLEM] ID: ER9S6sI-QLI
+   CURRENT: 💻 CURSO DE HACKING ÉTICO - Python para Ciberseguridad con BETTERCAP desde KALI LINUX #26
+   REAL:    💻 CURSO DE HACKING ÉTICO - Ataques MAN IN THE MIDDLE con BETTERCAP desde KALI LINUX #26
+
+#37 [PROBLEM] ID: L96SqQeBMa8
+   CURRENT: 💻 CURSO DE HACKING ÉTICO - Cómo Usar Curso de Hacking Ético Completo | Google Hacking Técnicas OSINT #24
+   REAL:    💻 CURSO DE HACKING ÉTICO - Cómo Usar GOOGLE DORKS | Google Hacking Técnicas OSINT #24
+
+
+OK COURSES:
+--------------------------------------------------------------------------------
+#1 OK: Ethical Hacking in 12 Hours - Full Course - Learn to Hack!
+#2 OK: Curso de HTML y CSS desde CERO (Completo)
+#3 OK: Curso COMPLETO de JavaScript DESDE CERO para Principiantes
+#4 OK: Curso COMPLETO de Python DESDE CERO para Principiantes 2025
+#5 OK: Django, Curso de Django para Principiantes
+#6 OK: Curso de Inglés COMPLETO (Inglés Intermedio B1-B2)
+#7 OK: Curso Gratis De Inglés: Cómo Aprender Inglés Rápido y Fácil
+#9 OK: Aprende SQL ahora! curso completo gratis desde cero
+#10 OK: Aprende GIT ahora! curso completo GRATIS desde cero
+#11 OK: Aprende Docker ahora! curso completo gratis desde cero!
+#12 OK: Aprende Ciencia de datos - Curso completo para principiantes [Tutorial]
+#15 OK: 💻 Presentación CURSO de HACKING ETICO y CIBERSEGURIDAD con KALI LINUX | #1
+#17 OK: Aprende linux ahora! curso desde cero para principiantes
+#18 OK: Aprende HTML ahora! curso completo GRATIS desde cero
+#21 OK: Aprende Bootstrap 5 - Curso de Bootstrap desde Cero
+#22 OK: Curso Tailwind CSS 4 desde cero
+#23 OK: ✅ Curso de C# desde CERO para PRINCIPIANTES (Completo) - 2026
+#25 OK: Tutorial Completo De Google Ads Para Principiantes (2026)
+#26 OK: CURSO de Marketing Digital Completo (2026)
+#28 OK: Deep Learning for Computer Vision with Python and TensorFlow – Complete Course
+#32 OK: 600 English Words for Everyday Life | English Vocabulary Masterclass
+#34 OK: 🪟 CURSO de ACTIVE DIRECTORY Aplicado a la CIBERSEGURIDAD para PRINCIPIANTES
+#38 OK: Curso de OpenCode desde cero: Comandos, Agentes, Ahorrar tokens y más
+#39 OK: Google Gemini AI Course for Beginners
