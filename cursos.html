@@ -858,12 +858,7 @@
                 preview.setAttribute('aria-label', `Abrir ${card.querySelector('.resource-title')?.textContent?.trim() || 'recurso'}`);
 
                 const openResource = () => {
-                    const target = resourceLink.getAttribute('target');
-                    if (target === '_blank') {
-                        window.open(href, '_blank', 'noopener,noreferrer');
-                    } else {
-                        window.location.href = href;
-                    }
+                    window.open(href, '_blank', 'noopener,noreferrer');
                 };
 
                 preview.addEventListener('click', openResource);
