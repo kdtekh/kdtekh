@@ -146,7 +146,7 @@
               <script>
         const SUPABASE_URL = 'https://qkditsojfzqczaabyvzd.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFrZGl0c29qZnpxY3phYWJ5dnpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzMzUwOTUsImV4cCI6MjA5NTkxMTA5NX0.xku5eQJQb9QEPSMRLCEL9VWTyXtS3bmoSuefsrFEPFA';
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
         const categoryConfig = {
             programación: { icon: 'fa-code', label: 'Programación' },
@@ -202,7 +202,7 @@
             grid.innerHTML = '<p style="text-align:center;color:var(--text-secondary);padding:2rem;">Cargando recursos...</p>';
 
             try {
-                const { data, error } = await supabase
+                const { data, error } = await supabaseClient
                     .from('courses')
                     .select('*')
                     .order('created_at', { ascending: false });
