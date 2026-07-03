@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" type="image/png" href="/img/logo_small.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa Piloto · Academia Digital Rural en Apia | KDTekh</title>
+    <meta name="description" content="9 cursos gratuitos de alfabetización digital y habilidades técnicas para jóvenes 8-25 años de Apia, Risaralda (Colombia). Sin requisitos previos, con certificado. Lanzamiento 2026.">
+    <meta name="keywords" content="programa piloto, academia digital rural, Apia Risaralda, formación gratuita jóvenes Colombia, cursos tech gratuitos, brecha digital rural">
+    <meta name="author" content="KDTekh">
+    <link rel="canonical" href="https://kdtekh.pages.dev/programa-piloto.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Programa Piloto · Academia Digital Rural en Apia">
+    <meta property="og:description" content="9 cursos gratuitos para jóvenes 8-25 años de Apia, Risaralda. Sin coste, con certificado. Lanzamiento 2026.">
+    <meta property="og:image" content="https://kdtekh.pages.dev/img/og-programa-piloto.png">
+    <meta property="og:url" content="https://kdtekh.pages.dev/programa-piloto.html">
+    <meta property="og:site_name" content="KDTekh">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Programa Piloto · Academia Digital Rural en Apia">
+    <meta name="twitter:description" content="9 cursos gratuitos para jóvenes 8-25 años de Apia, Risaralda.">
+    <meta name="twitter:image" content="https://kdtekh.pages.dev/img/og-programa-piloto.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "KDTekh - Academia Digital Rural",
+        "url": "https://kdtekh.pages.dev",
+        "logo": "https://kdtekh.pages.dev/img/logo.png",
+        "description": "Academia digital rural gratuita para jóvenes 8-25 años de Apia, Risaralda, Colombia",
+        "foundingDate": "2024",
+        "areaServed": {
+            "@type": "Place",
+            "name": "Apia, Risaralda, Colombia"
+        },
+        "sameAs": [
+            "https://discord.gg/PrmtyQJCe6"
+        ]
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto+Slab:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .pp-hero { padding: 6rem 0 3rem; text-align: center; }
+        .pp-hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem; }
+        .pp-hero p.lead { font-size: 1.2rem; color: var(--text-secondary); max-width: 720px; margin: 0 auto 2rem; }
+        .pp-section { padding: 4rem 0; }
+        .pp-section.bg-alt { background: var(--bg-alt, rgba(0,0,0,0.2)); }
+        .pp-cursos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+        .curso-card { background: var(--card-bg, rgba(255,255,255,0.04)); border: 1px solid var(--border, rgba(255,255,255,0.08)); border-radius: 12px; padding: 1.5rem; transition: transform 0.2s, border-color 0.2s; }
+        .curso-card:hover { transform: translateY(-2px); border-color: var(--primary, #00d4ff); }
+        .curso-card h3 { margin: 0.5rem 0; font-size: 1.2rem; }
+        .curso-card .curso-meta { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-secondary); margin: 0.5rem 0 1rem; }
+        .curso-card .curso-meta span { display: inline-flex; align-items: center; gap: 0.3rem; }
+        .curso-card ul { margin: 0.5rem 0; padding-left: 1.2rem; font-size: 0.9rem; }
+        .curso-card ul li { margin-bottom: 0.3rem; }
+        .pp-roles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+        .rol-card { background: var(--card-bg, rgba(255,255,255,0.04)); border: 1px solid var(--border, rgba(255,255,255,0.08)); border-radius: 12px; padding: 2rem; text-align: center; }
+        .rol-card i { font-size: 2.5rem; color: var(--primary, #00d4ff); margin-bottom: 1rem; }
+        .rol-card h3 { margin: 0.5rem 0; }
+        .rol-card p { color: var(--text-secondary); font-size: 0.95rem; }
+        .pp-form { max-width: 600px; margin: 0 auto; }
+        .pp-form .form-group { margin-bottom: 1.25rem; }
+        .pp-form label { display: block; margin-bottom: 0.4rem; font-weight: 500; }
+        .pp-form input, .pp-form select, .pp-form textarea { width: 100%; padding: 0.7rem; background: var(--input-bg, rgba(255,255,255,0.05)); border: 1px solid var(--border, rgba(255,255,255,0.15)); border-radius: 6px; color: var(--text, #fff); font-family: inherit; font-size: 1rem; }
+        .pp-form input:focus, .pp-form select:focus, .pp-form textarea:focus { outline: none; border-color: var(--primary, #00d4ff); }
+        .pp-form textarea { min-height: 100px; resize: vertical; }
+        .pp-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        @media (max-width: 600px) { .pp-form .form-row { grid-template-columns: 1fr; } }
+        .pp-faq details { background: var(--card-bg, rgba(255,255,255,0.04)); border: 1px solid var(--border, rgba(255,255,255,0.08)); border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 0.75rem; }
+        .pp-faq summary { cursor: pointer; font-weight: 600; }
+        .pp-faq details[open] summary { margin-bottom: 0.75rem; }
+        .pp-faq details p { color: var(--text-secondary); margin: 0; }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <div class="hero-spacer"></div>
+
+        <section class="pp-hero">
+            <div class="container">
+                <span class="hero-subtitle">Programa piloto · Apia, Risaralda (Colombia)</span>
+                <h1>9 cursos digitales gratuitos para <span class="text-gradient">jóvenes 8-25 años</span></h1>
+                <p class="lead">Una academia digital rural para equipar a la juventud de Apia con las habilidades digitales que ya tienen sus pares en zonas urbanas. Sin coste, sin requisitos previos, con certificado.</p>
+                <div class="hero-buttons" style="justify-content: center; display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="#inscripcion" class="btn btn-primary"><i class="fas fa-graduation-cap"></i> Inscribirme al programa</a>
+                    <a href="#apoyar" class="btn btn-outline"><i class="fas fa-hand-holding-heart"></i> Apoyar el proyecto</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="pp-section bg-alt">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 2.5rem;">El programa en datos</h2>
+                <div class="pp-cursos-grid" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));">
+                    <div class="curso-card" style="text-align: center;">
+                        <i class="fas fa-users" style="font-size: 2rem; color: var(--primary);"></i>
+                        <h3 style="margin-top: 0.5rem;">30 alumnos</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">Meta cohorte 1 (5-10 primer año, escala progresiva)</p>
+                    </div>
+                    <div class="curso-card" style="text-align: center;">
+                        <i class="fas fa-book" style="font-size: 2rem; color: var(--primary);"></i>
+                        <h3 style="margin-top: 0.5rem;">9 cursos</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">De gestión de archivos a inglés, según skill tree</p>
+                    </div>
+                    <div class="curso-card" style="text-align: center;">
+                        <i class="fas fa-clock" style="font-size: 2rem; color: var(--primary);"></i>
+                        <h3 style="margin-top: 0.5rem;">4-6 semanas</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">Por curso (inglés 8-12 meses, en formato largo)</p>
+                    </div>
+                    <div class="curso-card" style="text-align: center;">
+                        <i class="fas fa-euro-sign" style="font-size: 2rem; color: var(--primary);"></i>
+                        <h3 style="margin-top: 0.5rem;">0 €</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">Gratuito para los alumnos, financiado por grants</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pp-section" id="cursos">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 0.5rem;">Los 9 cursos del programa</h2>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2.5rem; max-width: 720px; margin-left: auto; margin-right: auto;">Diseñados para que cualquier joven de 8-25 años pueda empezar desde cero, sin experiencia previa. Cada curso se ofrece en formato digital mientras se asegura el espacio físico, y se complementa con sesiones semanales en vivo cuando sea posible.</p>
+
+                <div class="pp-cursos-grid">
+
+                    <div class="curso-card">
+                        <span class="category-badge"><i class="fas fa-folder-open"></i> Ola 1</span>
+                        <h3>Gestión de archivos básica</h3>
+                        <div class="curso-meta">
+                            <span><i class="far fa-clock"></i> 2-4 semanas</span>
+                            <span><i class="fas fa-signal"></i> Principiante</span>
+                        </div>
+                        <p>Organizar, guardar y recuperar archivos en computador y móvil. La base de todo lo digital.</p>
+                        <ul>
+                            <li>Carpetas, nombres, búsquedas</li>
+                            <li>Copias de seguridad, nube vs local</li>
+                            <li>Tipos de archivo y extensiones</li>
+                        </ul>
+                    </div>
+
+                    <div class="curso-card">
+                        <span class="category-badge"><i class="fas fa-file-alt"></i> Ola 1</span>
+                        <h3>Ofimática básica</h3>
+                        <div class="curso-meta">
+                            <span><i class="far fa-clock"></i> 4-6 semanas</span>
+                            <span><i class="fas fa-signal"></i> Principiante</span>
+                        </div>
+                        <p>Word, Excel, PowerPoint nivel usuario. La skill más pedida en ofertas de trabajo administrativo.</p>
+                        <ul>
+                            <li>Documentos de texto</li>
+                            <li>Hojas de cálculo básicas</li>
+                            <li>Presentaciones efectivas</li>
+                        </ul>
+                    </div>
+
+                    <div class="curso-card">
+                        <span class="category-badge"><i class="fas fa-shield-alt"></i> Ola 1</span>
+                        <h3>Seguridad básica</h3>
+                        <div class="curso-meta">
+                            <span><i class="far fa-clock"></i> 4-6 semanas</span>
+                            <span><i class="fas fa-signal"></i> Principiante</span>
+                        </div>
+                        <p>Proteger tu información personal y evitar las trampas más comunes en internet.</p>
+                        <ul>
+                            <li>Contraseñas robustas, 2FA</li>
+                            <li>Phishing y estafas online</li>
+                            <li>Privacidad en redes sociales</li>
+                        </ul>
+                    </div>
+
+                    <div class="curso-card">
+                        <span class="category-badge"><i class="fas fa-palette"></i> Ola 2</span>
+                        <h3>Presentaciones básicas</h3>
+                        <div class="curso-meta">
+                            <span><i class="far fa-clock"></i> 2-4 semanas</span>
+                            <span><i class="fas fa-signal"></i> Principiante</span>
+                        </div>
+                        <p>Comunicar ideas con claridad usando herramientas de diseño accesibles.</p>
+                        <ul>
+                            <li>Canva y PowerPoint</li>
+                            <li>Estructura de slides</li>
+                            <li>Comunicación visual básica</li>
+                        </ul>
+                    </div>
+
+                    <div class="curso-card">
+                        <span class="category-badge"><i class="fas fa-handshake"></i> Ola 2</span>
+                        <h3>Trabajo colaborativo y plataformas de conferencia</h3>
+                        <div class="curso-meta">
+                            <span><i class="far fa-clock"></i> 2-4 semanas</span>
+                            <span><i class="fas fa-signal"></i> Principiante</span>
+                        </div>
+                        <p>Las herramientas que usan los equipos remotos: Google Workspace, Meet, Teams, gestión de archivos compartida.</p>
+                        <ul>
+                            <li>Google Docs / Sheets compartidos</li>
+                            <li>Videollamadas profesionales</li>
+                            <li>Gestión de tareas en equipo</li>
+                        </ul>
+                    </div>
+
+                    <div class="curso-card">
+                        <span class="category-badge"><i class="fas fa-network-wired"></i> Ola 2</span>
+                        <h3>Redes básico</h3>
+                        <div class="curso-meta">
+                            <span><i class="far fa-clock"></i> 6-8 semanas</span>
+                            <span><i class="fas fa-signal"></i> Principiante</span>
+                        </div>
+                        <p>Cómo funciona internet en casa, Wi-Fi, router, y configuración básica de una red local.</p>
+                        <ul>
+                            <li>Wi-Fi, banda ancha, fibra</li>
+                            <li>Configurar un router</li>
+                            <li>Diagnóstico de problemas</li>
+                        </ul>
+                    </div>
+
+                    <div class="curso-card">
+                        <span class="category-badge"><i class="fas fa-microchip"></i> Ola 3</span>
+                        <h3>Hardware básico y móvil</h3>
+                        <div class="curso-meta">
+                            <span><i class="far fa-clock"></i> 4-6 semanas</span>
+                            <span><i class="fas fa-signal"></i> Principiante</span>
+                        </div>
+                        <p>Componentes de un computador y un smartphone, mantenimiento preventivo, ampliación.</p>
+                        <ul>
+                            <li>Partes de un PC y un móvil</li>
+                            <li>Limpieza y mantenimiento</li>
+                            <li>Cuándo reparar vs reemplazar</li>
+                        </ul>
+                    </div>
+
+                    <div class="curso-card">
+                        <span class="category-badge"><i class="fas fa-robot"></i> Ola 3</span>
+                        <h3>Robótica básica</h3>
+                        <div class="curso-meta">
+                            <span><i class="far fa-clock"></i> 6-8 semanas</span>
+                            <span><i class="fas fa-signal"></i> Principiante</span>
+                        </div>
+                        <p>Introducción a la robótica educativa con kits de bajo costo (Arduino, micro:bit) y plataformas visuales.</p>
+                        <ul>
+                            <li>Scratch para Arduino</li>
+                            <li>Primeros circuitos</li>
+                            <li>Proyecto final de robot simple</li>
+                        </ul>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); font-style: italic;">Requiere kits físicos, ideal para cuando exista el centro físico.</p>
+                    </div>
+
+                    <div class="curso-card">
+                        <span class="category-badge"><i class="fas fa-language"></i> Ola 4</span>
+                        <h3>Inglés CERO a B2</h3>
+                        <div class="curso-meta">
+                            <span><i class="far fa-clock"></i> 8-12 meses</span>
+                            <span><i class="fas fa-signal"></i> Principiante</span>
+                        </div>
+                        <p>De cero a nivel B2 (intermedio-alto), con foco en comunicación práctica para trabajo y estudio.</p>
+                        <ul>
+                            <li>Gramática y vocabulario por niveles</li>
+                            <li>Conversación y listening</li>
+                            <li>Inglés técnico para tech</li>
+                        </ul>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); font-style: italic;">Curso largo, producción costosa. Buscamos aliado/co-creador.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="pp-section bg-alt" id="apoyar">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 0.5rem;">¿Cómo puedes sumarte?</h2>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2.5rem; max-width: 720px; margin-left: auto; margin-right: auto;">Hay cuatro formas de participar. Elige la tuya y te contactamos.</p>
+                <div class="pp-roles-grid">
+                    <div class="rol-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Soy joven de Apia</h3>
+                        <p>Si tienes entre 8 y 25 años, vives en Apia, y quieres aprender habilidades digitales. Inscríbete a la primera cohorte.</p>
+                        <a href="#inscripcion" class="btn btn-primary btn-sm" style="margin-top: 1rem;">Inscribirme</a>
+                    </div>
+                    <div class="rol-card">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Quiero ser aliado</h3>
+                        <p>Eres de Risaralda, trabajas en educación o comunidad, y quieres apoyar la captación o facilitación. Tu tiempo importa.</p>
+                        <a href="contacto.html?asunto=Aliado" class="btn btn-outline btn-sm" style="margin-top: 1rem;">Contactar</a>
+                    </div>
+                    <div class="rol-card">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h3>Quiero donar</h3>
+                        <p>Empresas o particulares que quieren financiar alumnos, equipos o becas. Cada euro se reporta en /transparencia.</p>
+                        <a href="contacto.html?asunto=Donación" class="btn btn-outline btn-sm" style="margin-top: 1rem;">Donar</a>
+                    </div>
+                    <div class="rol-card">
+                        <i class="fas fa-landmark"></i>
+                        <h3>Soy un grant / fundación</h3>
+                        <p>Representas una organización que finanza educación o inclusión digital. Te enviamos dossier y datos de impacto.</p>
+                        <a href="contacto.html?asunto=Grant" class="btn btn-outline btn-sm" style="margin-top: 1rem;">Solicitar dossier</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pp-section" id="inscripcion">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 0.5rem;">Inscríbete al programa</h2>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2.5rem; max-width: 720px; margin-left: auto; margin-right: auto;">Rellena este formulario y te contactamos cuando se abra la primera cohorte. No es un compromiso, solo una lista de espera priorizada.</p>
+
+                <form class="pp-form" action="mailto:kdtekh@gmail.com" method="POST" enctype="text/plain">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pp-name">Nombre completo *</label>
+                            <input type="text" id="pp-name" name="Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pp-age">Edad *</label>
+                            <input type="number" id="pp-age" name="Edad" min="8" max="25" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pp-municipality">Municipio / vereda *</label>
+                            <input type="text" id="pp-municipality" name="Municipio" placeholder="Apia, Santuario, otra vereda..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pp-whatsapp">WhatsApp *</label>
+                            <input type="tel" id="pp-whatsapp" name="WhatsApp" placeholder="+57 ..." required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pp-email">Email (opcional)</label>
+                        <input type="email" id="pp-email" name="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="pp-courses">Cursos de interés (elige 1-3) *</label>
+                        <select id="pp-courses" name="Curso de interes" required>
+                            <option value="">Selecciona...</option>
+                            <option value="gestion-archivos">Gestión de archivos básica</option>
+                            <option value="ofimatica">Ofimática básica</option>
+                            <option value="seguridad">Seguridad básica</option>
+                            <option value="presentaciones">Presentaciones básicas</option>
+                            <option value="colaborativo">Trabajo colaborativo y conferencias</option>
+                            <option value="redes">Redes básico</option>
+                            <option value="hardware">Hardware básico y móvil</option>
+                            <option value="robotica">Robótica básica</option>
+                            <option value="ingles">Inglés CERO a B2</option>
+                            <option value="todos">Todos los disponibles</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pp-context">¿Tienes computador o smartphone propio? ¿Acceso a internet?</label>
+                        <textarea id="pp-context" name="Contexto" placeholder="Cuéntanos brevemente tu situación para adaptar el programa (1-2 frases)"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="pp-motivation">¿Por qué te interesa?</label>
+                        <textarea id="pp-motivation" name="Motivacion" placeholder="Opcional pero útil (2-3 frases)"></textarea>
+                    </div>
+                    <input type="hidden" name="Asunto" value="Inscripcion programa piloto KDTekh">
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <button type="submit" class="btn btn-primary btn-lg">Quiero inscribirme</button>
+                    </div>
+                    <p style="text-align: center; color: var(--text-secondary); font-size: 0.85rem; margin-top: 1rem;">Al enviar, se abrirá tu cliente de email con los datos. Tus datos se usan solo para contactarte sobre el programa. No compartimos con terceros.</p>
+                </form>
+            </div>
+        </section>
+
+        <section class="pp-section bg-alt pp-faq">
+            <div class="container" style="max-width: 720px;">
+                <h2 style="text-align: center; margin-bottom: 2.5rem;">Preguntas frecuentes</h2>
+
+                <details>
+                    <summary>¿Cuándo empieza el programa?</summary>
+                    <p>El lanzamiento de la primera cohorte digital está previsto para el segundo semestre de 2026. Antes abriremos una lista de espera priorizada por edad, ubicación y motivación.</p>
+                </details>
+                <details>
+                    <summary>¿Necesito computador o conocimientos previos?</summary>
+                    <p>No. Los cursos están diseñados para empezar desde cero. Si tienes smartphone con Android ya tienes lo mínimo. Para cursos que requieren PC, facilitaremos acceso en sesiones organizadas.</p>
+                </details>
+                <details>
+                    <summary>¿Es realmente gratis?</summary>
+                    <p>Sí. El programa está financiado por fondos propios del fundador y por grants públicos y privados. Los alumnos nunca pagan. Si quieres contribuir, mira la sección "Donar" arriba.</p>
+                </details>
+                <details>
+                    <summary>¿Habrá certificado?</summary>
+                    <p>Sí, cada curso emite un certificado de KDTekh verificable online. Más adelante, con grants y partners empleadores, buscaremos certificaciones con reconocimiento sectorial.</p>
+                </details>
+                <details>
+                    <summary>¿Esto es un bootcamp o una universidad?</summary>
+                    <p>No es ninguna de las dos cosas. Es un programa piloto de inclusión digital rural: cursos cortos, prácticos, sin matrícula ni requisitos. No entrega título oficial pero sí habilidades reales y certificado.</p>
+                </details>
+                <details>
+                    <summary>¿Y si no vivo en Apia?</summary>
+                    <p>El piloto es para Apia. Si vives cerca (Pereira, otros municipios de Risaralda) y estás interesado, apúntate igual: si la demanda lo justifica, estudiamos ampliar el radio de acción.</p>
+                </details>
+                <details>
+                    <summary>¿Puedo ayudar aunque no sea de Risaralda?</summary>
+                    <p>Sí. Necesitamos donaciones, grants, aliados técnicos, y mentores remotos. Mira la sección "¿Cómo puedes sumarte?" para las cuatro formas de participar.</p>
+                </details>
+            </div>
+        </section>
+
+        <section class="pp-section" style="text-align: center;">
+            <div class="container">
+                <h2>¿Listo para participar?</h2>
+                <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem;">Sea como alumno, aliado, donante o grant, queremos hablar contigo. El primer paso es contactarnos.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="#inscripcion" class="btn btn-primary">Inscribirme</a>
+                    <a href="contacto.html" class="btn btn-outline">Contactar</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <img src="/img/logo.png" alt="KDTekh Logo" class="footer-logo">
+                    <p>Academia digital rural piloto en Apia, Risaralda (Colombia). Transformando vidas a través de la formación digital, con honestidad sobre lo que somos: un proyecto pequeño en fase inicial.</p>
+                    <div class="contact-info" style="margin-top: 20px;">
+                        <p><i class="fas fa-envelope"></i> kdtekh@gmail.com <span style="opacity:0.6;font-size:0.85em;">(email transitorio — corporativo @kdtekh.com en preparación)</span></p>
+                        <p><i class="fas fa-map-marker-alt"></i> Madrid, España · Apia, Colombia</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="/"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="/programa-piloto.html"><i class="fas fa-chevron-right"></i> Programa Piloto</a></li>
+                        <li><a href="/transparencia.html"><i class="fas fa-chevron-right"></i> Transparencia</a></li>
+                        <li><a href="/cursos.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+                        <li><a href="/blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                        <li><a href="/contacto.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <p>Únete a la comunidad en Discord para enterarte de las novedades y charlar con el equipo.</p>
+                    <div class="social-links">
+                        <a href="https://discord.gg/PrmtyQJCe6" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom" style="text-align:center;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.05);margin-top:2rem;">
+                <p>&copy; 2026 KDTekh. Trabajo de Fin de Grado convertido en proyecto social.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.min.js" defer></script>
+    <script src="/js/header.min.js" defer></script>
+    <script src="/js/footer.min.js" defer></script>
+</body>
+</html>
